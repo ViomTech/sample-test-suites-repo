@@ -1,0 +1,5 @@
+name: NetsForYou
+description: Test suite for Netsforyou
+tags: ['@NetsContactUs', '@gmail']
+environments: {}
+featureFiles: [features/Contactus.feature]

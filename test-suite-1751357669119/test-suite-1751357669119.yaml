@@ -1,0 +1,5 @@
+name: iOS_Settings_App
+description: Settings app in iPhones
+tags: ['@mobiletcios']
+environments: {}
+featureFiles: [features/settings.feature]
