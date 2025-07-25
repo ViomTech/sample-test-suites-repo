@@ -1,5 +1,5 @@
 name: Singlife-TestRepo
 description: Testsuite for singlife webapp
-tags: ['@singlife']
+tags: ['@singlife', '@unhappy-login']
 environments: {}
 featureFiles: [features/login.feature]
