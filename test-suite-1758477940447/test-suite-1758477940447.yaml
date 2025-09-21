@@ -1,0 +1,5 @@
+name: DemoQA
+description: Demo test scripts
+tags: ['@tab-test']
+environments: {}
+featureFiles: [features/tab.feature]
