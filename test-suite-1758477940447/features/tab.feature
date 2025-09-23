@@ -7,4 +7,4 @@ Scenario: First scenario
   And wait 9 sec
   And switch to last opened tab
   And wait 2 sec
-  And check that screen contains "do not find anything "
+  And check that screen contains "This is a sample page"

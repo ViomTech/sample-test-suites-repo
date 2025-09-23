@@ -7,8 +7,11 @@ Scenario: First scenario
     And click on the 2nd "Login"
     And wait 2 sec
     And click "View"
-    And wait 15 sec
-    And switch to last opened tab
     And wait 5 sec
-    And click "Application Form"
-  
+    And switch to last opened tab
+    And wait 1 sec
+    #And check that screen contains "Application Details"
+    #And click "Basic"
+    #And click on the element with id as "a_basic"
+    And  click "Basic" inside a with class "ul-li-a-class basic"
+   # And check that screen contains "Tenure Requested ( In months - Max: 240 )"  
