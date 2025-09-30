@@ -1,5 +1,5 @@
 name: Dummy App
 description: ''
+tags: ['@regression', '@smoke']
 environments: {}
-featureFiles: []
-tags: []
+featureFiles: [features/dummy.feature, features/AI-assisted-script.feature]

@@ -1,4 +1,3 @@
-#JAVA_HOME=/opt/homebrew/opt/openjdk@11 mvn clean test -Dcucumber.features=src/test/java/com/client/feature -Dcucumber.filter.tags="@unhappy-login" -Dplatform=web -Dplatform.name=chrome -Dapp=singlife -Durl=https://singlife.com/en -DflaggedStepThreshold=300 -DflaggedStepMinOccurences=3
 @unhappy-login
   Feature: login feature
     Scenario: Unhappy login scenario

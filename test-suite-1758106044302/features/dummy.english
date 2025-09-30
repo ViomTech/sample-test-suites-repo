@@ -1,0 +1,9 @@
+Feature: <Feature name>
+Scenario: <Scenario Text>
+# start scripting test steps below
+check if firstname is present
+check if lastname is present
+check if submit button is present
+enter amit in the firstname
+enter gupta in the lastname
+click submit button
