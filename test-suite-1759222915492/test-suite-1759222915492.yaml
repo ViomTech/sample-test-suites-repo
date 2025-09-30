@@ -1,0 +1,5 @@
+name: Vastu-Pulse-Android-App
+description: ''
+tags: ['@regression']
+environments: {}
+featureFiles: [features/test.feature]
