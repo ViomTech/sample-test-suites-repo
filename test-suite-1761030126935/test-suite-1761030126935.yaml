@@ -1,0 +1,5 @@
+name: API vastu
+description: API vastu
+tags: ['@api', '@sampleapi']
+environments: {}
+featureFiles: [features/api.feature]
