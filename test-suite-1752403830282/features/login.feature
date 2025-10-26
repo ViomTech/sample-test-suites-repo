@@ -1,15 +1,16 @@
-@unhappy-login
+@regression
   Feature: login feature
+  @smoke
     Scenario: Unhappy login scenario
       When hover over "Login"
       And click "MYSINGLIFE"
       And wait 8 sec
       And switch to last opened tab
       And wait for "Hello there"
-      And wait for "Log in with email"
-      And click "Log in with email"
+      And wait 10 secs
+      And click "{el:LoginWithEmail}"
       And wait 2 sec
-      And click on the element with id as "input28"
+      And click "{el:email}"
       And enter "Test123"
       And click on the element with id as "input36"
       And enter "Test123"

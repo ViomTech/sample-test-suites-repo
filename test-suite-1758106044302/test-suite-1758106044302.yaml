@@ -2,4 +2,5 @@ name: Dummy App
 description: ''
 tags: ['@regression', '@smoke']
 environments: {}
-featureFiles: [features/dummy.feature, features/AI-assisted-script.feature]
+featureFiles: [features/dummy.feature, features/AI-assisted-script.feature, features/nlp.feature,
+  features/KAN-import.feature]

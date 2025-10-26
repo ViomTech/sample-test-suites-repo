@@ -1,5 +1,5 @@
 name: API vastu
 description: API vastu
-tags: ['@api', '@sampleapi']
+tags: ['@testapiamit', '@api', '@sampleapi']
 environments: {}
-featureFiles: [features/api.feature]
+featureFiles: [features/api.feature, features/api-new.feature]
