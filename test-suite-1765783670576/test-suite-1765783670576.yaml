@@ -1,0 +1,5 @@
+id: test-suite-1765783670576
+name: LMS_Application
+description: Vastu loan process app
+environments: {}
+featureFiles: [features/LoanProcessing.feature]

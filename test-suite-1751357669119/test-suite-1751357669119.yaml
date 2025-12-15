@@ -3,3 +3,4 @@ description: Settings app in iPhones
 tags: ['@mobiletcios']
 environments: {}
 featureFiles: [features/settings.feature]
+id: test-suite-1751357669119

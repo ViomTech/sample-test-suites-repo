@@ -3,3 +3,4 @@ description: Login test cases of emirates web app
 tags: ['@smoke']
 environments: {}
 featureFiles: [features/1_Login.feature, features/2_aa.feature]
+id: test-suite-1760529978568
