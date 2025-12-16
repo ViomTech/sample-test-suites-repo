@@ -1,6 +1,0 @@
-name: Vastu-Webapp
-description: ''
-tags: ['@regression']
-environments: {}
-featureFiles: [features/1.feature]
-id: test-suite-1758477660315
