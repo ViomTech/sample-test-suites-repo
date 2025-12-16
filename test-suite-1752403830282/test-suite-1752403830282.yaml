@@ -1,6 +1,6 @@
+id: test-suite-1752403830282
 name: Singlife-TestRepo
 description: Testsuite for singlife webapp
 tags: ['@regression', '@smoke']
 environments: {}
 featureFiles: [features/login.feature]
-id: test-suite-1752403830282
