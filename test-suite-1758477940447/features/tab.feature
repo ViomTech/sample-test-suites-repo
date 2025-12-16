@@ -2,8 +2,7 @@
 Feature: New feature
 
 Scenario: First scenario
-  # Start typing steps below.
-  And click "New Tab"
+ And click "new tab"
   And wait 9 sec
   And switch to last opened tab
   And wait 2 sec
