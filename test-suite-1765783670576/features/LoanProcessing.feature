@@ -4,8 +4,7 @@ Feature: Credit feature
 Scenario: Lead scenario
 {module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
 {module:LMS_view_details(LAN_value="value")}
-And click "View Detailed Progress "
-And check that screen contains "Application Stages"
+{module:applicationStage_Open}
 And check that screen contains "Lead"
 And check that screen contains "initiated"
 And click on the element with class "stage_icons"
@@ -17,25 +16,37 @@ And click "Submit"
 #Need Api for complete Lead
 
 Scenario: Qc scenario
-And click "View Detailed Progress "
-And check that screen contains "Application Stages"
+{module:applicationStage_Open}
 And check that screen contains "QC"
 And check that screen contains "initiated"
 And click on the element with class "stage_icons" at index 2
 {module:QcParameters(credit_manager="value")}
 And click "OK" with exact phrase
 And check that screen contains "Completed"
+{module:applicationStage_Close}
+
+
+scenario: AML scenario
+{module:applicationStage_Open}
+And check that screen contains following
+|AML|
+|Completed (Positive)|
+{module:ApplicationStage_close}
+
+#validated with upcomming table formate commands
 
 Scenario: Dedupe scenario
-And check that screen contains "initiated"
+{module:applicationStage_Open}
+And check that screen contains following
+|Dedupe|
+|initiated|
 And click "stage_icons"  #forward icon
 And click "Swati Singanjude (VIOM)"
 And click on the element with id as "reason"
 And enter "reason"
 And click "Submit"
-And click "X"
-And click "dropdown_img"
-And click "Log Out"
+{module:ApplicationStage_close}
+{module:LogOut}
 And wait 5 sec
 {module:LMS_Login(lms_username="hema.mahajan@vastuhfc.com", lms_password="Vastu@123")}
 {module:LMS_view_details(LAN_value="value")}
@@ -49,9 +60,11 @@ And check that screen contains "Are you sure you want to link lan?"
 And click "OK"
 And wait 2 sec
 And check that screen contains "Linked"
-{module:dedupe_OverallStatus(status="value")}
+{module:dedupe_OverallStatus(status="positive")}
 And switch to main tab
-
+And check that screen contains "completed"
+And check that "Completed" is a link
+{module:ApplicationStage_close}
 
 
 
