@@ -1,0 +1,17 @@
+id: 49471234-0d2c-43d2-9610-333d05968c0e
+name: LMS_Login
+description: null
+isGlobal: false
+testSuiteId: test-suite-1765783670576
+parameters:
+- lms_username
+- lms_password
+content: |
+  And click "Allow" inside span
+  And wait 2 sec
+  And enter "{lms_username}" into "Enter your email"
+  And enter "{lms_password}" into "Enter your password"
+  And wait 3 sec
+  And click "Sign in"
+createdAt: '2025-12-16T08:25:59.080794100Z'
+updatedAt: '2025-12-16T08:25:59.080794100Z'
