@@ -1,0 +1,17 @@
+testDataSets:
+- id: bf6817b8-0b4f-4529-9060-bb941137c0be
+  name: singlife-user-credentials-dev
+  description: null
+  files:
+  - id: 2355be09-fca9-45a6-8cab-843a01e0704d
+    fileName: test-data.csv
+    filePath: /Users/amitgupta/Viom/Products/viom-studio/test_suite_repositories/sample-test-suites-repo-1765797350540/test-data/2355be09-fca9-45a6-8cab-843a01e0704d.csv
+    fileFormat: csv
+    rowCount: 1
+  columns:
+  - userid
+  - password
+  rowCount: 1
+  createdAt: '2025-12-15T18:06:53.022854Z'
+  updatedAt: '2025-12-15T18:10:33.628598Z'
+lastUpdated: '2025-12-15T18:10:33.629137Z'

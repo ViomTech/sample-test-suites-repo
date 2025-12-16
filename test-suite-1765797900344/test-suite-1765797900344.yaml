@@ -1,0 +1,6 @@
+id: test-suite-1765797900344
+name: DBS-India Apps
+description: ''
+tags: ['@regression', '@smoke']
+environments: {}
+featureFiles: []
