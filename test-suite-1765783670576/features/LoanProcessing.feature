@@ -13,8 +13,6 @@ And wait 2 sec
 And click "KYC"
 And click "Submit"
 
-#Need Api for complete Lead
-
 Scenario: Qc scenario
 {module:applicationStage_Open}
 And check that screen contains "QC"
@@ -25,15 +23,12 @@ And click "OK" with exact phrase
 And check that screen contains "Completed"
 {module:applicationStage_Close}
 
-
 scenario: AML scenario
 {module:applicationStage_Open}
 And check that screen contains following
 |AML|
 |Completed (Positive)|
 {module:ApplicationStage_close}
-
-#validated with upcomming table formate commands
 
 Scenario: Dedupe scenario
 {module:applicationStage_Open}

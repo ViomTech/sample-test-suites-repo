@@ -1,0 +1,9 @@
+id: 0a322f12-92a3-414d-aa4d-e21fd95b748a
+name: applicationStage_Close
+description: null
+isGlobal: false
+testSuiteId: test-suite-1765783670576
+parameters: []
+content: And click on the 2nd child with class "form_header"
+createdAt: '2025-12-16T08:47:51.731341100Z'
+updatedAt: '2025-12-16T08:47:51.731341100Z'
