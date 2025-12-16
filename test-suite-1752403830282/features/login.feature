@@ -8,12 +8,12 @@
       And switch to last opened tab
       And wait for "Hello there"
       And wait 10 secs
-      And click "{el:LoginWithEmail}"
+      And click "{el:Loginwithemail}"
       And wait 2 sec
       And click "{el:email}"
-      And enter "Test123"
+      And enter "{userid}"
       And click on the element with id as "input36"
-      And enter "Test123"
+      And enter "{password}"
       And click "Sign in"
       And wait 2 sec
       And check that screen contains "Incorrect username or password."
