@@ -1,0 +1,11 @@
+id: 7d6b4c0c-0e79-4166-8c71-8a88cd275bc6
+name: LogOut
+description: null
+isGlobal: false
+testSuiteId: test-suite-1765783670576
+parameters: []
+content: |-
+  And click "{el:profile_element}"
+  And click "Log Out"
+createdAt: '2025-12-16T08:33:08.697894700Z'
+updatedAt: '2025-12-16T08:33:08.697894700Z'

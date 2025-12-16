@@ -1,0 +1,20 @@
+id: 82c3b05e-b3eb-4510-8a7a-fb1781c8bf2a
+name: LeadParameters
+description: null
+isGlobal: false
+testSuiteId: test-suite-1765783670576
+parameters:
+- assign_name
+- sub_section
+- reason
+content: |-
+  And click on the element with id as "assign_to"
+  And click "{assign_name}"
+  And click on the element with id as "queries_0_sub_section"
+  And click "{sub_section}"
+  And click on the element with id as "queries_0_customer_type"
+  And click "Customer"
+  And click on the element with id as "queries_0_reason"
+  And click "{reason}"
+createdAt: '2025-12-16T08:45:11.832305900Z'
+updatedAt: '2025-12-16T08:45:11.832305900Z'
