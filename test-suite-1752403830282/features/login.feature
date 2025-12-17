@@ -2,6 +2,7 @@
   Feature: login feature
   @smoke
     Scenario: Unhappy login scenario
+      And click "{el:x_button}"
       When hover over "Login"
       And click "MYSINGLIFE"
       And wait 8 sec

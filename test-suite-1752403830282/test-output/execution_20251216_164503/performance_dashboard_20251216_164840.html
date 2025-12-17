@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Performance Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1.1/dist/chartjs-chart-matrix.min.js"></script>
+    <style>
+        .card { margin-bottom: 20px; }
+        .table { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Test Performance Dashboard</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Step Duration Distribution</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="stepDurationChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Feature-wise Performance</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="featurePerformanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Slowest Steps</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Scenario</th>
+                                        <th>Step</th>
+                                        <th>Duration (ms)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="slowestStepsTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Platform Comparison</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="platformComparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Scenario Timeline</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Flagged Steps (Consistently Slow)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Occurrences</th>
+                                        <th>Avg Duration (ms)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="flaggedStepsTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Step Duration Trends for Slow Steps (Current Run)</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="stepTrendsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Step Duration Distribution Chart
+        new Chart(document.getElementById('stepDurationChart'), {
+            type: 'bar',
+            data: {
+                labels: ["click \"Help\"","hover over \"Login\"","click \"MYSINGLIFE\"","click \"Submit\"","enter \"{userid}\"","check that screen contains \"In...","click \"I can’t login to MySing...","enter \"surname\"","click \"{el:Loginwithemail}\"","check that screen contains \"We...","enter \"{password}\"","scroll down until screen conta...","enter \"98765432\"","click on the 1st \"here\" inside...","switch to last opened tab","[App Launch]","click \"{el:x_button}\"","check that screen contains \"Pl...","click \"Mr\"","click \"Sign in\"","click \"I have read and agree t...","click \"Lodge a complaint\"","click \"{el:email}\"","enter \"121\"","enter \"email@test.com\"","click \"Please select...\" with ...","enter \"firstName\"","click on the element with id a..."],
+                datasets: [{
+                    label: 'Average Duration (ms)',
+                    data: [263.0,1205.0,1166.0,30618.0,35.0,62.0,30678.0,4.0,151.0,22.0,6.0,370.0,4.0,32141.0,1.5,172.0,172.0,63.0,30561.0,123.0,535.0,589.0,55.0,4.0,5.0,30522.0,5.0,61.0],
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                // Use the full label from the mapping
+                                const label = context[0].label;
+                                return stepLabelMap[label] || label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 30,
+                            autoSkip: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Feature Performance Chart
+        new Chart(document.getElementById('featurePerformanceChart'), {
+            type: 'pie',
+            data: {
+                labels: ["check that screen contains \"We\u0027re sorry our service standard has fallen short of your expectations, or members of our team have not handled your concerns to your satisfaction.\"","click on the element with id as \"nationalIdentifier\"","click on the element with id as \"phoneNumber\"","check that screen contains \"Incorrect username or password.\"","click \"Help\"","check that screen contains \"Please try again!\"","click \"MYSINGLIFE\"","hover over \"Login\"","click \"Submit\"","click on the element with id as \"surname\"","enter \"{userid}\"","click on the 1st \"here\" inside a with exact phrase","click \"I have read and agree to the terms and conditions above. \"","enter \"surname\"","click \"{el:Loginwithemail}\"","enter \"{password}\"","enter \"98765432\"","click on the element with id as \"input36\"","switch to last opened tab","[App Launch]","click \"{el:x_button}\"","click \"Mr\"","scroll down until screen contains \"Your feedback matters\" with exact phrase","click \"Sign in\"","click on the element with id as \"email\"","click \"Lodge a complaint\"","enter \"121\"","click \"{el:email}\"","click \"Please select...\" with exact phrase","enter \"email@test.com\"","click on the element with id as \"firstName\"","click \"I can’t login to MySinglife portal using Singpass. What should I do?\"","scroll down until screen contains \"Salutation\" with exact phrase","enter \"firstName\""],
+                datasets: [{
+                    data: [22.0,53.0,70.0,62.0,263.0,63.0,1166.0,1205.0,30618.0,71.0,35.0,32141.0,535.0,4.0,151.0,6.0,4.0,74.0,1.5,172.0,172.0,30561.0,410.0,123.0,64.0,589.0,4.0,55.0,30522.0,5.0,34.0,30678.0,330.0,5.0],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Populate Slowest Steps Table
+        const slowestSteps = [{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click on the 1st \"here\" inside a with exact phrase","duration":32141},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\"","duration":30678},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"Submit\"","duration":30618},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"Mr\"","duration":30561},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"Please select...\" with exact phrase","duration":30522},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"hover over \"Login\"","duration":1205},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"MYSINGLIFE\"","duration":1166},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"Lodge a complaint\"","duration":589},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"click \"I have read and agree to the terms and conditions above. \"","duration":535},{"feature":"login.feature","scenario":"Unhappy login scenario","step":"scroll down until screen contains \"Your feedback matters\" with exact phrase","duration":410}];
+        const tableBody = document.getElementById('slowestStepsTable');
+        slowestSteps.forEach(step => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${step.feature}</td>
+                <td>${step.scenario}</td>
+                <td>${step.step}</td>
+                <td>${step.duration}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // Platform Comparison Chart
+        const platformLabels = ["chrome","edge","firefox"];
+        const platformData = [975.9840182648402,310.61764705882354,327.91515151515154];
+        new Chart(document.getElementById('platformComparisonChart'), {
+            type: 'bar',
+            data: {
+                labels: platformLabels,
+                datasets: [{
+                    label: 'Avg Step Duration (ms)',
+                    data: platformData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const scenarioTimeline = [{"feature":"file:///Users/amitgupta/Viom/Products/viom-studio/test_suite_repositories/sample-test-suites-repo-1765797350540/test-suite-1752403830282/execution_20251216_164503/src/test/java/com/nimble/feature/login.feature","scenario":"Unhappy login scenario","start":"2025-12-16T12:45:20.778363Z","end":"2025-12-16T12:48:40.134888Z"}];
+
+        // Convert ISO strings to Date objects and calculate durations
+        const labels = scenarioTimeline.map(s => s.scenario);
+        const starts = scenarioTimeline.map(s => new Date(s.start).getTime());
+        const ends = scenarioTimeline.map(s => new Date(s.end).getTime());
+        const durations = ends.map((end, i) => end - starts[i]);
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Execution Time (ms)',
+                data: labels.map((_, i) => [starts[i], ends[i]]),
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(document.getElementById('timelineChart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Scenario Execution',
+                    data: durations,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    // For horizontal bar
+                    indexAxis: 'y'
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Duration (ms)' }
+                    }
+                }
+            }
+        });
+
+        const flaggedSteps = [{"avg_duration":4149.225,"count":40,"step":"[App Launch]"},{"avg_duration":15793.6,"count":10,"step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":655.0,"count":3,"step":"click \"I have read and agree to the terms and conditions above. \""},{"avg_duration":717.3333333333334,"count":9,"step":"click \"Lodge a complaint\""},{"avg_duration":2231.0,"count":3,"step":"click \"Login\""},{"avg_duration":2730.075,"count":40,"step":"click \"MYSINGLIFE\""},{"avg_duration":18694.6,"count":5,"step":"click \"Mr\""},{"avg_duration":23249.0,"count":4,"step":"click \"Please select...\" with exact phrase"},{"avg_duration":10680.888888888889,"count":9,"step":"click \"Submit\""},{"avg_duration":2165.9,"count":10,"step":"click \"{el:LoginWithEmail}\""},{"avg_duration":22160.0,"count":3,"step":"click \"{el:email}\""},{"avg_duration":9740.583333333334,"count":12,"step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":30038.85714285714,"count":7,"step":"click on the element with id as \"input28\""},{"avg_duration":4142.358974358975,"count":39,"step":"hover over \"Login\""}];
+        const stepTrends = [{"avg_duration":2532.0,"build":"20250713_145218896","step":"[App Launch]"},{"avg_duration":2457.0,"build":"20250713_145303333","step":"[App Launch]"},{"avg_duration":1704.0,"build":"20250713_145932230","step":"[App Launch]"},{"avg_duration":1195.0,"build":"20250713_213911371","step":"[App Launch]"},{"avg_duration":1164.0,"build":"20250713_214009871","step":"[App Launch]"},{"avg_duration":1358.0,"build":"20250713_214408499","step":"[App Launch]"},{"avg_duration":1439.0,"build":"20250713_214719475","step":"[App Launch]"},{"avg_duration":1145.0,"build":"20250713_214838540","step":"[App Launch]"},{"avg_duration":8922.0,"build":"20250714_082245087","step":"[App Launch]"},{"avg_duration":10093.0,"build":"20250715_133009264","step":"[App Launch]"},{"avg_duration":3009.0,"build":"20250912_093403636","step":"[App Launch]"},{"avg_duration":833.0,"build":"20250916_160502199","step":"[App Launch]"},{"avg_duration":1422.0,"build":"20250917_111603712","step":"[App Launch]"},{"avg_duration":1727.0,"build":"20250918_180404812","step":"[App Launch]"},{"avg_duration":8814.0,"build":"20250920_122456359","step":"[App Launch]"},{"avg_duration":3303.0,"build":"20250921_224142063","step":"[App Launch]"},{"avg_duration":961.0,"build":"20250922_134014212","step":"[App Launch]"},{"avg_duration":1305.0,"build":"20250922_134450278","step":"[App Launch]"},{"avg_duration":846.0,"build":"20250926_094204792","step":"[App Launch]"},{"avg_duration":850.0,"build":"20250926_145001429","step":"[App Launch]"},{"avg_duration":1135.0,"build":"20250926_152222942","step":"[App Launch]"},{"avg_duration":919.0,"build":"20251008_141835701","step":"[App Launch]"},{"avg_duration":925.0,"build":"20251010_135103289","step":"[App Launch]"},{"avg_duration":904.0,"build":"20251010_135138731","step":"[App Launch]"},{"avg_duration":929.0,"build":"20251010_135355321","step":"[App Launch]"},{"avg_duration":865.0,"build":"20251010_135545829","step":"[App Launch]"},{"avg_duration":4895.0,"build":"20251010_140700425","step":"[App Launch]"},{"avg_duration":910.0,"build":"20251010_142147979","step":"[App Launch]"},{"avg_duration":25081.0,"build":"20251010_143656155","step":"[App Launch]"},{"avg_duration":1259.0,"build":"20251010_144037371","step":"[App Launch]"},{"avg_duration":997.0,"build":"20251010_151404137","step":"[App Launch]"},{"avg_duration":903.0,"build":"20251010_151715130","step":"[App Launch]"},{"avg_duration":60820.0,"build":"20251010_152751771","step":"[App Launch]"},{"avg_duration":3899.0,"build":"20251010_153052208","step":"[App Launch]"},{"avg_duration":905.0,"build":"20251012_130235814","step":"[App Launch]"},{"avg_duration":1050.0,"build":"20251015_202931598","step":"[App Launch]"},{"avg_duration":1233.0,"build":"20251216_080524000","step":"[App Launch]"},{"avg_duration":1078.0,"build":"20251216_083512936","step":"[App Launch]"},{"avg_duration":1116.0,"build":"20251216_084240062","step":"[App Launch]"},{"avg_duration":1067.0,"build":"20251216_123821226","step":"[App Launch]"},{"avg_duration":594.0,"build":"20250926_145001429","step":"click \"Help\""},{"avg_duration":1340.0,"build":"20250713_214838540","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":729.0,"build":"20250917_111603712","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":1975.0,"build":"20250922_134450278","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":521.0,"build":"20250926_145001429","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":520.0,"build":"20251008_141835701","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":519.0,"build":"20251012_130235814","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":30575.0,"build":"20251216_084240062","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":30558.0,"build":"20251216_123821226","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":60521.0,"build":"20251216_125247528","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":30678.0,"build":"20251216_164510568","step":"click \"I can’t login to MySinglife portal using Singpass. What should I do?\""},{"avg_duration":918.0,"build":"20250922_134450278","step":"click \"I have read and agree to the terms and conditions above. \""},{"avg_duration":512.0,"build":"20251216_123821226","step":"click \"I have read and agree to the terms and conditions above. \""},{"avg_duration":535.0,"build":"20251216_164510568","step":"click \"I have read and agree to the terms and conditions above. \""},{"avg_duration":520.0,"build":"20250713_214408499","step":"click \"Lodge a complaint\""},{"avg_duration":574.0,"build":"20250713_214838540","step":"click \"Lodge a complaint\""},{"avg_duration":930.0,"build":"20250714_082245087","step":"click \"Lodge a complaint\""},{"avg_duration":1097.0,"build":"20250917_111603712","step":"click \"Lodge a complaint\""},{"avg_duration":1078.0,"build":"20250922_134450278","step":"click \"Lodge a complaint\""},{"avg_duration":596.0,"build":"20251008_141835701","step":"click \"Lodge a complaint\""},{"avg_duration":540.0,"build":"20251216_084240062","step":"click \"Lodge a complaint\""},{"avg_duration":532.0,"build":"20251216_123821226","step":"click \"Lodge a complaint\""},{"avg_duration":589.0,"build":"20251216_164510568","step":"click \"Lodge a complaint\""},{"avg_duration":969.0,"build":"20250713_145218896","step":"click \"Log in with email\""},{"avg_duration":2532.0,"build":"20250713_145218896","step":"click \"Login\""},{"avg_duration":2457.0,"build":"20250713_145303333","step":"click \"Login\""},{"avg_duration":1704.0,"build":"20250713_145932230","step":"click \"Login\""},{"avg_duration":2073.0,"build":"20250713_145218896","step":"click \"MYSINGLIFE\""},{"avg_duration":62355.0,"build":"20250713_145303333","step":"click \"MYSINGLIFE\""},{"avg_duration":1230.0,"build":"20250713_145932230","step":"click \"MYSINGLIFE\""},{"avg_duration":582.0,"build":"20250713_213911371","step":"click \"MYSINGLIFE\""},{"avg_duration":584.0,"build":"20250713_214009871","step":"click \"MYSINGLIFE\""},{"avg_duration":621.0,"build":"20250713_214408499","step":"click \"MYSINGLIFE\""},{"avg_duration":808.0,"build":"20250713_214719475","step":"click \"MYSINGLIFE\""},{"avg_duration":600.0,"build":"20250713_214838540","step":"click \"MYSINGLIFE\""},{"avg_duration":694.0,"build":"20250714_082245087","step":"click \"MYSINGLIFE\""},{"avg_duration":706.0,"build":"20250715_133009264","step":"click \"MYSINGLIFE\""},{"avg_duration":872.0,"build":"20250912_093403636","step":"click \"MYSINGLIFE\""},{"avg_duration":2711.0,"build":"20250916_160502199","step":"click \"MYSINGLIFE\""},{"avg_duration":1152.0,"build":"20250917_111603712","step":"click \"MYSINGLIFE\""},{"avg_duration":3476.0,"build":"20250918_180404812","step":"click \"MYSINGLIFE\""},{"avg_duration":1927.0,"build":"20250921_224142063","step":"click \"MYSINGLIFE\""},{"avg_duration":855.0,"build":"20250922_134014212","step":"click \"MYSINGLIFE\""},{"avg_duration":1522.0,"build":"20250922_134450278","step":"click \"MYSINGLIFE\""},{"avg_duration":2198.0,"build":"20250926_094204792","step":"click \"MYSINGLIFE\""},{"avg_duration":1259.0,"build":"20250926_145001429","step":"click \"MYSINGLIFE\""},{"avg_duration":1306.0,"build":"20250926_152222942","step":"click \"MYSINGLIFE\""},{"avg_duration":756.0,"build":"20251008_141835701","step":"click \"MYSINGLIFE\""},{"avg_duration":1276.0,"build":"20251010_135103289","step":"click \"MYSINGLIFE\""},{"avg_duration":1256.0,"build":"20251010_135138731","step":"click \"MYSINGLIFE\""},{"avg_duration":1243.0,"build":"20251010_135355321","step":"click \"MYSINGLIFE\""},{"avg_duration":1255.0,"build":"20251010_135545829","step":"click \"MYSINGLIFE\""},{"avg_duration":756.0,"build":"20251010_140700425","step":"click \"MYSINGLIFE\""},{"avg_duration":732.0,"build":"20251010_142147979","step":"click \"MYSINGLIFE\""},{"avg_duration":1281.0,"build":"20251010_143656155","step":"click \"MYSINGLIFE\""},{"avg_duration":740.0,"build":"20251010_144037371","step":"click \"MYSINGLIFE\""},{"avg_duration":747.0,"build":"20251010_151404137","step":"click \"MYSINGLIFE\""},{"avg_duration":750.0,"build":"20251010_151715130","step":"click \"MYSINGLIFE\""},{"avg_duration":747.0,"build":"20251010_153052208","step":"click \"MYSINGLIFE\""},{"avg_duration":1226.0,"build":"20251012_130235814","step":"click \"MYSINGLIFE\""},{"avg_duration":1352.0,"build":"20251015_202931598","step":"click \"MYSINGLIFE\""},{"avg_duration":986.0,"build":"20251216_080524000","step":"click \"MYSINGLIFE\""},{"avg_duration":1546.0,"build":"20251216_083512936","step":"click \"MYSINGLIFE\""},{"avg_duration":1473.0,"build":"20251216_084240062","step":"click \"MYSINGLIFE\""},{"avg_duration":1427.0,"build":"20251216_123821226","step":"click \"MYSINGLIFE\""},{"avg_duration":957.0,"build":"20251216_125247528","step":"click \"MYSINGLIFE\""},{"avg_duration":1166.0,"build":"20251216_164510568","step":"click \"MYSINGLIFE\""},{"avg_duration":529.0,"build":"20250917_111603712","step":"click \"Mr\""},{"avg_duration":1217.0,"build":"20250922_134450278","step":"click \"Mr\""},{"avg_duration":30570.0,"build":"20251216_084240062","step":"click \"Mr\""},{"avg_duration":30596.0,"build":"20251216_123821226","step":"click \"Mr\""},{"avg_duration":30561.0,"build":"20251216_164510568","step":"click \"Mr\""},{"avg_duration":1332.0,"build":"20250922_134450278","step":"click \"Please select...\" with exact phrase"},{"avg_duration":30519.0,"build":"20251216_084240062","step":"click \"Please select...\" with exact phrase"},{"avg_duration":30623.0,"build":"20251216_123821226","step":"click \"Please select...\" with exact phrase"},{"avg_duration":30522.0,"build":"20251216_164510568","step":"click \"Please select...\" with exact phrase"},{"avg_duration":542.0,"build":"20250713_214838540","step":"click \"Submit\""},{"avg_duration":567.0,"build":"20250917_111603712","step":"click \"Submit\""},{"avg_duration":1547.0,"build":"20250922_134450278","step":"click \"Submit\""},{"avg_duration":528.0,"build":"20250926_145001429","step":"click \"Submit\""},{"avg_duration":542.0,"build":"20251008_141835701","step":"click \"Submit\""},{"avg_duration":544.0,"build":"20251012_130235814","step":"click \"Submit\""},{"avg_duration":30627.0,"build":"20251216_084240062","step":"click \"Submit\""},{"avg_duration":30613.0,"build":"20251216_123821226","step":"click \"Submit\""},{"avg_duration":30618.0,"build":"20251216_164510568","step":"click \"Submit\""},{"avg_duration":2062.0,"build":"20251010_135545829","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2112.0,"build":"20251010_140700425","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2010.0,"build":"20251010_142147979","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2180.0,"build":"20251010_143656155","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2014.0,"build":"20251010_144037371","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2607.0,"build":"20251010_151404137","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2524.0,"build":"20251010_151715130","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":1846.0,"build":"20251015_202931598","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2156.0,"build":"20251216_080524000","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":2148.0,"build":"20251216_083512936","step":"click \"{el:LoginWithEmail}\""},{"avg_duration":6391.0,"build":"20251015_202931598","step":"click \"{el:email}\""},{"avg_duration":30045.0,"build":"20251216_080524000","step":"click \"{el:email}\""},{"avg_duration":30044.0,"build":"20251216_083512936","step":"click \"{el:email}\""},{"avg_duration":1030.0,"build":"20250713_214408499","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":1120.0,"build":"20250713_214719475","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":1479.0,"build":"20250713_214838540","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":1114.0,"build":"20250714_082245087","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":695.0,"build":"20250917_111603712","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":1845.0,"build":"20250922_134450278","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":683.0,"build":"20250926_145001429","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":930.0,"build":"20251008_141835701","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":745.0,"build":"20251012_130235814","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":43392.0,"build":"20251216_084240062","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":31713.0,"build":"20251216_123821226","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":32141.0,"build":"20251216_164510568","step":"click on the 1st \"here\" inside a with exact phrase"},{"avg_duration":30030.0,"build":"20251010_135545829","step":"click on the element with id as \"input28\""},{"avg_duration":30041.0,"build":"20251010_140700425","step":"click on the element with id as \"input28\""},{"avg_duration":30033.0,"build":"20251010_142147979","step":"click on the element with id as \"input28\""},{"avg_duration":30029.0,"build":"20251010_143656155","step":"click on the element with id as \"input28\""},{"avg_duration":30054.0,"build":"20251010_144037371","step":"click on the element with id as \"input28\""},{"avg_duration":30042.0,"build":"20251010_151404137","step":"click on the element with id as \"input28\""},{"avg_duration":30043.0,"build":"20251010_151715130","step":"click on the element with id as \"input28\""},{"avg_duration":1195.0,"build":"20250713_213911371","step":"hover over \"Login\""},{"avg_duration":1164.0,"build":"20250713_214009871","step":"hover over \"Login\""},{"avg_duration":1358.0,"build":"20250713_214408499","step":"hover over \"Login\""},{"avg_duration":1439.0,"build":"20250713_214719475","step":"hover over \"Login\""},{"avg_duration":1145.0,"build":"20250713_214838540","step":"hover over \"Login\""},{"avg_duration":8922.0,"build":"20250714_082245087","step":"hover over \"Login\""},{"avg_duration":10093.0,"build":"20250715_133009264","step":"hover over \"Login\""},{"avg_duration":3009.0,"build":"20250912_093403636","step":"hover over \"Login\""},{"avg_duration":833.0,"build":"20250916_160502199","step":"hover over \"Login\""},{"avg_duration":1422.0,"build":"20250917_111603712","step":"hover over \"Login\""},{"avg_duration":1727.0,"build":"20250918_180404812","step":"hover over \"Login\""},{"avg_duration":8814.0,"build":"20250920_122456359","step":"hover over \"Login\""},{"avg_duration":3303.0,"build":"20250921_224142063","step":"hover over \"Login\""},{"avg_duration":961.0,"build":"20250922_134014212","step":"hover over \"Login\""},{"avg_duration":1305.0,"build":"20250922_134450278","step":"hover over \"Login\""},{"avg_duration":846.0,"build":"20250926_094204792","step":"hover over \"Login\""},{"avg_duration":850.0,"build":"20250926_145001429","step":"hover over \"Login\""},{"avg_duration":1135.0,"build":"20250926_152222942","step":"hover over \"Login\""},{"avg_duration":919.0,"build":"20251008_141835701","step":"hover over \"Login\""},{"avg_duration":925.0,"build":"20251010_135103289","step":"hover over \"Login\""},{"avg_duration":904.0,"build":"20251010_135138731","step":"hover over \"Login\""},{"avg_duration":929.0,"build":"20251010_135355321","step":"hover over \"Login\""},{"avg_duration":865.0,"build":"20251010_135545829","step":"hover over \"Login\""},{"avg_duration":4895.0,"build":"20251010_140700425","step":"hover over \"Login\""},{"avg_duration":910.0,"build":"20251010_142147979","step":"hover over \"Login\""},{"avg_duration":25081.0,"build":"20251010_143656155","step":"hover over \"Login\""},{"avg_duration":1259.0,"build":"20251010_144037371","step":"hover over \"Login\""},{"avg_duration":997.0,"build":"20251010_151404137","step":"hover over \"Login\""},{"avg_duration":903.0,"build":"20251010_151715130","step":"hover over \"Login\""},{"avg_duration":60820.0,"build":"20251010_152751771","step":"hover over \"Login\""},{"avg_duration":3899.0,"build":"20251010_153052208","step":"hover over \"Login\""},{"avg_duration":905.0,"build":"20251012_130235814","step":"hover over \"Login\""},{"avg_duration":1050.0,"build":"20251015_202931598","step":"hover over \"Login\""},{"avg_duration":1233.0,"build":"20251216_080524000","step":"hover over \"Login\""},{"avg_duration":1078.0,"build":"20251216_083512936","step":"hover over \"Login\""},{"avg_duration":1116.0,"build":"20251216_084240062","step":"hover over \"Login\""},{"avg_duration":1067.0,"build":"20251216_123821226","step":"hover over \"Login\""},{"avg_duration":1071.0,"build":"20251216_125247528","step":"hover over \"Login\""},{"avg_duration":1205.0,"build":"20251216_164510568","step":"hover over \"Login\""},{"avg_duration":507.0,"build":"20250922_134450278","step":"scroll down until screen contains \"Salutation\" with exact phrase"}];
+
+        // Populate Flagged Steps Table
+        const flaggedTable = document.getElementById('flaggedStepsTable');
+        flaggedSteps.forEach(step => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${step.step}</td>
+                <td>${step.count}</td>
+                <td>${step.avg_duration.toFixed(2)}</td>
+            `;
+            flaggedTable.appendChild(row);
+        });
+
+        // Prepare data for Step Trends Chart
+        const builds = [...new Set(stepTrends.map(t => t.build))];
+        const steps = [...new Set(stepTrends.map(t => t.step))];
+        const datasets = steps.map(step => {
+            return {
+                label: step,
+                data: builds.map(build => {
+                    const found = stepTrends.find(t => t.build === build && t.step === step);
+                    return found ? found.avg_duration : null;
+                }),
+                fill: false,
+                borderColor: '#' + Math.floor(Math.random()*16777215).toString(16),
+                tension: 0.1
+            };
+        });
+
+        new Chart(document.getElementById('stepTrendsChart'), {
+            type: 'line',
+            data: {
+                labels: builds,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Step Duration Trends for Slow Steps (Current Run)'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Avg Duration (ms)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
