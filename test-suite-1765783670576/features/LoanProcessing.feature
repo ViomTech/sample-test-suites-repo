@@ -3,28 +3,26 @@ Feature: Credit feature
 
 Scenario: Lead scenario
 {module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="value")}
+{module:LMS_view_details(LAN_value="APP1766050944138")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
 {module:applicationStage_Open}
 And check that screen contains "Lead"
-And check that screen contains "initiated"
-And click on the element with class "stage_icons"
+And check that screen contains "Completed"
 And wait 2 sec
-{module:LeadParameters(assign_name="value", sub_section="value", reason="value")}
-And click "KYC"
-And click "Submit"
 
 Scenario: Qc scenario
-{module:applicationStage_Open}
 And check that screen contains "QC"
-And check that screen contains "initiated"
+And check that screen contains "Initiated"
 And click on the element with class "stage_icons" at index 2
-{module:QcParameters(credit_manager="value")}
-And click "OK" with exact phrase
+And wait 2 sec
+And click on the element with id as "user"
+And click "lakhan (118)" 
+And click on the element with class "fixed-width-button"
 And check that screen contains "Completed"
-{module:applicationStage_Close}
 
-scenario: AML scenario
-{module:applicationStage_Open}
+Scenario: AML scenario
 And check that screen contains following
 |AML|
 |Completed (Positive)|
