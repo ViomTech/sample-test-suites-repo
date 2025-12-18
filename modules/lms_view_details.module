@@ -1,16 +1,16 @@
 id: 547c5f45-d15f-4974-baa5-32a0ef77b732
 name: LMS_view_details
-description: null
+description: ''
 isGlobal: false
 testSuiteId: test-suite-1765783670576
 parameters:
 - LAN_value
-content: |
+content: |+
   And click "Credit" inside span
   And click "Loan Detail" with exact phrase
   And wait 3 sec
   And enter "{LAN_value}" into "Type to search"
   And wait 2 sec
-  And click on the element with class "ant-space css-1tbz80h ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+
 createdAt: '2025-12-16T08:43:37.248061400Z'
-updatedAt: '2025-12-16T08:43:37.248061400Z'
+updatedAt: '2025-12-18T06:33:47.267213Z'
