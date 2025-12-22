@@ -1,4 +1,4 @@
-@view_loan_details @regression @lms_regression
+@loan_details @regression 
 Feature: Credit feature
 
 Scenario: Lead scenario
@@ -22,39 +22,56 @@ And click "lakhan (118)"
 And click on the element with class "fixed-width-button"
 And check that screen contains "Completed"
 
+
 Scenario: AML scenario
 And check that screen contains following
 |AML|
 |Completed (Positive)|
-{module:applicationStage_Close}
 
 Scenario: Dedupe scenario
-{module:applicationStage_Open}
 And check that screen contains following
 |Dedupe|
-|initiated|
-And click "{el:forward}"
+|Initiated|
+And click on the element with class "stage_icons" at index 2
 And click on the element with id as "user"
-And click "Swati Singanjude (VIOM)"
+And enter "Farheen"
+And click "Farheen Ansari (EMP03384)"
 And click on the element with id as "reason"
 And enter "reason"
-And click "Submit"
-{module:applicationStage_Close}
-{module:LogOut}
+And click on the element with class "ant-btn-primary" at index 3
 And wait 5 sec
-{module:LMS_Login(lms_username="hema.mahajan@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="value")}
-And check that screen contains "forward"
-And click "Forward"
-And check that screen contains following
-|Loan Account Number|
-|Matched LAN’s|
-And click "Link"
-And check that screen contains "Are you sure you want to link lan?"
-And click "OK"
+
+@sanity
+Scenario: Dedupe
+{module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1766050944138")}
+And click on the element with class "view_button_loan_list"
 And wait 2 sec
-And check that screen contains "Linked"
-{module:dedupe_OverallStatus(status="positive")}
+And switch to last opened tab
+And click on the element with class "dropdown_img"
+And click "Log Out"
+And wait 5 sec
+And enter "farheen.ansari@vastuhfc.com" into "Enter your email"
+And enter "Vastu@123" into "Enter your password"
+And wait 3 sec
+And click "Sign in"
+And wait 3 sec
+{module:applicationStage_Open}
+And check that screen contains "Forward"
+And click "Forward"
+And switch to last opened tab
+And wait 10 sec
+And check that screen contains "Loan Account Number"
+And check that screen contains "Matched LAN’s"
+And wait 3 sec
+And click "{el:OverallStatus}"
+And wait 2 sec
+And click on the 1st child with class "tab_form_sub_edit_dedupe"
+And click on the element with id as "status"
+And click on the 4th "Positive"
+And click on the element with id as "remark"
+And enter "testing"
+And click "Submit"
 And switch to main tab
 And check that screen contains "completed"
 And check that "Completed" is a link

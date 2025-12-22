@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Performance Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1.1/dist/chartjs-chart-matrix.min.js"></script>
+    <style>
+        .card { margin-bottom: 20px; }
+        .table { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Test Performance Dashboard</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Step Duration Distribution</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="stepDurationChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Feature-wise Performance</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="featurePerformanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Slowest Steps</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Scenario</th>
+                                        <th>Step</th>
+                                        <th>Duration (ms)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="slowestStepsTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Platform Comparison</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="platformComparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Scenario Timeline</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Flagged Steps (Consistently Slow)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Occurrences</th>
+                                        <th>Avg Duration (ms)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="flaggedStepsTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Step Duration Trends for Slow Steps (Current Run)</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="stepTrendsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Step Duration Distribution Chart
+        new Chart(document.getElementById('stepDurationChart'), {
+            type: 'bar',
+            data: {
+                labels: ["check that screen contains fol...","check that screen contains \"Fo...","click \"Submit\"","check that screen contains \"co...","click \"Forward\"","click \"Allow\" inside span","click \"{el:profile_element}\"","check that \"Completed\" is a li...","click on the 4th \"Positive\"","enter \"APP1766050944138\" into ...","switch to last opened tab","[App Launch]","set location permission to all...","switch to main tab","click \"Log Out\"","click \"Dedupe\"","enter \"farheen.ansari@vastuhfc...","click \"Sign in\"","click on the 2nd child with cl...","click \"Credit\" inside span","click \"{el:add_button}\"","enter \"testing\"","enter \"gaurav.g@vastuhfc.com\" ...","enter \"Vastu@123\" into \"Enter ...","click on the element with clas...","click \"Loan Detail\" with exact...","click on the element with id a..."],
+                datasets: [{
+                    label: 'Average Duration (ms)',
+                    data: [2.0,0.0,1.0,0.0,0.0,209.0,1.0,0.0,0.0,31005.0,0.5,417.0,3.5,0.0,468.0,0.0,155.0,190.33333333333334,0.0,6485.0,0.0,0.0,60.5,221.66666666666666,791.5,720.5,0.6666666666666666],
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                // Use the full label from the mapping
+                                const label = context[0].label;
+                                return stepLabelMap[label] || label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 30,
+                            autoSkip: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Feature Performance Chart
+        new Chart(document.getElementById('featurePerformanceChart'), {
+            type: 'pie',
+            data: {
+                labels: ["check that screen contains \"completed\"","click \"Submit\"","click \"Forward\"","set location permission to allow","click \"Allow\" inside span","click on the element with id as \"status\"","click \"{el:profile_element}\"","click on the 4th \"Positive\"","check that \"Completed\" is a link","click on the element with id as \"rc-tabs-1-tab-OS\"","enter \"Vastu@123\" into \"Enter your password\"","check that screen contains following","check that screen contains \"Forward\"","switch to last opened tab","click on the element with class \"view_button_loan_list\"","[App Launch]","switch to main tab","enter \"APP1766050944138\" into \"Type to search\"","click on the element with class \"dropdown_img\"","click \"Dedupe\"","click \"Log Out\"","click \"Loan Detail\" with exact phrase","click \"Sign in\"","enter \"farheen.ansari@vastuhfc.com\" into \"Enter your email\"","click \"Credit\" inside span","enter \"gaurav.g@vastuhfc.com\" into \"Enter your email\"","enter \"testing\"","click \"{el:add_button}\"","click on the 2nd child with class \"form_header\"","click on the element with id as \"remark\""],
+                datasets: [{
+                    data: [0.0,1.0,0.0,3.5,209.0,0.0,1.0,0.0,0.0,1.0,221.66666666666666,2.0,0.0,0.5,638.0,417.0,0.0,31005.0,945.0,0.0,468.0,720.5,190.33333333333334,155.0,6485.0,60.5,0.0,0.0,0.0,1.0],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Populate Slowest Steps Table
+        const slowestSteps = [{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"enter \"APP1766050944138\" into \"Type to search\"","duration":60035},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click \"Credit\" inside span","duration":6559},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click \"Credit\" inside span","duration":6411},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"enter \"APP1766050944138\" into \"Type to search\"","duration":1975},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click on the element with class \"dropdown_img\"","duration":945},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click \"Loan Detail\" with exact phrase","duration":940},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click \"Log Out\"","duration":936},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click on the element with class \"view_button_loan_list\"","duration":638},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"enter \"Vastu@123\" into \"Enter your password\"","duration":501},{"feature":"LoanProcessing.feature","scenario":"Dedupe","step":"click \"Loan Detail\" with exact phrase","duration":501}];
+        const tableBody = document.getElementById('slowestStepsTable');
+        slowestSteps.forEach(step => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${step.feature}</td>
+                <td>${step.scenario}</td>
+                <td>${step.step}</td>
+                <td>${step.duration}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // Platform Comparison Chart
+        const platformLabels = ["chrome"];
+        const platformData = [2302.9103912494743];
+        new Chart(document.getElementById('platformComparisonChart'), {
+            type: 'bar',
+            data: {
+                labels: platformLabels,
+                datasets: [{
+                    label: 'Avg Step Duration (ms)',
+                    data: platformData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const scenarioTimeline = [{"feature":"file:///Users/mac/Documents/viom-studio/test_suite_repositories/sample-test-suites-repo-1765884081593/test-suite-1765783670576/execution_20251219_193641/src/test/java/com/nimble/feature/LoanProcessing.feature","scenario":"Dedupe","start":"2025-12-19T14:07:05.316143Z","end":"2025-12-19T14:08:50.823253Z"}];
+
+        // Convert ISO strings to Date objects and calculate durations
+        const labels = scenarioTimeline.map(s => s.scenario);
+        const starts = scenarioTimeline.map(s => new Date(s.start).getTime());
+        const ends = scenarioTimeline.map(s => new Date(s.end).getTime());
+        const durations = ends.map((end, i) => end - starts[i]);
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Execution Time (ms)',
+                data: labels.map((_, i) => [starts[i], ends[i]]),
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(document.getElementById('timelineChart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Scenario Execution',
+                    data: durations,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    // For horizontal bar
+                    indexAxis: 'y'
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Duration (ms)' }
+                    }
+                }
+            }
+        });
+
+        const flaggedSteps = [{"avg_duration":18130.0,"count":6,"step":"[App Launch]"},{"avg_duration":961.5555555555555,"count":9,"step":"check that screen contains \"Application Stages\""},{"avg_duration":921.0833333333334,"count":12,"step":"check that screen contains \"Completed\""},{"avg_duration":1231.0,"count":8,"step":"check that screen contains \"Lead\""},{"avg_duration":57622.8125,"count":16,"step":"check that screen contains following"},{"avg_duration":10454.5,"count":6,"step":"click \"Allow\" inside span"},{"avg_duration":10393.625,"count":40,"step":"click \"Credit\" inside span"},{"avg_duration":37829.5,"count":4,"step":"click \"Farheen Ansari (EMP03384)\""},{"avg_duration":60039.8,"count":5,"step":"click \"Hema Mahajan (004765)\""},{"avg_duration":973.9722222222222,"count":36,"step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":13125.8,"count":5,"step":"click \"Log Out\""},{"avg_duration":16430.636363636364,"count":11,"step":"click \"Sign in\""},{"avg_duration":37318.72222222222,"count":54,"step":"click \"View Detailed Progress \""},{"avg_duration":27979.25,"count":4,"step":"click \"lakhan (118)\""},{"avg_duration":32367.666666666668,"count":3,"step":"click \"{el:qc-complete}\""},{"avg_duration":34273.25,"count":4,"step":"click \"{el:select-manager}\""},{"avg_duration":1003.0,"count":4,"step":"click on the element with class \"dropdown_img\""},{"avg_duration":1059.2272727272727,"count":22,"step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":661.3333333333334,"count":3,"step":"click on the element with id as \"user\""},{"avg_duration":4266.636363636364,"count":11,"step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":19060.4,"count":10,"step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":639.6666666666666,"count":3,"step":"enter \"Vastu@123\" into \"Enter your password\""}];
+        const stepTrends = [{"avg_duration":106100.0,"build":"20251215_000157869","step":"[App Launch]"},{"avg_duration":527.0,"build":"20251218_121037828","step":"[App Launch]"},{"avg_duration":526.0,"build":"20251218_145149668","step":"[App Launch]"},{"avg_duration":508.0,"build":"20251219_133451508","step":"[App Launch]"},{"avg_duration":540.0,"build":"20251219_133844424","step":"[App Launch]"},{"avg_duration":579.0,"build":"20251219_141458667","step":"[App Launch]"},{"avg_duration":1044.0,"build":"20251218_150853796","step":"check that screen contains \"Application Stages\""},{"avg_duration":1052.0,"build":"20251218_153434166","step":"check that screen contains \"Application Stages\""},{"avg_duration":821.0,"build":"20251218_161535956","step":"check that screen contains \"Application Stages\""},{"avg_duration":1017.0,"build":"20251219_133451508","step":"check that screen contains \"Application Stages\""},{"avg_duration":1185.0,"build":"20251219_133844424","step":"check that screen contains \"Application Stages\""},{"avg_duration":911.0,"build":"20251219_134858283","step":"check that screen contains \"Application Stages\""},{"avg_duration":1106.0,"build":"20251219_135658593","step":"check that screen contains \"Application Stages\""},{"avg_duration":716.0,"build":"20251219_184555967","step":"check that screen contains \"Application Stages\""},{"avg_duration":802.0,"build":"20251219_190537927","step":"check that screen contains \"Application Stages\""},{"avg_duration":810.0,"build":"20251218_142500529","step":"check that screen contains \"Completed\""},{"avg_duration":638.0,"build":"20251218_143538898","step":"check that screen contains \"Completed\""},{"avg_duration":734.0,"build":"20251218_145707231","step":"check that screen contains \"Completed\""},{"avg_duration":1511.0,"build":"20251218_150853796","step":"check that screen contains \"Completed\""},{"avg_duration":909.0,"build":"20251218_151457913","step":"check that screen contains \"Completed\""},{"avg_duration":799.0,"build":"20251218_161010774","step":"check that screen contains \"Completed\""},{"avg_duration":617.0,"build":"20251218_162357209","step":"check that screen contains \"Completed\""},{"avg_duration":721.0,"build":"20251219_131815376","step":"check that screen contains \"Completed\""},{"avg_duration":930.0,"build":"20251219_134858283","step":"check that screen contains \"Completed\""},{"avg_duration":1439.0,"build":"20251219_135658593","step":"check that screen contains \"Completed\""},{"avg_duration":940.0,"build":"20251219_141458667","step":"check that screen contains \"Completed\""},{"avg_duration":1005.0,"build":"20251219_190537927","step":"check that screen contains \"Completed\""},{"avg_duration":2969.0,"build":"20251218_143538898","step":"check that screen contains \"Lead\""},{"avg_duration":554.0,"build":"20251218_145149668","step":"check that screen contains \"Lead\""},{"avg_duration":1476.0,"build":"20251218_155659201","step":"check that screen contains \"Lead\""},{"avg_duration":810.0,"build":"20251218_161010774","step":"check that screen contains \"Lead\""},{"avg_duration":557.0,"build":"20251219_131815376","step":"check that screen contains \"Lead\""},{"avg_duration":1785.0,"build":"20251219_133451508","step":"check that screen contains \"Lead\""},{"avg_duration":960.0,"build":"20251219_184555967","step":"check that screen contains \"Lead\""},{"avg_duration":737.0,"build":"20251219_190537927","step":"check that screen contains \"Lead\""},{"avg_duration":634.0,"build":"20251218_141907031","step":"check that screen contains \"QC\""},{"avg_duration":60248.0,"build":"20251218_141907031","step":"check that screen contains following"},{"avg_duration":60237.0,"build":"20251218_142500529","step":"check that screen contains following"},{"avg_duration":60251.0,"build":"20251218_143538898","step":"check that screen contains following"},{"avg_duration":60278.0,"build":"20251218_145149668","step":"check that screen contains following"},{"avg_duration":60292.0,"build":"20251218_145707231","step":"check that screen contains following"},{"avg_duration":60251.0,"build":"20251218_150853796","step":"check that screen contains following"},{"avg_duration":60273.0,"build":"20251218_151457913","step":"check that screen contains following"},{"avg_duration":60249.0,"build":"20251218_153434166","step":"check that screen contains following"},{"avg_duration":60202.0,"build":"20251218_155659201","step":"check that screen contains following"},{"avg_duration":60171.0,"build":"20251218_160152371","step":"check that screen contains following"},{"avg_duration":60269.0,"build":"20251218_161010774","step":"check that screen contains following"},{"avg_duration":60262.0,"build":"20251218_161535956","step":"check that screen contains following"},{"avg_duration":60395.0,"build":"20251218_162357209","step":"check that screen contains following"},{"avg_duration":77770.0,"build":"20251219_134430906","step":"check that screen contains following"},{"avg_duration":60274.0,"build":"20251219_184555967","step":"check that screen contains following"},{"avg_duration":543.0,"build":"20251219_190537927","step":"check that screen contains following"},{"avg_duration":527.0,"build":"20251218_121037828","step":"click \"Allow\" inside span"},{"avg_duration":526.0,"build":"20251218_145149668","step":"click \"Allow\" inside span"},{"avg_duration":508.0,"build":"20251219_133451508","step":"click \"Allow\" inside span"},{"avg_duration":540.0,"build":"20251219_133844424","step":"click \"Allow\" inside span"},{"avg_duration":579.0,"build":"20251219_141458667","step":"click \"Allow\" inside span"},{"avg_duration":60047.0,"build":"20251219_191739926","step":"click \"Allow\" inside span"},{"avg_duration":20896.0,"build":"20251218_115317697","step":"click \"Credit\" inside span"},{"avg_duration":6482.0,"build":"20251218_115537572","step":"click \"Credit\" inside span"},{"avg_duration":6866.0,"build":"20251218_121037828","step":"click \"Credit\" inside span"},{"avg_duration":5954.0,"build":"20251218_122642437","step":"click \"Credit\" inside span"},{"avg_duration":5516.0,"build":"20251218_123236773","step":"click \"Credit\" inside span"},{"avg_duration":5135.0,"build":"20251218_132953319","step":"click \"Credit\" inside span"},{"avg_duration":5457.0,"build":"20251218_135833584","step":"click \"Credit\" inside span"},{"avg_duration":7067.0,"build":"20251218_140214432","step":"click \"Credit\" inside span"},{"avg_duration":8317.0,"build":"20251218_141014680","step":"click \"Credit\" inside span"},{"avg_duration":6470.0,"build":"20251218_141907031","step":"click \"Credit\" inside span"},{"avg_duration":7338.0,"build":"20251218_142500529","step":"click \"Credit\" inside span"},{"avg_duration":7145.0,"build":"20251218_143538898","step":"click \"Credit\" inside span"},{"avg_duration":6498.0,"build":"20251218_145149668","step":"click \"Credit\" inside span"},{"avg_duration":7369.0,"build":"20251218_145707231","step":"click \"Credit\" inside span"},{"avg_duration":6124.0,"build":"20251218_150853796","step":"click \"Credit\" inside span"},{"avg_duration":6907.0,"build":"20251218_151457913","step":"click \"Credit\" inside span"},{"avg_duration":6811.0,"build":"20251218_153434166","step":"click \"Credit\" inside span"},{"avg_duration":5041.0,"build":"20251218_155659201","step":"click \"Credit\" inside span"},{"avg_duration":6593.0,"build":"20251218_160152371","step":"click \"Credit\" inside span"},{"avg_duration":5345.0,"build":"20251218_161010774","step":"click \"Credit\" inside span"},{"avg_duration":5235.0,"build":"20251218_161535956","step":"click \"Credit\" inside span"},{"avg_duration":5914.0,"build":"20251218_162357209","step":"click \"Credit\" inside span"},{"avg_duration":5796.0,"build":"20251219_131815376","step":"click \"Credit\" inside span"},{"avg_duration":5588.0,"build":"20251219_133451508","step":"click \"Credit\" inside span"},{"avg_duration":5409.0,"build":"20251219_133844424","step":"click \"Credit\" inside span"},{"avg_duration":54074.0,"build":"20251219_134233324","step":"click \"Credit\" inside span"},{"avg_duration":120022.0,"build":"20251219_134430906","step":"click \"Credit\" inside span"},{"avg_duration":4886.0,"build":"20251219_134858283","step":"click \"Credit\" inside span"},{"avg_duration":5073.0,"build":"20251219_135658593","step":"click \"Credit\" inside span"},{"avg_duration":5294.0,"build":"20251219_141458667","step":"click \"Credit\" inside span"},{"avg_duration":5357.0,"build":"20251219_184555967","step":"click \"Credit\" inside span"},{"avg_duration":5027.0,"build":"20251219_190537927","step":"click \"Credit\" inside span"},{"avg_duration":5079.0,"build":"20251219_191200186","step":"click \"Credit\" inside span"},{"avg_duration":4800.0,"build":"20251219_191739926","step":"click \"Credit\" inside span"},{"avg_duration":5238.0,"build":"20251219_192332645","step":"click \"Credit\" inside span"},{"avg_duration":5707.0,"build":"20251219_193053993","step":"click \"Credit\" inside span"},{"avg_duration":6485.0,"build":"20251219_193654091","step":"click \"Credit\" inside span"},{"avg_duration":60034.0,"build":"20251219_133451508","step":"click \"Farheen Ansari (EMP03384)\""},{"avg_duration":30454.0,"build":"20251219_134858283","step":"click \"Farheen Ansari (EMP03384)\""},{"avg_duration":30442.0,"build":"20251219_135658593","step":"click \"Farheen Ansari (EMP03384)\""},{"avg_duration":30388.0,"build":"20251219_141458667","step":"click \"Farheen Ansari (EMP03384)\""},{"avg_duration":60054.0,"build":"20251218_141907031","step":"click \"Hema Mahajan (004765)\""},{"avg_duration":60038.0,"build":"20251218_142500529","step":"click \"Hema Mahajan (004765)\""},{"avg_duration":60032.0,"build":"20251218_143538898","step":"click \"Hema Mahajan (004765)\""},{"avg_duration":60038.0,"build":"20251218_145149668","step":"click \"Hema Mahajan (004765)\""},{"avg_duration":60037.0,"build":"20251218_145707231","step":"click \"Hema Mahajan (004765)\""},{"avg_duration":1385.0,"build":"20251218_115537572","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1014.0,"build":"20251218_121037828","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":696.0,"build":"20251218_122642437","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1054.0,"build":"20251218_123236773","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":635.0,"build":"20251218_132953319","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":619.0,"build":"20251218_135833584","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":599.0,"build":"20251218_140214432","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":801.0,"build":"20251218_141014680","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1250.0,"build":"20251218_141907031","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1169.0,"build":"20251218_142500529","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":924.0,"build":"20251218_143538898","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":999.0,"build":"20251218_145149668","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1647.0,"build":"20251218_145707231","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1247.0,"build":"20251218_150853796","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":976.0,"build":"20251218_151457913","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1346.0,"build":"20251218_153434166","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":600.0,"build":"20251218_155659201","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":553.0,"build":"20251218_160152371","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1129.0,"build":"20251218_161010774","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1150.0,"build":"20251218_161535956","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":916.0,"build":"20251218_162357209","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":802.0,"build":"20251219_131815376","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1261.0,"build":"20251219_133451508","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":814.0,"build":"20251219_133844424","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":834.0,"build":"20251219_134858283","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1325.0,"build":"20251219_135658593","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1048.0,"build":"20251219_141458667","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":797.0,"build":"20251219_184555967","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":896.0,"build":"20251219_190537927","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1067.0,"build":"20251219_191200186","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":970.0,"build":"20251219_191739926","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":1217.0,"build":"20251219_192332645","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":941.0,"build":"20251219_193053993","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":720.5,"build":"20251219_193654091","step":"click \"Loan Detail\" with exact phrase"},{"avg_duration":60027.0,"build":"20251219_191200186","step":"click \"Log Out\""},{"avg_duration":1114.0,"build":"20251219_191739926","step":"click \"Log Out\""},{"avg_duration":1987.0,"build":"20251219_192332645","step":"click \"Log Out\""},{"avg_duration":1565.0,"build":"20251219_193053993","step":"click \"Log Out\""},{"avg_duration":936.0,"build":"20251219_193654091","step":"click \"Log Out\""},{"avg_duration":875.0,"build":"20251218_161010774","step":"click \"OK\" with exact phrase"},{"avg_duration":621.0,"build":"20251218_161535956","step":"click \"OK\" with exact phrase"},{"avg_duration":566.0,"build":"20251218_145707231","step":"click \"Please select\""},{"avg_duration":515.0,"build":"20251218_121037828","step":"click \"Sign in\""},{"avg_duration":14471.0,"build":"20251218_132953319","step":"click \"Sign in\""},{"avg_duration":21880.0,"build":"20251218_135833584","step":"click \"Sign in\""},{"avg_duration":55375.0,"build":"20251218_143538898","step":"click \"Sign in\""},{"avg_duration":4591.0,"build":"20251218_145707231","step":"click \"Sign in\""},{"avg_duration":1061.0,"build":"20251218_150853796","step":"click \"Sign in\""},{"avg_duration":9322.0,"build":"20251218_160152371","step":"click \"Sign in\""},{"avg_duration":7364.0,"build":"20251218_161010774","step":"click \"Sign in\""},{"avg_duration":14647.0,"build":"20251218_162357209","step":"click \"Sign in\""},{"avg_duration":548.0,"build":"20251219_134430906","step":"click \"Sign in\""},{"avg_duration":50963.0,"build":"20251219_191739926","step":"click \"Sign in\""},{"avg_duration":832.0,"build":"20251219_134858283","step":"click \"Submit\""},{"avg_duration":106100.0,"build":"20251215_000157869","step":"click \"View Detailed Progress \""},{"avg_duration":22346.0,"build":"20251218_115537572","step":"click \"View Detailed Progress \""},{"avg_duration":109317.0,"build":"20251218_121037828","step":"click \"View Detailed Progress \""},{"avg_duration":71771.0,"build":"20251218_122642437","step":"click \"View Detailed Progress \""},{"avg_duration":120023.33333333333,"build":"20251218_123236773","step":"click \"View Detailed Progress \""},{"avg_duration":120020.33333333333,"build":"20251218_132953319","step":"click \"View Detailed Progress \""},{"avg_duration":65648.0,"build":"20251218_135833584","step":"click \"View Detailed Progress \""},{"avg_duration":30281.333333333332,"build":"20251218_140214432","step":"click \"View Detailed Progress \""},{"avg_duration":23052.25,"build":"20251218_141014680","step":"click \"View Detailed Progress \""},{"avg_duration":15547.5,"build":"20251218_141907031","step":"click \"View Detailed Progress \""},{"avg_duration":15729.5,"build":"20251218_142500529","step":"click \"View Detailed Progress \""},{"avg_duration":15818.0,"build":"20251218_143538898","step":"click \"View Detailed Progress \""},{"avg_duration":15688.0,"build":"20251218_145149668","step":"click \"View Detailed Progress \""},{"avg_duration":16403.5,"build":"20251218_145707231","step":"click \"View Detailed Progress \""},{"avg_duration":15799.5,"build":"20251218_150853796","step":"click \"View Detailed Progress \""},{"avg_duration":15597.5,"build":"20251218_151457913","step":"click \"View Detailed Progress \""},{"avg_duration":15957.0,"build":"20251218_153434166","step":"click \"View Detailed Progress \""},{"avg_duration":30403.0,"build":"20251218_155659201","step":"click \"View Detailed Progress \""},{"avg_duration":30278.0,"build":"20251218_160152371","step":"click \"View Detailed Progress \""},{"avg_duration":15709.0,"build":"20251218_161010774","step":"click \"View Detailed Progress \""},{"avg_duration":15766.5,"build":"20251218_161535956","step":"click \"View Detailed Progress \""},{"avg_duration":15617.0,"build":"20251218_162357209","step":"click \"View Detailed Progress \""},{"avg_duration":15685.5,"build":"20251219_131815376","step":"click \"View Detailed Progress \""},{"avg_duration":1186.0,"build":"20251219_133451508","step":"click \"View Detailed Progress \""},{"avg_duration":1101.0,"build":"20251219_133844424","step":"click \"View Detailed Progress \""},{"avg_duration":945.0,"build":"20251219_134858283","step":"click \"View Detailed Progress \""},{"avg_duration":933.0,"build":"20251219_135658593","step":"click \"View Detailed Progress \""},{"avg_duration":903.0,"build":"20251219_141458667","step":"click \"View Detailed Progress \""},{"avg_duration":1257.0,"build":"20251219_184555967","step":"click \"View Detailed Progress \""},{"avg_duration":797.0,"build":"20251219_190537927","step":"click \"View Detailed Progress \""},{"avg_duration":30320.0,"build":"20251218_160152371","step":"click \"lakhan (118)\""},{"avg_duration":20751.0,"build":"20251218_161010774","step":"click \"lakhan (118)\""},{"avg_duration":30449.0,"build":"20251218_161535956","step":"click \"lakhan (118)\""},{"avg_duration":30397.0,"build":"20251218_162357209","step":"click \"lakhan (118)\""},{"avg_duration":9440.0,"build":"20251219_191200186","step":"click \"{el:profile_element}\""},{"avg_duration":32931.0,"build":"20251218_141907031","step":"click \"{el:qc-complete}\""},{"avg_duration":32061.0,"build":"20251218_142500529","step":"click \"{el:qc-complete}\""},{"avg_duration":32111.0,"build":"20251218_143538898","step":"click \"{el:qc-complete}\""},{"avg_duration":35079.0,"build":"20251218_141907031","step":"click \"{el:select-manager}\""},{"avg_duration":30975.0,"build":"20251218_142500529","step":"click \"{el:select-manager}\""},{"avg_duration":31609.0,"build":"20251218_143538898","step":"click \"{el:select-manager}\""},{"avg_duration":39430.0,"build":"20251218_145149668","step":"click \"{el:select-manager}\""},{"avg_duration":5860.0,"build":"20251218_122642437","step":"click \"{el:view-case2}\""},{"avg_duration":5646.0,"build":"20251218_121037828","step":"click \"{el:view-case}\""},{"avg_duration":30015.0,"build":"20251219_190537927","step":"click on the 1st child with tag \"svg\" with class \"form_header\""},{"avg_duration":30020.0,"build":"20251219_131815376","step":"click on the 2nd child with class \"form_header\""},{"avg_duration":30012.0,"build":"20251219_134858283","step":"click on the 2nd child with class \"form_header\""},{"avg_duration":29981.0,"build":"20251219_135658593","step":"click on the element with class \"ant-btn-variant-solid\" at index 4"},{"avg_duration":30005.0,"build":"20251219_141458667","step":"click on the element with class \"ant-btn-variant-solid\" at index 4"},{"avg_duration":30038.0,"build":"20251218_151457913","step":"click on the element with class \"ant-select-selection-placeholder\" at index 2"},{"avg_duration":60007.0,"build":"20251218_115537572","step":"click on the element with class \"ant-space css-1tbz80h ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle\""},{"avg_duration":60007.0,"build":"20251218_123236773","step":"click on the element with class \"anticon anticon-eye view_button_loan_list\""},{"avg_duration":60008.0,"build":"20251218_135833584","step":"click on the element with class \"anticon anticon-eye view_button_loan_list\""},{"avg_duration":738.0,"build":"20251219_191739926","step":"click on the element with class \"dropdown_img\""},{"avg_duration":801.0,"build":"20251219_192332645","step":"click on the element with class \"dropdown_img\""},{"avg_duration":1528.0,"build":"20251219_193053993","step":"click on the element with class \"dropdown_img\""},{"avg_duration":945.0,"build":"20251219_193654091","step":"click on the element with class \"dropdown_img\""},{"avg_duration":812.0,"build":"20251218_140214432","step":"click on the element with class \"stage_icons\""},{"avg_duration":1587.0,"build":"20251218_141014680","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":1559.0,"build":"20251218_141907031","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":700.0,"build":"20251218_142500529","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":1162.0,"build":"20251218_143538898","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":669.0,"build":"20251218_145149668","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":891.0,"build":"20251218_145707231","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":762.0,"build":"20251218_151457913","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":2162.0,"build":"20251218_153434166","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":2459.0,"build":"20251218_160152371","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":757.0,"build":"20251218_161010774","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":1022.0,"build":"20251218_161535956","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":1309.0,"build":"20251219_131815376","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":1081.0,"build":"20251219_133451508","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":740.0,"build":"20251219_134858283","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":740.0,"build":"20251219_135658593","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":1048.0,"build":"20251219_141458667","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":941.0,"build":"20251219_190537927","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":897.0,"build":"20251219_191200186","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":863.0,"build":"20251219_191739926","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":535.0,"build":"20251219_192332645","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":781.0,"build":"20251219_193053993","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":638.0,"build":"20251219_193654091","step":"click on the element with class \"view_button_loan_list\""},{"avg_duration":947.0,"build":"20251219_133451508","step":"click on the element with id as \"user\""},{"avg_duration":533.0,"build":"20251219_133844424","step":"click on the element with id as \"user\""},{"avg_duration":504.0,"build":"20251219_141458667","step":"click on the element with id as \"user\""},{"avg_duration":2155.0,"build":"20251218_115537572","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":913.0,"build":"20251218_121037828","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":2737.0,"build":"20251218_123236773","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":31158.0,"build":"20251218_132953319","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":1155.0,"build":"20251218_141014680","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":526.0,"build":"20251218_141907031","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":1364.0,"build":"20251218_142500529","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":1992.0,"build":"20251218_145707231","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":2790.0,"build":"20251218_150853796","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":1379.0,"build":"20251218_151457913","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":764.0,"build":"20251218_161010774","step":"enter \"APP1765870764327\" into \"Type to search\""},{"avg_duration":653.0,"build":"20251219_131815376","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":1007.0,"build":"20251219_133451508","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":509.0,"build":"20251219_133844424","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":2299.0,"build":"20251219_141458667","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":2785.0,"build":"20251219_191739926","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":30657.0,"build":"20251219_192332645","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":60027.0,"build":"20251219_193053993","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":31005.0,"build":"20251219_193654091","step":"enter \"APP1766050944138\" into \"Type to search\""},{"avg_duration":714.0,"build":"20251219_133844424","step":"enter \"Vastu@123\" into \"Enter your password\""},{"avg_duration":704.0,"build":"20251219_192332645","step":"enter \"Vastu@123\" into \"Enter your password\""},{"avg_duration":501.0,"build":"20251219_193654091","step":"enter \"Vastu@123\" into \"Enter your password\""},{"avg_duration":5942.0,"build":"20251218_122642437","step":"hover over \"{el:view-case2}\""},{"avg_duration":60054.0,"build":"20251219_133844424","step":"scroll down until screen contains \"Farheen Ansari (EMP03384)\""},{"avg_duration":30517.0,"build":"20251218_155659201","step":"type \"lakhan (118)\" into \"user\""}];
+
+        // Populate Flagged Steps Table
+        const flaggedTable = document.getElementById('flaggedStepsTable');
+        flaggedSteps.forEach(step => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${step.step}</td>
+                <td>${step.count}</td>
+                <td>${step.avg_duration.toFixed(2)}</td>
+            `;
+            flaggedTable.appendChild(row);
+        });
+
+        // Prepare data for Step Trends Chart
+        const builds = [...new Set(stepTrends.map(t => t.build))];
+        const steps = [...new Set(stepTrends.map(t => t.step))];
+        const datasets = steps.map(step => {
+            return {
+                label: step,
+                data: builds.map(build => {
+                    const found = stepTrends.find(t => t.build === build && t.step === step);
+                    return found ? found.avg_duration : null;
+                }),
+                fill: false,
+                borderColor: '#' + Math.floor(Math.random()*16777215).toString(16),
+                tension: 0.1
+            };
+        });
+
+        new Chart(document.getElementById('stepTrendsChart'), {
+            type: 'line',
+            data: {
+                labels: builds,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Step Duration Trends for Slow Steps (Current Run)'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Avg Duration (ms)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
