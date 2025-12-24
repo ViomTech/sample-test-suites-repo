@@ -1,6 +1,6 @@
 id: test-suite-1765783670576
 name: LMS_Application
 description: Vastu loan process app
-tags: ['@rcuRegression', '@loan_details', '@regression', '@sanity']
+tags: ['@loan_details', '@regression', '@sanity', '@smoke', '@lms_api']
 environments: {}
-featureFiles: [features/LoanProcessing.feature, features/loanPorcessing.feature]
+featureFiles: [features/LoanProcessing.feature, features/loanPorcessing.feature, features/loanProcessing_api.feature]

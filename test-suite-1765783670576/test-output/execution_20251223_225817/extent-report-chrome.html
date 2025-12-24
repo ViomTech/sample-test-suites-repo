@@ -43,7 +43,7 @@ max-width: 200px;
 <a href="#"><span class="badge badge-primary">Nimble Test Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 23, 2025 11:15:01 PM</span></a>
+<a href="#"><span class="badge badge-primary">Dec 23, 2025 10:58:52 PM</span></a>
 </li>
 </ul>
 </div>
@@ -92,7 +92,7 @@ max-width: 200px;
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@loan_details</a><a class="dropdown-item" href="#">@smoke</a><a class="dropdown-item" href="#">@regression</a>
+<a class="dropdown-item" href="#">@regression</a><a class="dropdown-item" href="#">@loan_details</a><a class="dropdown-item" href="#">@smoke</a>
 </ul>
 </li>
 </ul>
@@ -105,7 +105,7 @@ max-width: 200px;
           <div class="test-detail">
             <p class="name">Credit feature</p>
             <p class="text-sm">
-              <span>11:15:09 PM</span> / <span>00:00:13:827</span>
+              <span>10:59:01 PM</span> / <span>00:00:23:490</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -114,9 +114,9 @@ max-width: 200px;
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Credit feature</h5>
-<span class='badge badge-success'>12.23.2025 11:15:09 PM</span>
-<span class='badge badge-danger'>12.23.2025 11:15:22 PM</span>
-<span class='badge badge-default'>00:00:13:827</span>
+<span class='badge badge-success'>12.23.2025 10:59:01 PM</span>
+<span class='badge badge-danger'>12.23.2025 10:59:25 PM</span>
+<span class='badge badge-default'>00:00:23:490</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -141,87 +141,39 @@ max-width: 200px;
   message='Target page, context or browser has been closed
   name='TargetClosedError
   stack='TargetClosedError: Target page, context or browser has been closed
-    at PageDispatcher._dispose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\dispatcher.js:109:30)
-    at Page.<anonymous> (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\pageDispatcher.js:71:12)
-    at Page.emit (node:events:508:28)
-    at Page._didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\page.js:172:10)
-    at CRPage.didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crPage.js:135:16)
-    at CRBrowser._onDetachedFromTarget (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crBrowser.js:183:14)
-    at CRSession.emit (node:events:508:28)
-    at C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crConnection.js:138:14
+    at DispatcherConnection.dispatch (C:\Users\ASUS\AppData\Local\Temp\playwright-java-14825122497910751797\package\lib\server\dispatchers\dispatcher.js:260:69)
+    at transport.onmessage (C:\Users\ASUS\AppData\Local\Temp\playwright-java-14825122497910751797\package\lib\cli\driver.js:53:59)
+    at Immediate._onImmediate (C:\Users\ASUS\AppData\Local\Temp\playwright-java-14825122497910751797\package\lib\server\utils\pipeTransport.js:76:16)
+    at process.processImmediate (node:internal/timers:504:21)
 }
-Call log:
--   - attempting scroll into view action
--     2 × waiting for element to be stable
--       - element is not visible
--     - retrying scroll into view action
--     - waiting 20ms
--     2 × waiting for element to be stable
--       - element is not visible
--     - retrying scroll into view action
--       - waiting 100ms
--     17 × waiting for element to be stable
--        - element is not visible
--      - retrying scroll into view action
--        - waiting 500ms
-
 	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
 	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
 	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
 	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
-	at com.microsoft.playwright.impl.ElementHandleImpl.scrollIntoViewIfNeeded(ElementHandleImpl.java:302)
-	at com.microsoft.playwright.impl.LocatorImpl.lambda$scrollIntoViewIfNeeded$6(LocatorImpl.java:487)
-	at com.microsoft.playwright.impl.LocatorImpl.lambda$withElement$0(LocatorImpl.java:82)
-	at com.microsoft.playwright.impl.ChannelOwner.withTitle(ChannelOwner.java:98)
-	at com.microsoft.playwright.impl.LocatorImpl.withElement(LocatorImpl.java:71)
-	at com.microsoft.playwright.impl.LocatorImpl.scrollIntoViewIfNeeded(LocatorImpl.java:486)
-	at com.microsoft.playwright.Locator.scrollIntoViewIfNeeded(Locator.java:4440)
-	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:365)
+	at com.microsoft.playwright.impl.FrameImpl.queryCount(FrameImpl.java:1037)
+	at com.microsoft.playwright.impl.LocatorImpl.count(LocatorImpl.java:169)
+	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:326)
 	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:1)
 	at com.nimble.stepDefinitions.BaseSteps.getElement(BaseSteps.java:277)
 	at com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(UserActionSteps.java:177)
-	at ?.click "Allow" inside span(file:///C:/viom-studio/test_suite_repositories/sample-test-suites-repo-1766396917199/test-suite-1765783670576/execution_20251223_231425/src/test/java/com/nimble/feature/LoanProcessing.feature:121)
+	at ?.click "Allow" inside span(file:///C:/viom-studio/test_suite_repositories/sample-test-suites-repo-1766396917199/test-suite-1765783670576/execution_20251223_225817/src/test/java/com/nimble/feature/LoanProcessing.feature:121)
 Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
   message='Target page, context or browser has been closed
   name='TargetClosedError
   stack='TargetClosedError: Target page, context or browser has been closed
-    at PageDispatcher._dispose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\dispatcher.js:109:30)
-    at Page.<anonymous> (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\pageDispatcher.js:71:12)
-    at Page.emit (node:events:508:28)
-    at Page._didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\page.js:172:10)
-    at CRPage.didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crPage.js:135:16)
-    at CRBrowser._onDetachedFromTarget (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crBrowser.js:183:14)
-    at CRSession.emit (node:events:508:28)
-    at C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crConnection.js:138:14
+    at DispatcherConnection.dispatch (C:\Users\ASUS\AppData\Local\Temp\playwright-java-14825122497910751797\package\lib\server\dispatchers\dispatcher.js:260:69)
+    at transport.onmessage (C:\Users\ASUS\AppData\Local\Temp\playwright-java-14825122497910751797\package\lib\cli\driver.js:53:59)
+    at Immediate._onImmediate (C:\Users\ASUS\AppData\Local\Temp\playwright-java-14825122497910751797\package\lib\server\utils\pipeTransport.js:76:16)
+    at process.processImmediate (node:internal/timers:504:21)
 }
-Call log:
--   - attempting scroll into view action
--     2 × waiting for element to be stable
--       - element is not visible
--     - retrying scroll into view action
--     - waiting 20ms
--     2 × waiting for element to be stable
--       - element is not visible
--     - retrying scroll into view action
--       - waiting 100ms
--     17 × waiting for element to be stable
--        - element is not visible
--      - retrying scroll into view action
--        - waiting 500ms
-
 	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
 	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
 	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
 	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
 	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
-	at com.microsoft.playwright.impl.ElementHandleImpl.scrollIntoViewIfNeeded(ElementHandleImpl.java:302)
-	at com.microsoft.playwright.impl.LocatorImpl.lambda$scrollIntoViewIfNeeded$6(LocatorImpl.java:487)
-	at com.microsoft.playwright.impl.LocatorImpl.lambda$withElement$0(LocatorImpl.java:82)
-	at com.microsoft.playwright.impl.ChannelOwner.withTitle(ChannelOwner.java:98)
-	at com.microsoft.playwright.impl.LocatorImpl.withElement(LocatorImpl.java:71)
-	at com.microsoft.playwright.impl.LocatorImpl.scrollIntoViewIfNeeded(LocatorImpl.java:486)
-	at com.microsoft.playwright.Locator.scrollIntoViewIfNeeded(Locator.java:4440)
-	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:365)
+	at com.microsoft.playwright.impl.FrameImpl.queryCount(FrameImpl.java:1037)
+	at com.microsoft.playwright.impl.LocatorImpl.count(LocatorImpl.java:169)
+	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:326)
 	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:1)
 	at com.nimble.stepDefinitions.BaseSteps.getElement(BaseSteps.java:277)
 	at com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(UserActionSteps.java:177)
@@ -450,42 +402,6 @@ Call log:
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">com.microsoft.playwright.impl.TargetClosedError</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>com.microsoft.playwright.impl.TargetClosedError</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:10 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='4'>And click "Allow" inside span</a>
-<div class="">
-<span class="badge badge-default">Credit feature.PD scenario.And click "Allow" inside span</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
 <p class="name">java.lang.RuntimeException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
@@ -505,11 +421,47 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:22 PM</td>
+<td>22:59:25 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='31'>com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</a>
 <div class="">
 <span class="badge badge-default">Credit feature.PD scenario.com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">com.microsoft.playwright.impl.TargetClosedError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>com.microsoft.playwright.impl.TargetClosedError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>22:59:02 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='4'>And click "Allow" inside span</a>
+<div class="">
+<span class="badge badge-default">Credit feature.PD scenario.And click "Allow" inside span</span>
 </div>
 </td>
 </tr>
@@ -538,6 +490,42 @@ Call log:
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
+<p class="name">@regression</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@regression</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>22:59:01 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
+<div class="">
+<span class="badge badge-default">Credit feature.PD scenario</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
 <p class="name">@loan_details</p>
 <p class="duration text-sm">1 tests</p>
 </div>
@@ -557,7 +545,7 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:09 PM</td>
+<td>22:59:01 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
 <div class="">
@@ -593,43 +581,7 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:09 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
-<div class="">
-<span class="badge badge-default">Credit feature.PD scenario</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">@regression</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@regression</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:09 PM</td>
+<td>22:59:01 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
 <div class="">
@@ -654,13 +606,13 @@ Call log:
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 23, 2025 11:15:01 PM</h3>
+<h3>Dec 23, 2025 10:58:52 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 23, 2025 11:15:22 PM</h3>
+<h3>Dec 23, 2025 10:59:26 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -750,7 +702,7 @@ Call log:
 </div></div>
 <script>
 var timeline = {
-"Credit feature":13.827
+"Credit feature":23.49
 };
 </script>
 <div class="row">
@@ -759,6 +711,14 @@ var timeline = {
 <div class="card-header"><p>Tags</p></div>
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@regression</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
 <tr>
 <td>@loan_details</td>
 <td>0</td>
@@ -769,14 +729,6 @@ var timeline = {
 </tr>
 <tr>
 <td>@smoke</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-</tr>
-<tr>
-<td>@regression</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>

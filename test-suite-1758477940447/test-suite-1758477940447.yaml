@@ -1,6 +1,6 @@
 id: test-suite-1758477940447
 name: DemoQA
 description: Demo test scripts
-tags: ['@tab-test']
+tags: ['@tab-test', '@test', '@table_test']
 environments: {}
 featureFiles: [features/tab.feature]
