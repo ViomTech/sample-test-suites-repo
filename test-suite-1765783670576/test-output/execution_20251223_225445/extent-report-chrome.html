@@ -43,7 +43,7 @@ max-width: 200px;
 <a href="#"><span class="badge badge-primary">Nimble Test Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 23, 2025 11:15:01 PM</span></a>
+<a href="#"><span class="badge badge-primary">Dec 23, 2025 10:55:25 PM</span></a>
 </li>
 </ul>
 </div>
@@ -105,7 +105,7 @@ max-width: 200px;
           <div class="test-detail">
             <p class="name">Credit feature</p>
             <p class="text-sm">
-              <span>11:15:09 PM</span> / <span>00:00:13:827</span>
+              <span>10:55:34 PM</span> / <span>00:00:19:002</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -114,9 +114,9 @@ max-width: 200px;
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Credit feature</h5>
-<span class='badge badge-success'>12.23.2025 11:15:09 PM</span>
-<span class='badge badge-danger'>12.23.2025 11:15:22 PM</span>
-<span class='badge badge-default'>00:00:13:827</span>
+<span class='badge badge-success'>12.23.2025 10:55:34 PM</span>
+<span class='badge badge-danger'>12.23.2025 10:55:53 PM</span>
+<span class='badge badge-default'>00:00:19:002</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -141,26 +141,29 @@ max-width: 200px;
   message='Target page, context or browser has been closed
   name='TargetClosedError
   stack='TargetClosedError: Target page, context or browser has been closed
-    at PageDispatcher._dispose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\dispatcher.js:109:30)
-    at Page.<anonymous> (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\pageDispatcher.js:71:12)
+    at PageDispatcher._dispose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\dispatchers\dispatcher.js:109:30)
+    at Page.<anonymous> (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\dispatchers\pageDispatcher.js:71:12)
     at Page.emit (node:events:508:28)
-    at Page._didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\page.js:172:10)
-    at CRPage.didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crPage.js:135:16)
-    at CRBrowser._onDetachedFromTarget (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crBrowser.js:183:14)
+    at Page._didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\page.js:172:10)
+    at CRPage.didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\chromium\crPage.js:135:16)
+    at CRBrowser._onDetachedFromTarget (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\chromium\crBrowser.js:183:14)
     at CRSession.emit (node:events:508:28)
-    at C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crConnection.js:138:14
+    at C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\chromium\crConnection.js:138:14
 }
 Call log:
 -   - attempting scroll into view action
--     2 × waiting for element to be stable
--       - element is not visible
--     - retrying scroll into view action
+-     - waiting for element to be stable
+-     - element is not stable
+-   - retrying scroll into view action
+-     - waiting for element to be stable
+-     - element is not visible
+-   - retrying scroll into view action
 -     - waiting 20ms
 -     2 × waiting for element to be stable
 -       - element is not visible
 -     - retrying scroll into view action
 -       - waiting 100ms
--     17 × waiting for element to be stable
+-     27 × waiting for element to be stable
 -        - element is not visible
 -      - retrying scroll into view action
 -        - waiting 500ms
@@ -180,31 +183,34 @@ Call log:
 	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:1)
 	at com.nimble.stepDefinitions.BaseSteps.getElement(BaseSteps.java:277)
 	at com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(UserActionSteps.java:177)
-	at ?.click "Allow" inside span(file:///C:/viom-studio/test_suite_repositories/sample-test-suites-repo-1766396917199/test-suite-1765783670576/execution_20251223_231425/src/test/java/com/nimble/feature/LoanProcessing.feature:121)
+	at ?.click "Allow" inside span(file:///C:/viom-studio/test_suite_repositories/sample-test-suites-repo-1766396917199/test-suite-1765783670576/execution_20251223_225445/src/test/java/com/nimble/feature/LoanProcessing.feature:121)
 Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
   message='Target page, context or browser has been closed
   name='TargetClosedError
   stack='TargetClosedError: Target page, context or browser has been closed
-    at PageDispatcher._dispose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\dispatcher.js:109:30)
-    at Page.<anonymous> (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\dispatchers\pageDispatcher.js:71:12)
+    at PageDispatcher._dispose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\dispatchers\dispatcher.js:109:30)
+    at Page.<anonymous> (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\dispatchers\pageDispatcher.js:71:12)
     at Page.emit (node:events:508:28)
-    at Page._didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\page.js:172:10)
-    at CRPage.didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crPage.js:135:16)
-    at CRBrowser._onDetachedFromTarget (C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crBrowser.js:183:14)
+    at Page._didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\page.js:172:10)
+    at CRPage.didClose (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\chromium\crPage.js:135:16)
+    at CRBrowser._onDetachedFromTarget (C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\chromium\crBrowser.js:183:14)
     at CRSession.emit (node:events:508:28)
-    at C:\Users\ASUS\AppData\Local\Temp\playwright-java-10674686854711181376\package\lib\server\chromium\crConnection.js:138:14
+    at C:\Users\ASUS\AppData\Local\Temp\playwright-java-13015580635737408038\package\lib\server\chromium\crConnection.js:138:14
 }
 Call log:
 -   - attempting scroll into view action
--     2 × waiting for element to be stable
--       - element is not visible
--     - retrying scroll into view action
+-     - waiting for element to be stable
+-     - element is not stable
+-   - retrying scroll into view action
+-     - waiting for element to be stable
+-     - element is not visible
+-   - retrying scroll into view action
 -     - waiting 20ms
 -     2 × waiting for element to be stable
 -       - element is not visible
 -     - retrying scroll into view action
 -       - waiting 100ms
--     17 × waiting for element to be stable
+-     27 × waiting for element to be stable
 -        - element is not visible
 -      - retrying scroll into view action
 -        - waiting 500ms
@@ -329,7 +335,7 @@ Call log:
       </div>
               </div>
               <div class="step skip-bg" title="com.nimble.stepDefinitions.UserActionSteps.enter(java.lang.String,java.lang.String,java.lang.String)">
-                <span>And enter "APP1762944190784" into "Type to search"</span>
+                <span>And enter "APP1766479961370" into "Type to search"</span>
       <div>Step skipped
       </div>
               </div>
@@ -450,42 +456,6 @@ Call log:
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">com.microsoft.playwright.impl.TargetClosedError</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>com.microsoft.playwright.impl.TargetClosedError</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:10 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='4'>And click "Allow" inside span</a>
-<div class="">
-<span class="badge badge-default">Credit feature.PD scenario.And click "Allow" inside span</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
 <p class="name">java.lang.RuntimeException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
@@ -505,11 +475,47 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:22 PM</td>
+<td>22:55:53 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='31'>com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</a>
 <div class="">
 <span class="badge badge-default">Credit feature.PD scenario.com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">com.microsoft.playwright.impl.TargetClosedError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>com.microsoft.playwright.impl.TargetClosedError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>22:55:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='4'>And click "Allow" inside span</a>
+<div class="">
+<span class="badge badge-default">Credit feature.PD scenario.And click "Allow" inside span</span>
 </div>
 </td>
 </tr>
@@ -557,7 +563,7 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:09 PM</td>
+<td>22:55:34 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
 <div class="">
@@ -593,7 +599,7 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:09 PM</td>
+<td>22:55:34 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
 <div class="">
@@ -629,7 +635,7 @@ Call log:
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>23:15:09 PM</td>
+<td>22:55:34 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
 <div class="">
@@ -654,13 +660,13 @@ Call log:
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 23, 2025 11:15:01 PM</h3>
+<h3>Dec 23, 2025 10:55:25 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 23, 2025 11:15:22 PM</h3>
+<h3>Dec 23, 2025 10:55:54 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -750,7 +756,7 @@ Call log:
 </div></div>
 <script>
 var timeline = {
-"Credit feature":13.827
+"Credit feature":19.002
 };
 </script>
 <div class="row">
