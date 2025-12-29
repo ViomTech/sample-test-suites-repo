@@ -80,13 +80,28 @@ And check that "Completed" is a link
 {module:LogOut}
 {module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
 
-@smoke
+@pdsmoke
 Scenario: PD scenario
 {module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
 {module:LMS_view_details(LAN_value="APP1762944190784")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
+And click on the element with id as "rc_select_0"
+And wait 2 sec
+And click on the 1st "PD" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with class "go_button_div"
+And click on the element with id as "pd_type"
+And click on the 1st "Tele Pd" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec 
+And click on the element with id as "assign_to"
+And click on the 1st "Farheen Ansari (EMP03384)" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec
+And click on the element with id as "customer_name"
+And click on the 1st "Vastu LMS" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec
+And click on the 2nd "Initiate" inside span
+And wait 10 sec
 {module:applicationStage_Open}
 #PD already initiated checking complete state
 And check that screen contains "Initiated"
@@ -94,11 +109,11 @@ And click on the element with class "stage_icons" at index 2
 And check that screen contains "Tele Pd"
 And click on the element with id as "pd_status"
 And wait 2 sec
-And click "Positive"
+And click on the 1st "Positive" inside div with class "ant-select-item-option-content" with exact phrase
 And enter "DONE" into "Please enter Credit Comments"
 And wait 2 sec
 And click "Submit" inside span
-And waut 5 sec
+And wait 5 sec
 
 Scenario: income Evaluation scenario
 {module:LMS_view_details(LAN_value="value")}

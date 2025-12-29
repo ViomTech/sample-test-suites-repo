@@ -43,7 +43,7 @@ max-width: 200px;
 <a href="#"><span class="badge badge-primary">Nimble Test Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 25, 2025 12:12:52 PM</span></a>
+<a href="#"><span class="badge badge-primary">Dec 26, 2025 12:48:00 PM</span></a>
 </li>
 </ul>
 </div>
@@ -87,7 +87,7 @@ max-width: 200px;
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@apireg</a><a class="dropdown-item" href="#">@lms_api</a><a class="dropdown-item" href="#">@regression</a>
+<a class="dropdown-item" href="#">@regression</a><a class="dropdown-item" href="#">@loan_details</a><a class="dropdown-item" href="#">@smoke</a>
 </ul>
 </li>
 </ul>
@@ -98,9 +98,9 @@ max-width: 200px;
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">vastu_api feature</p>
+            <p class="name">Credit feature</p>
             <p class="text-sm">
-              <span>12:12:55 PM</span> / <span>00:00:03:190</span>
+              <span>12:48:11 PM</span> / <span>00:00:59:739</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -108,10 +108,10 @@ max-width: 200px;
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">vastu_api feature</h5>
-<span class='badge badge-success'>12.25.2025 12:12:55 PM</span>
-<span class='badge badge-danger'>12.25.2025 12:12:58 PM</span>
-<span class='badge badge-default'>00:00:03:190</span>
+<h5 class="test-status text-pass">Credit feature</h5>
+<span class='badge badge-success'>12.26.2025 12:48:11 PM</span>
+<span class='badge badge-danger'>12.26.2025 12:49:11 PM</span>
+<span class='badge badge-default'>00:00:59:739</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -124,49 +124,138 @@ max-width: 200px;
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Auth_token scenario</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>PD scenario</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.ApiSteps.sendAPIRequest(java.lang.String,java.lang.String,java.util.Map<java.lang.String, java.lang.String>)">
-                <span>And compose a post request to "https://lmsstaging.vastucorp.com/api/v1/userauth/login" with headers</span>
-      <div><table class='markup-table table '><tr><td>Content-Type</td><td>application/json</td></tr><tr><td>Accept</td><td>*/*</td></tr></table>
-      </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click "Allow" inside span</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.ApiSteps.withTheBelowJSONRequest(io.cucumber.docstring.DocString)">
-                <span>And with the below JSON request</span>
-      <div><div class='row'>
- <div class='col-md-12'>
-  <textarea readonly class='code-block'>{
-"email": "gaurav.g@vastuhfc.com",
-"password": "Vastu@123",
-"remember": true,
-"latitude": 10.3022592,
-"longitude": 76.873728,
-"time_sheet_event_type": "MTSETNNH" 
-}</textarea>
- </div>
-</div>
-
-      </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.ApiSteps.saveTheResponse(java.lang.String)">
-                <span>And execute and save the response as "api__response"</span>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.setLocationPermission(java.lang.String,java.lang.String)">
+                <span>And set location permission to allow</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.AssertSteps.checkStatusCodeInHttpResponse(java.lang.String,java.lang.String,java.lang.String)">
-                <span>And check that response {api__response} has "200" as status code</span>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.enter(java.lang.String,java.lang.String,java.lang.String)">
+                <span>And enter "gaurav.g@vastuhfc.com" into "Enter your email"</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.grabValue(java.lang.String,java.lang.String)">
-                <span>And read value from "$.data.access" and save it as "AUTH_TOKEN"</span>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.enter(java.lang.String,java.lang.String,java.lang.String)">
+                <span>And enter "Vastu@123" into "Enter your password"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 3 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click "Sign in"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click "Credit" inside span</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click "Loan Detail" with exact phrase</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 3 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.enter(java.lang.String,java.lang.String,java.lang.String)">
+                <span>And enter "APP1762944190784" into "Type to search"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the element with class "view_button_loan_list"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.switchToLastOpenedTab()">
+                <span>And switch to last opened tab</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the element with id as "rc_select_0"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the 1st "PD" inside div with class "ant-select-item-option-content" with exact phrase</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the element with class "go_button_div"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the element with id as "pd_type"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the 1st "Tele Pd" inside div with class "ant-select-item-option-content" with exact phrase</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the element with id as "assign_to"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the 1st "Farheen Ansari (EMP03384)" inside div with class "ant-select-item-option-content" with exact phrase</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click "Initiate" inside span</span>
       <div>
       </div>
               </div>
@@ -198,78 +287,6 @@ max-width: 200px;
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@apireg</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@apireg</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>12:12:55 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='2'>Auth_token scenario</a>
-<div class="">
-<span class="badge badge-default">vastu_api feature.Auth_token scenario</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log pass-bg'>1</span>
-</span>
-<p class="name">@lms_api</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@lms_api</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>12:12:55 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='2'>Auth_token scenario</a>
-<div class="">
-<span class="badge badge-default">vastu_api feature.Auth_token scenario</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log pass-bg'>1</span>
-</span>
 <p class="name">@regression</p>
 <p class="duration text-sm">1 tests</p>
 </div>
@@ -289,11 +306,83 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:12:55 PM</td>
+<td>12:48:11 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Auth_token scenario</a>
+<a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
 <div class="">
-<span class="badge badge-default">vastu_api feature.Auth_token scenario</span>
+<span class="badge badge-default">Credit feature.PD scenario</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@loan_details</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@loan_details</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>12:48:11 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
+<div class="">
+<span class="badge badge-default">Credit feature.PD scenario</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@smoke</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@smoke</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>12:48:11 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>PD scenario</a>
+<div class="">
+<span class="badge badge-default">Credit feature.PD scenario</span>
 </div>
 </td>
 </tr>
@@ -314,13 +403,13 @@ max-width: 200px;
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 25, 2025 12:12:52 PM</h3>
+<h3>Dec 26, 2025 12:48:00 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 25, 2025 12:12:58 PM</h3>
+<h3>Dec 26, 2025 12:49:12 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -391,7 +480,7 @@ max-width: 200px;
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>5</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>26</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -410,7 +499,7 @@ max-width: 200px;
 </div></div>
 <script>
 var timeline = {
-"vastu_api feature":3.19
+"Credit feature":59.739
 };
 </script>
 <div class="row">
@@ -420,23 +509,23 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@apireg</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>@lms_api</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>100%</td>
-</tr>
-<tr>
 <td>@regression</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@loan_details</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@smoke</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -463,7 +552,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 5,
+passGrandChild: 26,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
