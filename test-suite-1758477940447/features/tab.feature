@@ -21,6 +21,7 @@ And wait 5 sec
 Scenario: web table scenario
 And click "Elements" with exact phrase
 And wait 2 sec
-And click "Web Tables"
+And click "{el:WebTables}"
 And wait 2 sec
 And check that web table with class "rt-table" where column 0 contains "Cierra" then column 1 equals "Vega"
+And wait 10 sec

@@ -7,12 +7,9 @@ parameters:
 - lms_username
 - lms_password
 content: |
-  And click "Allow" inside span
-  And wait 2 sec
-  And set location permission to allow
   And enter "{lms_username}" into "Enter your email"
   And enter "{lms_password}" into "Enter your password"
   And wait 3 sec
   And click "Sign in"
 createdAt: '2025-12-16T08:25:59.080794100Z'
-updatedAt: '2025-12-16T08:37:24.918214300Z'
+updatedAt: '2025-12-30T06:08:55.626941Z'
