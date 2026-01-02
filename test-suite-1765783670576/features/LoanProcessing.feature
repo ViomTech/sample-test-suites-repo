@@ -4,7 +4,7 @@ Feature: Credit feature
 @sanity
 Scenario: Lead scenario
 {module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1766479961370")}
+{module:LMS_view_details(LAN_value="APP1767185201830")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
@@ -23,7 +23,7 @@ And click on the element with id as "user"
 And click "lakhan (118)" 
 And click on the element with class "ant-btn css-4hvg6c ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined fixed-width-button"
 And check that screen contains "Completed"
-
+And wait 3 sec
 
 Scenario: AML scenario
 And check that screen contains following
@@ -148,3 +148,69 @@ And Enter "Detail" into "Condition",
 And Enter "Detail" into "Remark",
 And Enter "Detail" into "Status",
 And Click "Submit"
+
+@technical
+Scenario: Technical Scenario
+{module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1766820117959")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+And click on the element with id as "rc_select_0"
+And wait 2 sec
+And click on the 1st "Technical" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with class "go_button_div"
+And check that screen contains "Technical"
+And wait 5 sec
+And click on the element with id as "check_type"
+And click on the 1st "Internal" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "user"
+And click on the 1st "jeeevan patil (456666)" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "add_cc"
+And type "farheen.ansari@vastuhfc.com"
+And click on the element with id as "remark"
+And type "testing"
+And click on the element with class "ant-checkbox-input" at index 2
+And wait 3 sec
+And click on the element with id as "document_category"
+And click on the 1st "Technical" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "document_type"
+And click on the 1st "Settlement Deed" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 3 sec
+And click on the 2nd "Initiate" inside span
+And wait 5 sec
+
+
+@legal
+Scenario: Legal Scenario
+{module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1766820117959")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+And click on the element with id as "rc_select_0"
+And wait 2 sec
+And click on the 1st "Legal" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with class "go_button_div"
+And check that screen contains "Legal"
+And wait 5 sec
+And click on the element with id as "check_type"
+And click on the 1st "Internal" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "user"
+And click on the 1st "jeeevan patil (456666)" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "transaction_type"
+And click on the 1st "Fresh Transaction" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec
+And click on the element with id as "add_cc"
+And type "farheen.ansari@vastuhfc.com"
+And click on the element with id as "remark"
+And type "testing"
+And click on the element with class "ant-checkbox-input" at index 2
+And wait 3 sec
+And click on the element with id as "document_category"
+And click on the 1st "Technical" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "document_type"
+And click on the 1st "Boundary Certificates" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 3 sec
+And click on the 2nd "Initiate" inside span
+And wait 5 sec
