@@ -61,3 +61,28 @@ And click "Please Enter Remark"
 And enter "Doing for the testing purpose" into "Please Enter Remark"
 And click on the 2nd "Initiate" inside span
 And wait 5 sec
+
+@dedupetest
+Scenario: Dedupe
+{module:LMS_Login(lms_username="farheen.ansari@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1766128675338")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+{module:applicationStage_Open}
+And check that screen contains "Initiated"
+And wait 2 sec
+And click "Initiated"
+And switch to last opened tab
+And wait 10 sec
+And check that screen contains "Loan Account Number"
+And wait 3 sec
+And click "{el:OverallStatus}"
+And wait 2 sec
+And click on the 1st child with class "tab_form_sub_edit_dedupe"
+And click on the element with id as "status"
+And click on the 4th "Positive"
+And click on the element with id as "remark"
+And enter "testing"
+And click "Submit"
+And Wait 5 sec
