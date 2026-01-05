@@ -151,7 +151,7 @@ And Click "Submit"
 
 @technical
 Scenario: Technical Scenario
-{module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_Login(lms_username="jeevan.patil@vastufinserve.com", lms_password="Vastu@123")}
 {module:LMS_view_details(LAN_value="APP1766820117959")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
