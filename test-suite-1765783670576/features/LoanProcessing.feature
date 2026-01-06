@@ -12,6 +12,7 @@ And switch to last opened tab
 And check that screen contains "Lead"
 And check that screen contains "Completed"
 And wait 2 sec
+And click "{el:StageClose}"
 
 @sanity
 Scenario: Qc scenario

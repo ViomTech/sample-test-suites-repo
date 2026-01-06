@@ -43,7 +43,7 @@ max-width: 200px;
 <a href="#"><span class="badge badge-primary">Nimble Test Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jan 6, 2026 12:22:20 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jan 6, 2026 11:30:54 AM</span></a>
 </li>
 </ul>
 </div>
@@ -105,7 +105,7 @@ max-width: 200px;
           <div class="test-detail">
             <p class="name">Credit feature</p>
             <p class="text-sm">
-              <span>12:22:34 PM</span> / <span>00:01:40:794</span>
+              <span>11:31:06 AM</span> / <span>00:00:34:531</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -114,9 +114,9 @@ max-width: 200px;
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Credit feature</h5>
-<span class='badge badge-success'>01.06.2026 12:22:34 PM</span>
-<span class='badge badge-danger'>01.06.2026 12:24:15 PM</span>
-<span class='badge badge-default'>00:01:40:794</span>
+<span class='badge badge-success'>01.06.2026 11:31:06 AM</span>
+<span class='badge badge-danger'>01.06.2026 11:31:41 AM</span>
+<span class='badge badge-default'>00:00:34:531</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -198,7 +198,7 @@ max-width: 200px;
       </div>
               </div>
               <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
-                <span>And click "View Detailed Progress"</span>
+                <span>And click "View Detailed Progress "</span>
       <div>
       </div>
               </div>
@@ -232,22 +232,16 @@ max-width: 200px;
       <div>
       </div>
               </div>
-              <div class="step fail-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
-                <span>And click "Please Select"</span>
+              <div class="step fail-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click on the element with id as "present_owners_list"</span>
       <div>
-        <textarea disabled class="code-block">com.nimble.exception.ElementNotFoundException: Element with text [Please Select] not found or not visible.
-	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:412)
-	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:1)
-	at com.nimble.stepDefinitions.BaseSteps.getElement(BaseSteps.java:277)
-	at com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(UserActionSteps.java:177)
-	at ✽.click "Please Select"(file:///Users/mac/Documents/viom-studio/test_suite_repositories/sample-test-suites-repo-1767091758999/test-suite-1765783670576/execution_20260106_122203/src/test/java/com/nimble/feature/loanPorcessing.feature:198)
+        <textarea disabled class="code-block">com.nimble.exception.ElementNotFoundException: Element with ID [present_owners_list] not found by either id or data-id.
+	at com.nimble.interactors.WebAppInteractor.getElementByExactIdWithOptionalIndex(WebAppInteractor.java:615)
+	at com.nimble.interactors.WebAppInteractor.getElementByExactIdWithOptionalIndex(WebAppInteractor.java:1)
+	at com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(UserActionSteps.java:398)
+	at ✽.click on the element with id as "present_owners_list"(file:///Users/mac/Documents/viom-studio/test_suite_repositories/sample-test-suites-repo-1767091758999/test-suite-1765783670576/execution_20260106_113037/src/test/java/com/nimble/feature/loanPorcessing.feature:198)
 </textarea>
       
-      </div>
-              </div>
-              <div class="step skip-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickOnElementGeneric(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
-                <span>And click on the element with id as "present_owners_list"</span>
-      <div>Step skipped
       </div>
               </div>
               <div class="step skip-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
@@ -332,9 +326,9 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>12:24:13 PM</td>
+<td>11:31:41 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='29'>com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</a>
+<a href="#" class="linked" test-id='1' id='28'>com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</a>
 <div class="">
 <span class="badge badge-default">Credit feature.Legal Complete.com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
 </div>
@@ -368,11 +362,11 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>12:23:13 PM</td>
+<td>11:31:40 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='23'>And click "Please Select"</a>
+<a href="#" class="linked" test-id='1' id='23'>And click on the element with id as "present_owners_list"</a>
 <div class="">
-<span class="badge badge-default">Credit feature.Legal Complete.And click "Please Select"</span>
+<span class="badge badge-default">Credit feature.Legal Complete.And click on the element with id as "present_owners_list"</span>
 </div>
 </td>
 </tr>
@@ -420,7 +414,7 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>12:22:34 PM</td>
+<td>11:31:06 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Legal Complete</a>
 <div class="">
@@ -456,7 +450,7 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>12:22:34 PM</td>
+<td>11:31:06 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Legal Complete</a>
 <div class="">
@@ -492,7 +486,7 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>12:22:34 PM</td>
+<td>11:31:06 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Legal Complete</a>
 <div class="">
@@ -517,13 +511,13 @@ max-width: 200px;
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jan 6, 2026 12:22:20 PM</h3>
+<h3>Jan 6, 2026 11:30:54 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jan 6, 2026 12:24:15 PM</h3>
+<h3>Jan 6, 2026 11:31:42 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -594,10 +588,10 @@ max-width: 200px;
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='73%'><b>19</b> steps passed</small></div>
+<div><small data-tooltip='76%'><b>19</b> steps passed</small></div>
 <div>
-<small data-tooltip='7%'><b>2</b> steps failed,
-<b>5</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='8%'><b>2</b> steps failed,
+<b>4</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -613,7 +607,7 @@ max-width: 200px;
 </div></div>
 <script>
 var timeline = {
-"Credit feature":100.794
+"Credit feature":34.531
 };
 </script>
 <div class="row">
@@ -669,7 +663,7 @@ grandChildCount: 5,
 passGrandChild: 19,
 failGrandChild: 2,
 warningGrandChild: 0,
-skipGrandChild: 5,
+skipGrandChild: 4,
 infoGrandChild: 0,
 eventsCount: 5,
 };

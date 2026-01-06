@@ -86,3 +86,65 @@ And click on the element with id as "remark"
 And enter "testing"
 And click "Submit"
 And Wait 5 sec
+
+@technicalCom
+Scenario: Technical Complete
+{module:LMS_Login(lms_username="jeevan.patil@vastufinserve.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1762504418131")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+{module:applicationStage_Open}
+And check that screen contains "Initiated"
+And wait 2 sec
+And click on the 4th "Initiated" inside span with exact phrase
+And switch to last opened tab
+And wait 5 sec
+And check that screen contains "Property Details"
+And check that screen contains "As Per Govt. Value Of Property"
+And check that screen contains "Valuation Of Property "
+And wait 2 sec
+And click on the element with id as "ploat_as_per_plan"
+And type "1800"
+And wait 5 sec  
+And click on the element with id as "ploat_as_per_site"
+And type "1800"
+And wait 3 sec
+And enter "Jeevan Patil" into "Please Enter Name of Current Owner"
+And wait 3 sec
+And click on the element with id as "current_owner_name"
+And type "Jeevan Patil"
+And click on the element with id as "date_of_inspection"
+And click on the 1st "5" inside div with class "ant-picker-cell-inner" with exact phrase
+And wait 2 sec 
+And click on the element with id as "mobile"
+And type "7387767401"
+And click on the element with id as "ploat_as_per_plan"
+And type "1800"
+And click on the element with id as "ploat_as_per_site"
+And type "1800"
+And check that screen contains "Proposed Construction area"
+And check that screen contains "Amenities"
+And wait 3 sec
+And enter "1200" into "ploat_as_per_plan" with exact phrase
+And wait 5 sec
+
+@legalcom
+Scenario: Legal Complete
+{module:LMS_Login(lms_username="jeevan.patil@vastufinserve.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1762504418131")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+{module:applicationStage_Open}
+And check that screen contains "Initiated"
+And wait 2 sec
+And click on the 3rd "Initiated" inside span with exact phrase
+And switch to last opened tab
+And wait 5 sec
+And click "Please Select"
+And click on the element with id as "present_owners_list"
+And click on the 1st "VANDANA DAGA SHEWALE (Applicant)" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 3 sec
+And click on the element with id as "unit_type"
+And wait 2 sec
