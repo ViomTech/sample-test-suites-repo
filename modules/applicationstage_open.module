@@ -1,11 +1,11 @@
 id: 70dea5f9-e947-4c87-a2c2-856f74cee5e0
 name: applicationStage_Open
-description: null
+description: ''
 isGlobal: false
 testSuiteId: test-suite-1765783670576
 parameters: []
 content: |-
-  And click "View Detailed Progress "
+  And click "View Detailed Progress"
   And check that screen contains "Application Stages"
 createdAt: '2025-12-16T08:47:20.036457100Z'
-updatedAt: '2025-12-16T08:47:20.036457100Z'
+updatedAt: '2026-01-06T06:51:38.779616Z'

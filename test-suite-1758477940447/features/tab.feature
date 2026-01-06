@@ -24,4 +24,5 @@ And wait 2 sec
 And click "{el:WebTables}"
 And wait 2 sec
 And check that web table with class "rt-table" where column 0 contains "Cierra" then column 1 equals "Vega"
-And wait 10 sec
+And wait 5 sec
+And click "{el:DemoTableEdit}"
