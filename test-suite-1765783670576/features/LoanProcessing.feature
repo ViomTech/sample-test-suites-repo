@@ -3,8 +3,8 @@ Feature: Credit feature
 
 @sanity
 Scenario: Lead scenario
-{module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767185201830")}
+{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1767368018353")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
@@ -12,7 +12,6 @@ And switch to last opened tab
 And check that screen contains "Lead"
 And check that screen contains "Completed"
 And wait 2 sec
-And click "{el:StageClose}"
 
 @sanity
 Scenario: Qc scenario
@@ -21,7 +20,7 @@ And check that screen contains "Initiated"
 And click on the element with class "stage_icons" at index 2
 And wait 2 sec
 And click on the element with id as "user"
-And click "lakhan (118)" 
+And click "Rohit Shinde (07690)" 
 And click on the element with class "ant-btn css-4hvg6c ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined fixed-width-button"
 And check that screen contains "Completed"
 And wait 3 sec
@@ -184,8 +183,8 @@ And wait 5 sec
 
 @legal
 Scenario: Legal Scenario
-{module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1766820117959")}
+{module:LMS_Login(lms_username="kalyani.deshmukh@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1766840122355")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
@@ -198,7 +197,7 @@ And wait 5 sec
 And click on the element with id as "check_type"
 And click on the 1st "Internal" inside div with class "ant-select-item-option-content" with exact phrase
 And click on the element with id as "user"
-And click on the 1st "jeeevan patil (456666)" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the 1st "Kalyani Deshmukh (EMP90232)" inside div with class "ant-select-item-option-content" with exact phrase
 And click on the element with id as "transaction_type"
 And click on the 1st "Fresh Transaction" inside div with class "ant-select-item-option-content" with exact phrase
 And wait 2 sec
