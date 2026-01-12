@@ -131,20 +131,58 @@ And wait 5 sec
 
 @legalcom
 Scenario: Legal Complete
-{module:LMS_Login(lms_username="jeevan.patil@vastufinserve.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1762504418131")}
+{module:LMS_Login(lms_username="farheen.ansari@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1766840122355")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
 {module:applicationStage_Open}
 And check that screen contains "Initiated"
 And wait 2 sec
-And click on the 3rd "Initiated" inside span with exact phrase
+And click "{el:Legal-Initiated-355}"
 And switch to last opened tab
 And wait 5 sec
-And click "Please Select"
-And click on the element with id as "present_owners_list"
-And click on the 1st "VANDANA DAGA SHEWALE (Applicant)" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "present_owners_list" 
+And click on the 1st "ISHWAR BHIMA RATHOD (Applicant)" inside div with class "ant-select-item-option-content" with exact phrase
 And wait 3 sec
+And enter "650" into "Please Enter Area of Property"
 And click on the element with id as "unit_type"
 And wait 2 sec
+And click on the 1st "Sq.Yard" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 1 sec
+And enter "RD Circle Karmayogi Nagar Nashik" into "Please Enter Address Line 1"
+And enter "RD Circle Karmayogi Nagar Nashik" into "Please Enter Address Line 2"
+And enter "Nashik" into "Please Enter Landmark"
+And click on the element with id as "city"
+And click on the 1st "Nashik" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "taluka"
+And type "Nashik"
+And click on the element with id as "district"
+And click on the 1st "Nashik" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "state"
+And click on the 1st "Maharashtra" inside div with class "ant-select-item-option-content" with exact phrase
+And click on the element with id as "country"
+And click "India"
+And wait 3 sec
+And enter "Remaining Property" into "Please Enter On East Side"
+And wait 1 sec 
+And enter "Row House No. 212" into "Please Enter On West Side" with exact phrase
+And enter "Plot of Nirmla Devi etc. 45" into "Please Enter On North Side"
+And wait 2 sec Please
+And enter "Part B Harbans Singh 48" into "Enter On South Side"
+And wait 3 sec
+And enter "12-01-2026" into "DD-MM-YYYY" 
+And wait 2 sec
+And click "{el:AddDocuments_LegalOpinion}"
+And enter "Document" into "Enter document" with exact phrase
+And click on the element wit id as "documents_0_document_type"
+And click on the 1st "Certified" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec 
+And click "{el:Legal_Opinion_Submit}"
+And wait 2 sec
+And click "{el:AddDocuments_legal_Disbursement}"
+And enter "Document" into 2nd "Enter document" with exact phrase
+And click on the element wit id as "documents_0_document_type"
+And click on the 1st "Certified" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec 
+And click "{el:LegalDisbursement_Submit}"
