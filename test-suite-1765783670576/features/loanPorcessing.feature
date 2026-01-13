@@ -139,16 +139,18 @@ And switch to last opened tab
 {module:applicationStage_Open}
 And check that screen contains "Initiated"
 And wait 2 sec
-And click "{el:Legal-Initiated-355}"
+And click "{el:Legal_Initiated_2355}"
 And switch to last opened tab
 And wait 5 sec
-And click on the element with id as "present_owners_list" 
-And click on the 1st "ISHWAR BHIMA RATHOD (Applicant)" inside div with class "ant-select-item-option-content" with exact phrase
+And click "Please select"
+#click on the 1st "ISHWAR BHIMA RATHOD (Applicant)" inside div with class "ant-select-item-option-content" with exact phrase
+And click "ISHWAR BHIMA RATHOD (Applicant)"
 And wait 3 sec
 And enter "650" into "Please Enter Area of Property"
 And click on the element with id as "unit_type"
 And wait 2 sec
-And click on the 1st "Sq.Yard" inside div with class "ant-select-item-option-content" with exact phrase
+And click "Sq.Yard"
+#click on the 1st "Sq.Yard" inside div with class "ant-select-item-option-content" with exact phrase
 And wait 1 sec
 And enter "RD Circle Karmayogi Nagar Nashik" into "Please Enter Address Line 1"
 And enter "RD Circle Karmayogi Nagar Nashik" into "Please Enter Address Line 2"
