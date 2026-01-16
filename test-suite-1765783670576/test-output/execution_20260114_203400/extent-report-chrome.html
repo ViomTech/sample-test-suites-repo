@@ -43,7 +43,7 @@ max-width: 200px;
 <a href="#"><span class="badge badge-primary">Nimble Test Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jan 14, 2026 09:57:35 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jan 14, 2026 08:34:16 PM</span></a>
 </li>
 </ul>
 </div>
@@ -105,7 +105,7 @@ max-width: 200px;
           <div class="test-detail">
             <p class="name">Credit feature</p>
             <p class="text-sm">
-              <span>9:57:46 PM</span> / <span>00:06:50:380</span>
+              <span>8:34:26 PM</span> / <span>00:08:45:026</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -114,9 +114,9 @@ max-width: 200px;
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Credit feature</h5>
-<span class='badge badge-success'>01.14.2026 9:57:46 PM</span>
-<span class='badge badge-danger'>01.14.2026 10:04:36 PM</span>
-<span class='badge badge-default'>00:06:50:380</span>
+<span class='badge badge-success'>01.14.2026 8:34:26 PM</span>
+<span class='badge badge-danger'>01.14.2026 8:43:11 PM</span>
+<span class='badge badge-default'>00:08:45:026</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -617,53 +617,42 @@ max-width: 200px;
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.typeText(java.lang.String)">
-                <span>And type "Legal Report"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+              <div class="step fail-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
                 <span>And click on the 1st "Legal Report" inside div with class "ant-select-item-option-content" with exact phrase</span>
       <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
-                <span>And wait 2 sec</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.FileSteps.uploadFileToInput(java.lang.String,java.lang.String)">
-                <span>And upload file "/Users/mac/Downloads/LP0000000085144.pdf" to "input[id='document_path']"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
-                <span>And wait 2 sec</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
-                <span>And click "Submit" inside span</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
-                <span>And wait 10 sec</span>
-      <div>
-      </div>
-              </div>
-              <div class="step fail-bg" title="com.nimble.stepDefinitions.AssertSteps.checkTextOnScreen(java.lang.String,java.lang.String)">
-                <span>And check that screen contains "Loan Application Progress"</span>
-      <div>
-        <textarea disabled class="code-block">java.lang.AssertionError: Element 'Loan Application Progress' not found or not visible. expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:110)
-	at org.testng.Assert.failNotEquals(Assert.java:1413)
-	at org.testng.Assert.assertTrue(Assert.java:56)
-	at com.nimble.stepDefinitions.AssertSteps.assertCondition(AssertSteps.java:195)
-	at com.nimble.stepDefinitions.AssertSteps.checkTextOnScreen(AssertSteps.java:149)
-	at ✽.check that screen contains "Loan Application Progress"(file:///Users/mac/Documents/viom-studio/test_suite_repositories/sample-test-suites-repo-1768285813059/test-suite-1765783670576/execution_20260114_215718/src/test/java/com/nimble/feature/loanPorcessing.feature:304)
+        <textarea disabled class="code-block">com.nimble.exception.ElementNotFoundException: Element with text [Legal Report] not found or not visible.
+	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:431)
+	at com.nimble.interactors.WebAppInteractor.getElementByVisibleText(WebAppInteractor.java:1)
+	at com.nimble.stepDefinitions.BaseSteps.getElement(BaseSteps.java:296)
+	at com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(UserActionSteps.java:266)
+	at ✽.click on the 1st "Legal Report" inside div with class "ant-select-item-option-content" with exact phrase(file:///Users/mac/Documents/viom-studio/test_suite_repositories/sample-test-suites-repo-1768285813059/test-suite-1765783670576/execution_20260114_203400/src/test/java/com/nimble/feature/loanPorcessing.feature:297)
 </textarea>
       
+      </div>
+              </div>
+              <div class="step skip-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="com.nimble.stepDefinitions.FileSteps.uploadFileToInput(java.lang.String,java.lang.String)">
+                <span>And upload file "/Users/mac/Downloads/LP0000000085144.pdf" to "input[id='document_path']"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 2 sec</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="com.nimble.stepDefinitions.UserActionSteps.clickActionMerged(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                <span>And click "Submit" inside span</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="com.nimble.stepDefinitions.WaitSteps.wait(int)">
+                <span>And wait 5 sec</span>
+      <div>Step skipped
       </div>
               </div>
               <div class="step fail-bg" title="AFTER">
@@ -709,6 +698,42 @@ max-width: 200px;
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
+<p class="name">com.nimble.exception.ElementNotFoundException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>com.nimble.exception.ElementNotFoundException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:39:59 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='100'>And click on the 1st "Legal Report" inside div with class "ant-select-item-option-content" with exact phrase</a>
+<div class="">
+<span class="badge badge-default">Credit feature.Legal Complete.And click on the 1st "Legal Report" inside div with class "ant-select-item-option-content" with exact phrase</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
 <p class="name">java.lang.RuntimeException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
@@ -728,47 +753,11 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>22:04:36 PM</td>
+<td>20:43:08 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='108'>com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</a>
+<a href="#" class="linked" test-id='1' id='106'>com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</a>
 <div class="">
 <span class="badge badge-default">Credit feature.Legal Complete.com.nimble.hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">java.lang.AssertionError</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>java.lang.AssertionError</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>22:03:36 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='107'>And check that screen contains "Loan Application Progress"</a>
-<div class="">
-<span class="badge badge-default">Credit feature.Legal Complete.And check that screen contains "Loan Application Progress"</span>
 </div>
 </td>
 </tr>
@@ -816,7 +805,7 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>21:57:46 PM</td>
+<td>20:34:26 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Legal Complete</a>
 <div class="">
@@ -852,7 +841,7 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>21:57:46 PM</td>
+<td>20:34:26 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Legal Complete</a>
 <div class="">
@@ -888,7 +877,7 @@ max-width: 200px;
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>21:57:46 PM</td>
+<td>20:34:26 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Legal Complete</a>
 <div class="">
@@ -913,13 +902,13 @@ max-width: 200px;
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jan 14, 2026 09:57:35 PM</h3>
+<h3>Jan 14, 2026 08:34:16 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jan 14, 2026 10:04:36 PM</h3>
+<h3>Jan 14, 2026 08:43:14 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -990,10 +979,10 @@ max-width: 200px;
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='98%'><b>103</b> steps passed</small></div>
+<div><small data-tooltip='93%'><b>96</b> steps passed</small></div>
 <div>
 <small data-tooltip='1%'><b>2</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<b>5</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -1009,7 +998,7 @@ max-width: 200px;
 </div></div>
 <script>
 var timeline = {
-"Credit feature":410.38
+"Credit feature":525.026
 };
 </script>
 <div class="row">
@@ -1062,10 +1051,10 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 103,
+passGrandChild: 96,
 failGrandChild: 2,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 5,
 infoGrandChild: 0,
 eventsCount: 5,
 };
