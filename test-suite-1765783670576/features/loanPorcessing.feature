@@ -1,6 +1,57 @@
 @loan_details @regression
 Feature: Credit feature
 
+Scenario:Rate of approval scenario
+{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1767368018496")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+#initiation
+And click on the element with id as "rc_select_0"
+And wait 2 sec
+And click on the 1st "Rate Approval" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 3 sec
+And click on the element with class "go_button_div"
+And wait 2 sec
+And click on the element with id as "assigned_to"
+And wait 3 sec
+And enter "Rohit Shinde"
+And wait 2 sec
+And click "Rohit Shinde" inside div with class "ant-select-item-option-content"
+And wait 3 sec
+And enter "Testing" into "Please Enter Remark"
+And wait 2 sec
+And click "{el:RateApInitiate}"
+And wait 5 sec
+
+@Rate
+Scenario:Rate of approval scenario
+{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
+{module:LMS_view_details(LAN_value="APP1767368018496")}
+And click on the element with class "view_button_loan_list"
+And wait 2 sec
+And switch to last opened tab
+And wait 3 sec
+{module:applicationStage_Open}
+And wait 2 sec
+And click "{el:rateComplete}"
+And wait 15 sec
+And click on the element with id as "loan_status"
+And wait 3 sec
+And click "Approved" inside div with class "ant-select-item-option-content"
+And wait 3 sec
+And click on the 2nd "{el:rateApprovalSubmit}"
+And wait 3 sec
+And click on the element with id as "skip_imd"
+And wait 2 sec
+And click "Yes" inside div with class "ant-select-item-option-content"
+And wait 2 sec 
+And click on the element with id as "skip_imd_reason"
+And enter "testing"
+And wait 3 sec
+And click "{el:RateApSubmit}"
+
 @rcu
 Scenario: Rcu scenario
 {module:LMS_Login(lms_username="gaurav.g@vastuhfc.com", lms_password="Vastu@123")}
