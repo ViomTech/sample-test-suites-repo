@@ -19,9 +19,9 @@ And wait 5 sec
 
 @table_test
 Scenario: web table scenario
-And click "Elements" with exact phrase
-And wait 2 sec
-And click "{el:WebTables}"
+#click "Elements" with exact phrase
+#wait 2 sec
+#click "{el:WebTables}"
 And wait 2 sec
 And check that web table with class "rt-table" where column 0 contains "Cierra" then column 1 equals "Vega"
 And wait 5 sec
