@@ -13,7 +13,7 @@ And check that screen contains "Lead"
 And check that screen contains "Completed"
 And wait 2 sec
 
-#@sanity
+@sanity
 Scenario: Qc scenario
 And check that screen contains "QC"
 And check that screen contains "Initiated"
