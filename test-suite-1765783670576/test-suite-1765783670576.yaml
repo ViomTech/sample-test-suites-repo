@@ -5,4 +5,4 @@ tags: ['@loan_details', '@regression', '@rcu', '@principal', '@dedupetest', '@te
   '@legalcom', '@testing', '@pd', '@lms', '@technical', '@legal', '@rate', '@lms_api',
   '@apiTest', '@apiCustomerDetails', '@apiCustomerAddressDetails', '@apiSelfEmployed']
 environments: {}
-featureFiles: [features/LoanProcessing.feature, features/loanPorcessing.feature, features/loanProcessing_api.feature]
+featureFiles: [features/LMS_MAIN.feature, features/Gaurav_Lms.feature, features/LMS_API.feature]
