@@ -1,0 +1,18 @@
+id: 96211fbe-863d-4a06-b5cf-40d1b0babb65
+name: logOut_LogIn
+description: ''
+isGlobal: false
+testSuiteId: test-suite-1765783670576
+parameters:
+- userName
+- password
+content: |-
+  And click on the element with class "dropdown_img"
+  And click "Log Out"
+  And wait 5 sec
+  And enter "{userName}" into "Enter your email"
+  And enter "{password}" into "Enter your password"
+  And wait 3 sec
+  And click "Sign in"
+createdAt: '2026-01-27T08:46:12.312800Z'
+updatedAt: '2026-01-27T08:46:12.312800Z'

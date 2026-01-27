@@ -27,4 +27,8 @@ modules:
   name: dedupe_OverallStatus
   isGlobal: false
   testSuiteId: test-suite-1765783670576
-lastUpdated: '2026-01-06T06:51:39.013191Z'
+- id: 96211fbe-863d-4a06-b5cf-40d1b0babb65
+  name: logOut_LogIn
+  isGlobal: false
+  testSuiteId: test-suite-1765783670576
+lastUpdated: '2026-01-27T08:46:14.188078Z'

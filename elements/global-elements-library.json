@@ -1,0 +1,21 @@
+[ {
+  "id" : "8caa98ed-e58f-41f8-9971-2ec022721a30",
+  "name" : "edit3",
+  "description" : null,
+  "elementType" : "span",
+  "cssSelector" : "span",
+  "xpath" : "//div[contains(@class, \"ant-space-item\")]/button[contains(@class, \"ant-btn\")]/span",
+  "testSuiteId" : null,
+  "testSuiteName" : null,
+  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/vrrFF2xU2EPLyTseyFnO_iYjN3skcfwlJoLEZCqao10",
+  "pageTitle" : "Vastu | LMS",
+  "screenshotPath" : null,
+  "attributes" : {
+    "text" : "Initiate"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-01-27T10:08:28.418772Z",
+  "updatedAt" : "2026-01-27T10:08:28.418772Z",
+  "createdBy" : null,
+  "active" : true
+} ]
