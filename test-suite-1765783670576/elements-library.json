@@ -63,24 +63,6 @@
   "createdBy" : null,
   "active" : true
 }, {
-  "id" : "d8ff0284-6435-4214-8c4c-653c4faf9e3a",
-  "name" : "Income_AddScheme_button",
-  "description" : null,
-  "elementType" : "svg",
-  "cssSelector" : "svg",
-  "xpath" : "//table//tbody/tr[contains(@class, \"ant-table-row\")][1]/td[contains(@class, \"ant-table-cell\")][1]/div/div[2]/span[contains(@class, \"anticon\")]/svg",
-  "testSuiteId" : "test-suite-1765783670576",
-  "testSuiteName" : null,
-  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/1fY8vRmr2Dv1IM5wJzzitRmiLAi1AZ1vQp-rW0KEM20",
-  "pageTitle" : "Vastu | LMS",
-  "screenshotPath" : null,
-  "attributes" : { },
-  "tags" : [ ],
-  "createdAt" : "2026-01-27T09:25:32.302562Z",
-  "updatedAt" : "2026-01-27T09:25:32.302562Z",
-  "createdBy" : null,
-  "active" : true
-}, {
   "id" : "a601e72f-9d3f-4417-9878-b31c709614be",
   "name" : "incomeDec2025",
   "description" : null,
@@ -719,26 +701,6 @@
   "createdBy" : null,
   "active" : true
 }, {
-  "id" : "8caa98ed-e58f-41f8-9971-2ec022721a30",
-  "name" : "rateApprovalComplete",
-  "description" : null,
-  "elementType" : "span",
-  "cssSelector" : "span",
-  "xpath" : "//table//tbody/tr[contains(@class, \"ant-table-row\")][13]/td[contains(@class, \"ant-table-cell\")][8]/img[contains(@class, \"stage_icons\")][1]",
-  "testSuiteId" : "test-suite-1765783670576",
-  "testSuiteName" : null,
-  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/vrrFF2xU2EPLyTseyFnO_iYjN3skcfwlJoLEZCqao10",
-  "pageTitle" : "Vastu | LMS",
-  "screenshotPath" : null,
-  "attributes" : {
-    "text" : "Initiate"
-  },
-  "tags" : [ ],
-  "createdAt" : "2026-01-27T10:08:28.418772Z",
-  "updatedAt" : "2026-01-27T10:15:57.223039Z",
-  "createdBy" : null,
-  "active" : true
-}, {
   "id" : "a9c402bd-bfe0-4e84-971d-f5267c2b1fd9",
   "name" : "Dedupe_OverAll_Status_tab",
   "description" : null,
@@ -820,6 +782,103 @@
   "tags" : [ ],
   "createdAt" : "2026-01-27T10:25:55.385729Z",
   "updatedAt" : "2026-01-27T10:25:55.385729Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "c6e851a3-5476-4f98-99f4-50a909c72513",
+  "name" : "finalApprovalSubmit",
+  "description" : null,
+  "elementType" : "span",
+  "cssSelector" : "span",
+  "xpath" : "//div[4]/button[contains(@class, \"ant-btn\") and position()=2]/span",
+  "testSuiteId" : "test-suite-1765783670576",
+  "testSuiteName" : null,
+  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/vA5FW_wCz3eue2SAPir86c_6q5n8LN-2tEcUysjEtx8?dw=Qmv21bwHNP1ZZGY_sDzUOvkKGqNs-jifbmGoxoyYmLk&apt=7azGxCd9UPwKuPDYaHg8u1uW0YSHEg9C3WIz-VBp2fc&ss=nlz3PtKpDsN7pLK_QpWY9A5Wc_X-W1w0z6daZ-9O2dQ&sid=woSitm_PnCj0uH2sEQ-DtpXyGdzv5SN8fyJunVPPIHI",
+  "pageTitle" : "Vastu | LMS",
+  "screenshotPath" : null,
+  "attributes" : {
+    "text" : "Submit"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-01-27T13:26:42.376909600Z",
+  "updatedAt" : "2026-01-27T13:26:42.376909600Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "73254d7c-605b-4e8e-b54f-71e0caa22325",
+  "name" : "Stage_close",
+  "description" : null,
+  "elementType" : "svg",
+  "cssSelector" : "svg",
+  "xpath" : "//span[text()='View']/following-sibling::*[name()='svg']",
+  "testSuiteId" : "test-suite-1765783670576",
+  "testSuiteName" : null,
+  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/xzA6GXf8m6S9nwjTmFaqO7ZhUBMUBX2lSI6iCAw3Ly0",
+  "pageTitle" : "Vastu | LMS",
+  "screenshotPath" : null,
+  "attributes" : { },
+  "tags" : [ ],
+  "createdAt" : "2026-01-27T15:25:00.665839700Z",
+  "updatedAt" : "2026-01-27T15:26:19.329003Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "d8ff0284-6435-4214-8c4c-653c4faf9e3a",
+  "name" : "Income_AddScheme_button",
+  "description" : null,
+  "elementType" : "svg",
+  "cssSelector" : "svg",
+  "xpath" : "//td[contains(@class,'ant-table-cell')] /div/div[1] /following-sibling::div/span",
+  "testSuiteId" : "test-suite-1765783670576",
+  "testSuiteName" : null,
+  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/1fY8vRmr2Dv1IM5wJzzitRmiLAi1AZ1vQp-rW0KEM20",
+  "pageTitle" : "Vastu | LMS",
+  "screenshotPath" : null,
+  "attributes" : { },
+  "tags" : [ ],
+  "createdAt" : "2026-01-27T09:25:32.302562Z",
+  "updatedAt" : "2026-01-28T08:24:56.700938600Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "8caa98ed-e58f-41f8-9971-2ec022721a30",
+  "name" : "Legal_certificate",
+  "description" : null,
+  "elementType" : "input",
+  "cssSelector" : "#documents_0_document_type",
+  "xpath" : "//table//tbody/tr[contains(@class, \"ant-table-row\")][2]/td[contains(@class, \"ant-table-cell\")][4]/div[contains(@class, \"ant-form-item\")]/div[contains(@class, \"ant-row\")]/div[contains(@class, \"ant-col\")]/div[contains(@class, \"ant-form-item-control-input\")]/div[contains(@class, \"ant-form-item-control-input-content\")]/div[contains(@class, \"ant-select\")]/div[contains(@class, \"ant-select-selector\")]/span[contains(@class, \"ant-select-selection-wrap\")]/span[contains(@class, \"ant-select-selection-search\")][1]/*[@id=\"documents_0_document_type\"]",
+  "testSuiteId" : "test-suite-1765783670576",
+  "testSuiteName" : null,
+  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/vrrFF2xU2EPLyTseyFnO_iYjN3skcfwlJoLEZCqao10",
+  "pageTitle" : "Vastu | LMS",
+  "screenshotPath" : null,
+  "attributes" : {
+    "text" : "Initiate"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-01-27T10:08:28.418772Z",
+  "updatedAt" : "2026-01-28T10:07:50.268972300Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "38341ede-69e1-4d58-812f-f599404cd214",
+  "name" : "sanctionSatusCompleted",
+  "description" : null,
+  "elementType" : "div",
+  "cssSelector" : "div.ant-select-item-option-content",
+  "xpath" : "//div[contains(@class, \"rc-virtual-list-holder-inner\")]/div[contains(@class, \"ant-select-item\") and position()=3]/div[contains(@class, \"ant-select-item-option-content\")]",
+  "testSuiteId" : "test-suite-1765783670576",
+  "testSuiteName" : null,
+  "pageUrl" : "https://lmsuat.vastucorp.com/loandetails/_jPTVwgEFrVRvQPhY0zFllKF3fT9MNgoqSDAIZNV1zU",
+  "pageTitle" : "Vastu | LMS",
+  "screenshotPath" : null,
+  "attributes" : {
+    "class" : "ant-select-item-option-content",
+    "text" : "Completed"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-01-28T10:11:25.449650700Z",
+  "updatedAt" : "2026-01-28T10:11:25.449650700Z",
   "createdBy" : null,
   "active" : true
 } ]

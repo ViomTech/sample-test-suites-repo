@@ -1,10 +1,9 @@
 @loan_details @regression 
 Feature: Credit feature
 
-@testing
 Scenario: Lead scenario
 {module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767368018472")}
+{module:LMS_view_details(LAN_value="APP1767368018476")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
@@ -21,13 +20,12 @@ And check that screen contains "Initiated"
 And click on the element with class "stage_icons" at index 2
 And wait 2 sec
 And click on the element with id as "user"
-And click "Rohit Shinde (07690)" 
+And click "Kalyani Deshmukh (09048)" 
 And click on the element with class "ant-btn css-4hvg6c ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined fixed-width-button"
 And check that screen contains "Completed"
 And wait 3 sec
 
 Scenario: AML scenario
-And check that screen contains following
 |AML|
 |Completed (Positive)|
 And wait 4 sec
@@ -37,17 +35,23 @@ And check that screen contains following
 |Dedupe|
 |Initiated|
 And click on the element with class "stage_icons" at index 2
+And wait 5 sec
 And click on the element with id as "user"
-And enter "Rohit"
-And click "Rohit Shinde (07690)"
+And wait 3 sec
+And enter "Kalyani"
+And wait 2 sec
+And click "Kalyani Deshmukh (09048)"
+And wait 4 sec
 And click on the element with id as "reason"
+And wait 3 sec
 And enter "reason"
+And wait 3 sec
 And click "Submit" inside span
 #click on the element with class "ant-btn-primary" at index 3
-And wait 3 sec
+And wait 4 sec
 And click "{el:Stage_close}"
-And wait 2 sec
-{module:logOut_LogIn(userName="value", password="value")}
+And wait 5 sec
+{module:logOut_LogIn(userName="kalyani.deshmukh@vastuhfc.com", password="Vastu@123")}
 And wait 3 sec
 {module:applicationStage_Open}
 And check that screen contains "Forward"
@@ -66,20 +70,15 @@ And click on the element with id as "status"
 And click "{el:Dedupe_StatusPositive}"
 #click on the 1st "Positive" inside div with class "ant-select-item-option-content" with exact phrase
 And click "{el:Dedupe_Submit}"
-And wait 3 sec
-And check that screen contains "Completed"
+And wait 5 sec
+{module:logOut_LogIn(userName="rohit.shinde@vastuhfc.com", password="Vastu@123")}
+And wait 10 sec
 
-#new code of pd and approval rate and final
 @pd
 Scenario:update constomer details scenario
-{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767368018472")}
-And click on the element with class "view_button_loan_list"
-And wait 2 sec
-And switch to last opened tab
-And wait 5 sec 
-And click on the element with class "tab_form_sub_edit" at index 2
 And wait 5 sec
+And click on the element with class "tab_form_sub_edit" at index 2
+And wait 3 sec
 And click on the element with id as "caste_category"
 And wait 2 sec
 And click "OBC" inside div with class "ant-select-item-option-content"
@@ -147,7 +146,6 @@ And wait 3 sec
 And click "{el:permanentAddressSubmit}"
 And wait 5 sec
 
-@pd
 Scenario: TelePd scenario
 And click on the element with id as "rc_select_0"
 And wait 2 sec
@@ -185,8 +183,9 @@ And enter "DONE" into "Please enter Credit Comments"
 And wait 2 sec
 And click "Submit" inside span
 And wait 5 sec
-{module:LogOut-In(email="rohit.shinde@vastuhfc.com", password="Vastu@123")}
-And wait 5 sec
+{module:logOut_LogIn(userName="rohit.shinde@vastuhfc.com", password="Vastu@123")}
+#{module:logOut_LogIn(userName="kalyani.deshmukh@vastuhfc.com", password="Vastu@123")}
+And wait 7 sec
 
 @pd
 Scenario: Physical_PD scenario
@@ -223,7 +222,7 @@ And enter "DONE" into "Please enter Credit Comments"
 And wait 2 sec
 And click "Submit" inside span
 And wait 5 sec
-{module:LogOut-In(email="rohit.shinde@vastuhfc.com", password="Vastu@123")}
+{module:logOut_LogIn(userName="kalyani.deshmukh@vastuhfc.com", password="Vastu@123")}
 And wait 5 sec
 
 @pd
@@ -264,18 +263,18 @@ And enter "DONE" into "Please enter Credit Comments"
 And wait 2 sec
 And click "Submit" inside span
 And wait 5 sec
-{module:LogOut-In(email="rohit.shinde@vastuhfc.com", password="Vastu@123")}
+{module:logOut_LogIn(userName="kalyani.deshmukh@vastuhfc.com", password="Vastu@123")}
 And wait 10 sec
 
+@sanity
 #new code of income
-@lms
 Scenario: income Evaluation scenario
 {module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767368018470")}
+{module:LMS_view_details(LAN_value="APP1767368018472")}
 And click on the element with class "view_button_loan_list"
 And wait 2 sec
 And switch to last opened tab
-And wait 3 sec
+And wait 5 sec
 And click "Underwriting"
 And wait 3 sec
 And click "{el:Income_AddScheme_button}"
@@ -332,8 +331,8 @@ And wait 3 sec
 #click "{el:statusSanction}"
 And click on the element with id as "status"
 And wait 2 sec 
-#click "{el:CompletedSanction}"
-And click "Completed" inside span with class "ant-select-item-option-content"
+And click "{el:sanctionSatusCompleted}"
+#click "Completed" inside span with class "ant-select-item-option-content"
 And wait 5 sec
 And click "{el:SubmitSanction}"
 And wait 5 sec
@@ -348,8 +347,8 @@ And wait 3 sec
 #click "{el:statusSanction}"
 And click on the element with id as "status"
 And wait 2 sec 
-#click "{el:CompletedSanction}"
-And click "Completed" inside span with class "ant-select-item-option-content"
+And click "{el:sanctionSatusCompleted}"
+#click "Completed" inside span with class "ant-select-item-option-content"
 And wait 5 sec
 And click "{el:SubmitSanction}"
 And wait 3 sec
@@ -377,19 +376,19 @@ And click "Add Household Expenses" inside span
 And wait 3 sec
 And click on the element with id as "data_0_frequency"
 And wait 2 sec 
-And click "Monthly" inside div with exact phrase
+And click "{el:Monthly1}" inside div with exact phrase
 And wait 2 sec
 And enter "5000" into the 1st "Please enter Amount"
 And wait 3 sec
 And click on the element with id as "data_1_frequency"
 And wait 2 sec
-And click "Monthly" inside div with exact phrase
+And click "{el:Monthly2}" inside div with exact phrase
 And wait 2 sec
 And enter "1000" into the 2nd "Please enter Amount"
 And wait 3 sec
 And click on the element with id as "data_2_frequency"
 And wait 3 sec 
-And click "Quarterly" inside div with exact phrase
+And click "{el:Monthly3}" inside div with exact phrase
 And wait 3 sec
 And enter "5000" into the 3rd "Please enter Amount"
 And wait 3 sec
@@ -491,19 +490,14 @@ And wait 5 sec
 #go to income tab
 And click "Income Evaluation" inside div
 And wait 2 sec
-And click "{el:completeIncomeEv}"
+#click "{el:completeIncomeEv}"
+And click on the element with class "stage_icons" at index 2
 And wait 3 sec
 And click "OK" inside span with exact phrase 
-And wait 3 sec
+And wait 10 sec
 
-
-@technical
+@sanity
 Scenario: Technical Scenario
-{module:LMS_Login(lms_username="kalyani.deshmukh@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767368018467")}
-And click on the element with class "view_button_loan_list"
-And wait 2 sec
-And switch to last opened tab
 And click on the element with id as "rc_select_0"
 And wait 2 sec
 And click on the 1st "Technical" inside div with class "ant-select-item-option-content" with exact phrase
@@ -513,9 +507,12 @@ And wait 5 sec
 And click on the element with id as "check_type"
 And click on the 1st "Internal" inside div with class "ant-select-item-option-content" with exact phrase
 And click on the element with id as "user"
-And click on the 1st "Kalyani Deshmukh (09048)" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 3 sec
+And click on the 1st "Niraj Khare (13456)" inside div with class "ant-select-item-option-content" with exact phrase
+And wait 2 sec
 And click on the element with id as "add_cc"
-And type "kalyani.deshmukh@vastuhfc.com"
+And wait 3 sec
+And type "Niraj.Khare@vastuhfc.com"
 And click on the element with id as "remark"
 And type "testing"
 And click on the element with class "ant-checkbox-input" at index 2
@@ -828,14 +825,8 @@ And wait 2 sec
 And click "OK" inside span with exact phrase
 And wait 10 sec
 
-
-@legal
+@sanity
 Scenario: Legal Scenario
-{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1766840122355")}
-And click on the element with class "view_button_loan_list"
-And wait 2 sec
-And switch to last opened tab
 And click on the element with id as "rc_select_0"
 And wait 2 sec
 And click on the 1st "Legal" inside div with class "ant-select-item-option-content" with exact phrase
@@ -977,14 +968,9 @@ And click "Submit" inside span
 And wait 10 sec
 And check that screen contains "Loan Application Progress"
 
+@sanity
 #Rcu And Principal new code 
-@rcu
 Scenario: Rcu scenario
-{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767368018469")}
-And click on the element with class "view_button_loan_list"
-And wait 2 sec
-And switch to last opened tab
 # RCU Initiation
 And click on the element with id as "rc_select_0"
 And wait 2 sec
@@ -1090,8 +1076,7 @@ And wait 2 sec
 And click "OK" inside span with exact phrase
 And wait 3 sec
 
-
-@principal
+@sanity
 Scenario: Principal Aproval
 {module:LMS_Login(lms_username=""kalyani.deshmukh@vastuhfc.com", lms_password="Vastu@123")}
 {module:LMS_view_details(LAN_value="APP1767368018496")}
@@ -1124,14 +1109,9 @@ And wait 2 sec
 And click on the 3rd "Submit" inside span with exact phrase 
 And wait 5 sec 
 
+@sanity
 #new codeof rate
-@rate
-Scenario:Rate of approval scenario
-{module:LMS_Login(lms_username="rohit.shinde@vastuhfc.com", lms_password="Vastu@123")}
-{module:LMS_view_details(LAN_value="APP1767368018467")}
-And click on the element with class "view_button_loan_list"
-And wait 2 sec
-And switch to last opened tab
+Scenario:Rate approval scenario
 #initiation
 And click on the element with id as "rc_select_0"
 And wait 2 sec
