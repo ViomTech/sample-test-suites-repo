@@ -1,0 +1,10 @@
+
+# Test output and reports (auto-added by Viom Studio)
+test-output/
+reports/
+extent-reports/
+screenshots/
+allure-results/
+target/
+*.log
+step_metrics.db
