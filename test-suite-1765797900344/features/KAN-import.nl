@@ -3,43 +3,35 @@ Feature: Banking Application Test Suite
 
 @smoke
 Scenario: User accesses the application with valid access information
-Given the user is on the access page
-When the user enters "validAccessCode" into "Access code" field
-Then the "Access" button should be enabled
+Given the user is on the access screen
+When the user enters a valid access code into the "Access code" field
+Then the "access" button should be enabled
 
 @smoke
-Scenario: User accesses the application with invalid access information
-Given the user is on the access page
-When the user enters "invalidAccessCode" into "Access code" field
-Then the error message "Your access details did not match" should appear
-
-@smoke
-Scenario: View Dashboard
-Given the dashboard is visible
+Scenario: Dashboard visibility
+Given the user is on the dashboard
 Then the label "Welcome to digibank" should be present
 And the "Transfer" icon should be clickable
 And the account balance should be displayed as "₹10,536.65"
 
-Scenario: Fund Transfer with invalid amount
+Scenario: Fund transfer with invalid amount
 Given the Fund transfer screen with a selected payee is visible
-When the user enters "invalidAmount" into "Amount" field
+When the user enters "₹0.75" into the "Amount" field
 And the user taps on "Fund Transfer"
-Then the error message "Please enter a valid amount." should appear
+Then error message "Please enter a valid amount." should appear
 
-Scenario: Fund Transfer screen visibility
+Scenario: Fund transfer with no payee selected
 Given the Fund transfer screen is visible
-Then the balance "₹10,536.65" should be displayed under "digiSavings"
-And the "Remaining transfer limit ₹5,00,000.0" should be displayed
-When the user taps on "Select payee"
-Then the payee selection screen should be displayed
+When the user taps on "Fund Transfer"
+Then error message "Please select a payee." should appear
 
-Scenario: Payee Selection screen validation
+Scenario: Payee selection screen visibility
 Given the payee selection screen is visible
 Then a search input with placeholder "Enter VPA, payee name or mobile no." should be present
 And the "Add new payee" button should be visible
 And a list of existing payees should be displayed
 
-Scenario: Payment Completion Confirmation
+Scenario: Payment completion confirmation
 Given the Payment completed screen is visible
 When the screen loads
 Then the message "Payment completed!" should be displayed
@@ -51,7 +43,7 @@ And the amount "₹1.25" should be displayed
 When the user taps "DONE"
 Then the app should navigate to the main screen
 
-Scenario: Review Transfer Details
+Scenario: Review transfer details
 Given the Review transfer screen is visible
 When the screen loads
 Then the label "From" should be visible with the text "AMIT GUPTA digiSavings amitgupta2201@dbs"

@@ -1,0 +1,6 @@
+id: test-suite-1768117601307
+name: mainframe-demo
+description: Demo of mainframe app
+tags: ['@test-mainframe']
+environments: {}
+featureFiles: [features/test-mainframe.feature]

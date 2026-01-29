@@ -1,7 +1,6 @@
+id: test-suite-1758106044302
 name: Dummy App
 description: ''
-tags: ['@regression', '@smoke']
+tags: ['@lms_api', '@regression', '@apiTest']
 environments: {}
-featureFiles: [features/dummy.feature, features/AI-assisted-script.feature, features/nlp.feature,
-  features/KAN-import.feature]
-id: test-suite-1758106044302
+featureFiles: [features/lms-test.feature]

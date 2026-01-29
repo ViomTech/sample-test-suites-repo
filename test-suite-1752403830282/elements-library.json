@@ -1,0 +1,67 @@
+[ {
+  "id" : "372b8854-8b01-415c-9c92-a0581c1a6bc4",
+  "name" : "Loginwithemail",
+  "description" : null,
+  "elementType" : "button",
+  "cssSelector" : "button.email-login",
+  "xpath" : "//button[@type=\"button\" and text()=\"Log in with email\"]",
+  "testSuiteId" : "test-suite-1752403830282",
+  "testSuiteName" : null,
+  "pageUrl" : "https://mysinglife.singlife.com/account/login",
+  "pageTitle" : "MySinglife",
+  "screenshotPath" : null,
+  "attributes" : {
+    "text" : "Log in with email",
+    "type" : "button",
+    "class" : "email-login"
+  },
+  "tags" : [ ],
+  "createdAt" : "2025-12-16T04:30:58.784084Z",
+  "updatedAt" : "2025-12-16T04:30:58.784120Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "20b82763-0b82-445f-b5f1-18826675e6a3",
+  "name" : "email",
+  "description" : null,
+  "elementType" : "input",
+  "cssSelector" : "#input28",
+  "xpath" : "//*[@id=\"input28\"]",
+  "testSuiteId" : "test-suite-1752403830282",
+  "testSuiteName" : null,
+  "pageUrl" : "https://mysinglife.singlife.com/account/login",
+  "pageTitle" : "MySinglife",
+  "screenshotPath" : null,
+  "attributes" : {
+    "name" : "identifier",
+    "id" : "input28",
+    "type" : "text"
+  },
+  "tags" : [ ],
+  "createdAt" : "2025-12-16T04:32:20.762850Z",
+  "updatedAt" : "2025-12-16T04:32:20.762924Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "b572a307-fb2d-446c-be38-45b858882971",
+  "name" : "Loginwithsingpass",
+  "description" : null,
+  "elementType" : "a",
+  "cssSelector" : "a.social-auth-button.social-auth-general-idp-button.no-translate.singpass-login.link-button",
+  "xpath" : "//div[contains(@class, \"sign-in-with-idp\") and position()=2]/div[contains(@class, \"okta-idps-container\") and position()=2]/a[contains(@class, \"social-auth-button\")]",
+  "testSuiteId" : "test-suite-1752403830282",
+  "testSuiteName" : null,
+  "pageUrl" : "https://mysinglife.singlife.com/account/login",
+  "pageTitle" : "MySinglife",
+  "screenshotPath" : null,
+  "attributes" : {
+    "href" : "https://secure-login.singlife.com/sso/idps/0oa4os8en4n47HwS0697?stateToken=eyJ6aXAiOiJERUYiLCJhbGlhcyI6ImVuY3J5cHRpb25rZXkiLCJ2ZXIiOiIxIiwib2lkIjoiMDBvMWU2djUxcmh4VkdOV0o2OTciLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiZGlyIn0..wRJQp4sZbVeFIVKs.Zfvzj1k0Oj8Nnr7YWxzQYqbUwksB9kXQuaqf7lMCOZz1knUaYK_aqqe4oHtidx2rG-6bQ5iO6usviLjsjh0p8OWUx4hkQYnju5HTFRj2HOC-nraLk4h8wM8aCew9v637vxyfeSIyvD8o0b65Jhzt3LfKkGn8tSiVJvfoDQU0HobAdeVibggysAXhphHBKTJv1CZYuqEOcGYWaTKt8gQQoeN9bdlNAa-iLODrVsFvPBqUkIMSwHVuZXzU3U0-fTSKNubMtGnmP4m9KQzsLT2914ruCwtf18Ta-d39WOu65m7EXSpzSmBtnvQ8DppmpjFPZW5gNUVsm-4LykqUfKCfV3ks01di-8R5C5quKRaJO8Ea5pZ-vbbGVF6XSCHRG5S5FunQYXkYUXZ2J-aGFlIz5u9gR6N0jrITc8f-8TyJTBnout4DyRU827SQ5axvDdz1QKvbeLtNaZbSpWxU8QVmXmuWD5nc2Pfz1Z7qfL_o3zIvgh714fIqmuNgi4X6aExCEiMvXpL_rkPAfozmubFtZj7lONHvX6xcbsRR5ZaNY8QVjNa9VUiS1UL4P0eCnLZ_pEe21Cs94C_D5_dn6jy9ozrYsBs92uCGr3yKS0k2okC4E3TR4H7SziWDnFJFAzTIl4QK5UirY0OEb5WhToTfdqrasSw0F8I08l0EbonFzN_cljhwPCETUNZZwrge9MiDujV3H0qEsjzfuB9TmwAgtIfNAhk_Cv_suz_aQioqMbvVr3oRvohlQ7O6Qmrpv4sZMrLn4uz0Zizs_84K0qOHL_Ww-ilKlQX4W4aX8h3_dd_7tVOzZGepFssOSmsyoKe5suPpnUonOvmEDFi2lJCO9nhFzC1ncI75aiRWkf3yfyHGGz9q6I2Jv3cn2l3dd4JyNDTIS5UuAPbhrkTd8yIcsZqgd4G8O7FWnqY59xsx7v7uBbEq8vueh4-8H4E63zR8pNqaIK2glop-ZmVlfL8E_D2iPZs7sSLKqjPf0vcCnefn5Re6gmIqLNnxLFDY6FAMOoA4G83Js51CWzaK4uWGdswwfVmdz6ERw3lsTFOijAwX_Gho3zAw78VXZtv0xcYJ1IoAzb-8GiIbqi5kXIt0ha66bdpISCpDZd6_Jhmzdhlqsm8GukfRP35qpvbtPl-JG-zSUV7dzCAz40mQ8_EVIBgP92jl7a12bZ8qdiYDoSSCKbHkLNln3vPF8-EBQ1eoCZU0xGJtCfu-3YHeVrUZF8co5QP7dJpxZHdExMXDNUxw_oI-IqT...",
+    "text" : "Log in with",
+    "class" : "social-auth-button social-auth-general-idp-button no-translate singpass-login link-button"
+  },
+  "tags" : [ ],
+  "createdAt" : "2025-12-16T13:02:33.643277Z",
+  "updatedAt" : "2025-12-16T13:02:33.643332Z",
+  "createdBy" : null,
+  "active" : true
+} ]

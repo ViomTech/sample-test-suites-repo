@@ -1,0 +1,10 @@
+id: test-suite-1768745808348
+name: Demo Pack
+description: |-
+  A test pack for demo purpose.
+
+  1. lodge_complaint.feature : www.singlife.com/en
+tags: ['@feature_lodge_complaint', '@test-mainframe', '@github_api_test']
+environments: {}
+featureFiles: [features/singlife_lodge_complaint.feature, features/test_mainframe_app.feature,
+  features/github_api_test.feature, features/test_ios_settings_app.feature]

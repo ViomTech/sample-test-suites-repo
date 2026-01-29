@@ -1,9 +1,8 @@
-@regression
+@feature_lodge_complaint
   Feature: login feature
-  @smoke
     Scenario: Unhappy login scenario
       #click "{el:x_button}"
-      When hover over "Login"
+      And hover over "Login"
       And click "MYSINGLIFE"
       And wait 8 sec
       And switch to last opened tab

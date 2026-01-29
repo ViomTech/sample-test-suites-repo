@@ -1,6 +1,6 @@
 @regression
 Feature: Settings Feature
-
+#settings app
   Scenario: Testing Mobile Settings app
   And wait 5 secs
   And click "Search Settings"

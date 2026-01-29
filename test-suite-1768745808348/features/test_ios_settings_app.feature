@@ -1,7 +1,6 @@
-@mobiletcios
+@test_ios_settings_app
 Feature: Sample commands
   Scenario: Testing Mobile Settings app
-  # settings app scenrio
   And wait 2 secs
   And click "General"
   And click "Keyboard"
