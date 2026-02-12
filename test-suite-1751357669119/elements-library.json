@@ -1,1 +1,34 @@
-[ ]
+[ {
+  "id" : "306a1d18-8f1e-4a62-adb0-8db65e2d24db",
+  "name" : "Accessibility",
+  "description" : null,
+  "elementType" : "None",
+  "cssSelector" : "Accessibility",
+  "xpath" : "//XCUIElementTypeStaticText[@name=\"Accessibility\" and @value=\"Accessibility\"]",
+  "testSuiteId" : "test-suite-1751357669119",
+  "testSuiteName" : null,
+  "pageUrl" : "mobile-app",
+  "pageTitle" : null,
+  "screenshotPath" : null,
+  "attributes" : {
+    "accessible" : "false",
+    "traits" : "StaticText",
+    "visible" : "true",
+    "index" : "1",
+    "label" : "Accessibility",
+    "type" : "XCUIElementTypeStaticText",
+    "enabled" : "true",
+    "name" : "Accessibility",
+    "width" : "140",
+    "x" : "39",
+    "bounds" : "[39,381][179,411]",
+    "y" : "381",
+    "value" : "Accessibility",
+    "height" : "30"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-02-02T08:24:34.145111Z",
+  "updatedAt" : "2026-02-02T08:24:34.145111Z",
+  "createdBy" : null,
+  "active" : true
+} ]
