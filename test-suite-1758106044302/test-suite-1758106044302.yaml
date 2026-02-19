@@ -1,6 +1,11 @@
 id: test-suite-1758106044302
 name: Dummy App
 description: ''
-tags: ['@lms_api', '@regression', '@apiTest']
+tags:
+- '@api-test'
+- '@lms_api'
+- '@regression'
+- '@apiTest'
 environments: {}
-featureFiles: [features/lms-test.feature]
+featureFiles:
+- features/lms-test.feature

@@ -26,7 +26,7 @@ Scenario: customer_details scenario
 And compose a patch request to "https://lmsstaging.vastucorp.com/api/v1/customer/customer-detail/8155" with headers
 |Content-Type|application/json|
 |Accept|*/*|
-|Authorization|Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY3OTUxMzI2LCJpYXQiOjE3Njc5NDc3MjYsImp0aSI6IjA0MWIzY2QxZTcwNTQ4OTc5MTNkZmYwOTkwMWYwY2I1IiwidXNlcl9pZCI6ODJ9.bmg_X2VLSOu--B-UCNmQJRofYGdgzppXgLfZS5I47E0|
+|Authorization|Bearer <REDACTED_JWT>|
 And with the below JSON request
 """
 {
@@ -66,7 +66,7 @@ Scenario: customer_details scenario
 And compose a patch request to "https://lmsstaging.vastucorp.com/api/v1/customer/customer-address-detail/15150" with headers
 |Content-Type|application/json|
 |Accept|*/*|
-|Authorization|Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY3OTUxMzI2LCJpYXQiOjE3Njc5NDc3MjYsImp0aSI6IjA0MWIzY2QxZTcwNTQ4OTc5MTNkZmYwOTkwMWYwY2I1IiwidXNlcl9pZCI6ODJ9.bmg_X2VLSOu--B-UCNmQJRofYGdgzppXgLfZS5I47E0|
+|Authorization|Bearer <REDACTED_JWT>|
 And with the below JSON request
 """
 {
@@ -103,7 +103,7 @@ Scenario: customer_details scenario
 And compose a patch request to "https://lmsstaging.vastucorp.com/api/v1/customer/self-employed/1950" with headers
 |Content-Type|application/json|
 |Accept|*/*|
-|Authorization|Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY3OTUxMzI2LCJpYXQiOjE3Njc5NDc3MjYsImp0aSI6IjA0MWIzY2QxZTcwNTQ4OTc5MTNkZmYwOTkwMWYwY2I1IiwidXNlcl9pZCI6ODJ9.bmg_X2VLSOu--B-UCNmQJRofYGdgzppXgLfZS5I47E0|
+|Authorization|Bearer <REDACTED_JWT>|
 And with the below JSON request
 """
 {

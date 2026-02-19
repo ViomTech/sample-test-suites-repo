@@ -15,7 +15,7 @@ Feature: GitHub API Demo
       | Accept        | application/vnd.github+json |
     And execute and save the response as "userProfile"
     And check that response {userProfile} has "200" as status code
-    And check that API response {userProfile} contains "80874758" at "$.id"
+    And check that API response {userProfile} contains "201266893" at "$.id"
 
     #Authorization to be added in header
   Scenario: Create a public repo

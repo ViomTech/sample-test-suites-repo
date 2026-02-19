@@ -1,6 +1,8 @@
+id: test-suite-1758097862241
 name: Github
 description: ''
-tags: ['@GitHubAPI']
+tags:
+- '@GitHubAPI'
 environments: {}
-featureFiles: [features/APITests.feature]
-id: test-suite-1758097862241
+featureFiles:
+- features/APITests.feature
