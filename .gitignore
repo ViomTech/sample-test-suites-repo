@@ -8,3 +8,11 @@ allure-results/
 target/
 *.log
 step_metrics.db
+
+
+# Test output and reports (auto-added by Studio)
+execution_*/
+
+
+# Test output and reports (auto-added by Studio)
+.DS_Store

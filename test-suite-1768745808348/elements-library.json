@@ -1,0 +1,67 @@
+[ {
+  "id" : "bcb769e1-bc44-48db-82fd-775405c3fd44",
+  "name" : "signup-firstname",
+  "description" : null,
+  "elementType" : "input",
+  "cssSelector" : "#signup-firstname",
+  "xpath" : "//*[@id=\"signup-firstname\"]",
+  "testSuiteId" : "test-suite-1768745808348",
+  "testSuiteName" : null,
+  "pageUrl" : "https://ictred.ae/?lang=en",
+  "pageTitle" : "ICTReD",
+  "screenshotPath" : null,
+  "attributes" : {
+    "id" : "signup-firstname",
+    "class" : "custom-input svelte-ckr9w4",
+    "type" : "text"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-02-19T14:39:59.940028Z",
+  "updatedAt" : "2026-02-19T14:39:59.940028Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "d79c0fad-d489-429e-815c-f5a527d34470",
+  "name" : "signin-email",
+  "description" : null,
+  "elementType" : "input",
+  "cssSelector" : "#signin-email",
+  "xpath" : "//*[@id=\"signin-email\"]",
+  "testSuiteId" : "test-suite-1768745808348",
+  "testSuiteName" : null,
+  "pageUrl" : "https://ictred.ae/?lang=en",
+  "pageTitle" : "ICTReD",
+  "screenshotPath" : null,
+  "attributes" : {
+    "id" : "signin-email",
+    "class" : "custom-input svelte-ckr9w4",
+    "type" : "email"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-02-19T14:42:02.834595Z",
+  "updatedAt" : "2026-02-19T14:42:02.834595Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "493f1ee2-8889-431a-ad5b-db012d5a1653",
+  "name" : "signin-password",
+  "description" : null,
+  "elementType" : "input",
+  "cssSelector" : "#signin-password",
+  "xpath" : "//*[@id=\"signin-password\"]",
+  "testSuiteId" : "test-suite-1768745808348",
+  "testSuiteName" : null,
+  "pageUrl" : "https://ictred.ae/?lang=en",
+  "pageTitle" : "ICTReD",
+  "screenshotPath" : null,
+  "attributes" : {
+    "id" : "signin-password",
+    "class" : "custom-input svelte-rm4lum",
+    "type" : "password"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-02-19T14:42:02.840433Z",
+  "updatedAt" : "2026-02-19T14:42:02.840433Z",
+  "createdBy" : null,
+  "active" : true
+} ]
