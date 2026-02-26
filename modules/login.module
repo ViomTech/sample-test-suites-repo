@@ -1,0 +1,18 @@
+id: b6f76c09-8cfa-4f7d-8a04-a9748f4e38a7
+name: login
+description: login
+isGlobal: false
+testSuiteId: test-suite-1760529978568
+parameters:
+- email
+- pwd
+content: |-
+  Scenario: Verify invalid credentials
+  And click "Accept"
+  And click "LOG IN"
+  And enter "{email}" into "Email or Emirates Skywards number"
+  And enter "{pwd}" into "Password"
+  And click "Log in" with exact phrase
+  And check that screen contains "Sorry, we have a technical problem at the moment. Please try again later."
+createdAt: '2026-02-26T06:40:19.172062Z'
+updatedAt: '2026-02-26T06:40:19.172062Z'
