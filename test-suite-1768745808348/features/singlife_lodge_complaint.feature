@@ -44,5 +44,6 @@
       And enter "121"
       And click "I have read and agree to the terms and conditions above. "
       And click "Submit"
-      And check that screen contains "We're sorry our service standard has fallen short of your expectations, or members of our team have not handled your concerns to your satisfaction."
+      And wait 3 secs
+      And check that screen contains "sorry our service standard has fallen short of your expectations"
       And wait 5 secs

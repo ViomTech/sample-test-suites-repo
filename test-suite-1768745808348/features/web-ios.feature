@@ -23,4 +23,4 @@ Feature: Test
     And switch to app "web-app"
     And wait 1 sec
     And click "Lost property"
-    
+    And wait 2 secs
