@@ -16,3 +16,7 @@ execution_*/
 
 # Test output and reports (auto-added by Studio)
 .DS_Store
+
+
+# Test output and reports (auto-added by Studio)
+.env
