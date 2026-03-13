@@ -1,0 +1,45 @@
+[ {
+  "id" : "1773433005400",
+  "name" : "api2",
+  "collection" : "col2",
+  "method" : "POST",
+  "url" : "https://jsonplaceholder.typicode.com/posts",
+  "headers" : [ {
+    "key" : "Content-Type",
+    "value" : "application/json"
+  } ],
+  "bodyType" : "json",
+  "body" : "{\n  \"title\": \"Test API Call\",\n  \"body\": \"This is a test post request body.\",\n  \"userId\": \"{user}\"\n}",
+  "captures" : [ {
+    "id" : "1773433773322",
+    "name" : "title",
+    "path" : "title"
+  }, {
+    "id" : "1773433775270",
+    "name" : "id",
+    "path" : "userId"
+  }, {
+    "id" : "1773433890354",
+    "name" : "id22",
+    "path" : "id"
+  } ],
+  "timestamp" : 1773433898031
+}, {
+  "id" : "1773429588876",
+  "name" : "api1",
+  "collection" : "col2",
+  "method" : "POST",
+  "url" : "https://jsonplaceholder.typicode.com/posts",
+  "headers" : [ {
+    "key" : "Content-Type",
+    "value" : "application/json"
+  } ],
+  "bodyType" : "json",
+  "body" : "{\n  \"title\": \"Test API Call\",\n  \"body\": \"This is a test post request body.\",\n  \"userId\": \"{id22}\"\n}",
+  "captures" : [ {
+    "id" : "1773432981655",
+    "name" : "title",
+    "path" : "title"
+  } ],
+  "timestamp" : 1773433858682
+} ]
