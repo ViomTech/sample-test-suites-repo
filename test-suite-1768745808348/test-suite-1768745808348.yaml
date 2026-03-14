@@ -6,7 +6,7 @@ description: |-
   1. lodge_complaint.feature : www.singlife.com/en
 tags:
 - '@feature_lodge_complaint'
-- '@apitry'
+- '@api'
 - '@two-apps-execution-test'
 - '@pub400'
 - '@test-mainframe'
