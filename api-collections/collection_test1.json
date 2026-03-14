@@ -114,5 +114,10 @@
   } ],
   "bodyType" : "json",
   "body" : "",
-  "timestamp" : 1773430893170
+  "captures" : [ {
+    "id" : "1773475989462",
+    "name" : "API_response2",
+    "path" : "$response"
+  } ],
+  "timestamp" : 1773475994189
 } ]

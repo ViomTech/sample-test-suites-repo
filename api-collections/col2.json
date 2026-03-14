@@ -22,8 +22,12 @@
     "id" : "1773433890354",
     "name" : "id22",
     "path" : "id"
+  }, {
+    "id" : "1773475974648",
+    "name" : "API_response1",
+    "path" : "$response"
   } ],
-  "timestamp" : 1773433898031
+  "timestamp" : 1773475979599
 }, {
   "id" : "1773429588876",
   "name" : "api1",

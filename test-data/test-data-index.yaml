@@ -1,17 +1,18 @@
 testDataSets:
-- id: acc66ba6-4909-4fe4-8d69-cd9f0280e0d6
-  name: singlife-data
+- id: 4de36e9e-0750-486a-958f-28da98ad06ce
+  name: testdata
   description: null
   files:
-  - id: ad7ef897-adff-4811-b39c-87e960876664
+  - id: 5aaaf391-6dae-4b63-b043-aede4e8ee324
     fileName: test-data.csv
-    filePath: test-data/ad7ef897-adff-4811-b39c-87e960876664.csv
+    filePath: test-data/5aaaf391-6dae-4b63-b043-aede4e8ee324.csv
     fileFormat: csv
     rowCount: 1
   columns:
-  - ﻿userid
+  - userid
   - password
+  - user
   rowCount: 1
-  createdAt: '2026-02-24T11:20:57.948724Z'
-  updatedAt: '2026-02-24T11:20:57.948724Z'
-lastUpdated: '2026-02-24T11:20:57.948989Z'
+  createdAt: '2026-03-13T22:13:03.508035Z'
+  updatedAt: '2026-03-13T22:13:03.508035Z'
+lastUpdated: '2026-03-13T22:13:03.511286Z'
