@@ -1,7 +1,7 @@
 [ {
   "id" : "1773430887058",
   "name" : "api5",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "GET",
   "url" : "https://jsonplaceholder.typicode.com/posts",
   "headers" : [ {
@@ -14,7 +14,7 @@
 }, {
   "id" : "1773430878210",
   "name" : "api4",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "GET",
   "url" : "https://jsonplaceholder.typicode.com/posts",
   "headers" : [ {
@@ -27,7 +27,7 @@
 }, {
   "id" : "1773429868604",
   "name" : "api3",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "POST",
   "url" : "https://jsonplaceholder.typicode.com/posts",
   "headers" : [ {
@@ -40,7 +40,7 @@
 }, {
   "id" : "1773430904753",
   "name" : "a8",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "GET",
   "url" : "https://jsonplaceholder.typicode.com/posts",
   "headers" : [ {
@@ -53,7 +53,7 @@
 }, {
   "id" : "1773429583287",
   "name" : "api2",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "GET",
   "url" : "https://jsonplaceholder.typicode.com/posts/1",
   "headers" : [ {
@@ -79,7 +79,7 @@
 }, {
   "id" : "1773429485310",
   "name" : "api1",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "POST",
   "url" : "https://jsonplaceholder.typicode.com/posts/11a",
   "headers" : [ {
@@ -92,7 +92,7 @@
 }, {
   "id" : "1773430898695",
   "name" : "a7",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "GET",
   "url" : "https://jsonplaceholder.typicode.com/posts",
   "headers" : [ {
@@ -105,7 +105,7 @@
 }, {
   "id" : "1773430893170",
   "name" : "a6",
-  "collection" : "collection test1",
+  "collection" : "collection_test1",
   "method" : "GET",
   "url" : "https://jsonplaceholder.typicode.com/posts",
   "headers" : [ {
