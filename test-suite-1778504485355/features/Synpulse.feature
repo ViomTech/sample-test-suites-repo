@@ -11,8 +11,8 @@ And wait 3 sec
 And click "{el:btn_Search}"
 #click "Search" with exact phrase
 #click "RESET" with exact phrase
-And click "{el:btn_Reset}"
 And wait 3 sec
+And click "{el:btn_Reset}"
 And click "Search All Fields"
 And type "{clientname}"
 And wait 2 sec
