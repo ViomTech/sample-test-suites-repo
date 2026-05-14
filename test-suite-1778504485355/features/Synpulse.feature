@@ -19,10 +19,6 @@ And wait 2 sec
 And click "{el:btn_SelectClient}"
 And wait 10 sec
 And click in web table "{el:tbl_portfolio}" where column 4 contains "Advisory" then column 10
-
-@test
-Scenario: try
-And click "{el:btn_SelectPortfolio}"
 And wait 2 sec
 And click "{el:btn_Toggler}"
 And wait 2 sec

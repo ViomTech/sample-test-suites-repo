@@ -3,7 +3,6 @@ name: Synpulse
 description: Synpulse
 tags:
 - '@synpulse'
-- '@test'
 environments: {}
 featureFiles:
 - features/Synpulse.feature
