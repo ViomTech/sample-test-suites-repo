@@ -2,30 +2,20 @@
 Feature: Synpulse feature
  
 Scenario: End to End Flow
-And click "{el:txt_UserID}"
-And enter "{username}"
-And click "{el:txt_Password}"
-And enter "{password}"
+And enter "mc_rm" into field on the right of "User ID"
+And enter "mcrm2026" into field on the right of "Password"
 And click "SIGN IN"
-And wait 3 sec
-And click "{el:btn_Search}"
-#click "Search" with exact phrase
-#click "RESET" with exact phrase
-And wait 3 sec
-And click "{el:btn_Reset}"
+And click "Search" with exact phrase
+And click "RESET" with exact phrase
 And click "Search All Fields"
 And type "{clientname}"
-And wait 2 sec
 And click "{el:btn_SelectClient}"
-And wait 10 sec
+And wait 2 sec
 And click in web table "{el:tbl_portfolio}" where column 4 contains "Advisory" then column 10
-And wait 2 sec
 And click "{el:btn_Toggler}"
-And wait 2 sec
-And click "{el:drp_Orders}"
+And click "Orders" with exact phrase
 And click "Place Single Order"
 And click "Securities Order"
-And wait 3 sec
 And click "{el:btn_Search1}"
 And click "Search All Fields"
 And type "{code}"
@@ -33,14 +23,9 @@ And click "{el:btn_SelectOrder}"
 And wait 2 sec
 And click "{el:txt_Qty}"
 And enter "{quantity}"
-#click "{el:drp_Account}"
-#click "Cash_Account_15"
-And select "Cash_Account_15" from list " - Please Select "
+And select "Cash_Account_15" from list "Account"
 And wait 2 sec
-#click "{el:drp_Negotiation}"
-#wait 2 sec
-#click "In Amount"
-And select "In Amount" from list "No"
+And select "In Amount" from list "Negotiation"
 And wait 2 sec
 And click on the element to the right of "Negotiated Commission (Amount)" with exact phrase
 #click "{el:txt_NegotiatedAmt}"
@@ -51,9 +36,9 @@ And print value of "{price}"
 And read value from "{el:txt_NetAmount}" and save it as "netAmount"
 And print value of "{netAmount}"
 And wait 2 sec
-#check that variable {netAmount} is equals to "254,150.00HKD"
-And click "{el:btn_Check}"
-And click "{el:btn_Save}"
-And click "VIEW ORDER BLOTTER"
+And check that variable {netAmount} is equals to "254,150.00"
+And click "CHECK" with exact phrase
+And click "SAVE" with exact phrase
+And click "VIEW ORDER BLOTTER" with exact phrase
 And click "{el:btn_All}"
-And click "{el:btn_Apply}"
+And click "APPLY"
