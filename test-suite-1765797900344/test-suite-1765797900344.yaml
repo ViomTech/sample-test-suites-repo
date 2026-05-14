@@ -2,4 +2,9 @@ id: test-suite-1765797900344
 name: DBS-India Apps
 description: ''
 environments: {}
-featureFiles: [features/KAN-import.feature, features/KAN-import.feature]
+featureFiles:
+- features/KAN-import.feature
+- features/KAN-import.feature
+tags:
+- '@regression'
+- '@smoke'

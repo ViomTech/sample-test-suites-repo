@@ -677,4 +677,46 @@
   "updatedAt" : "2026-05-12T13:18:11.495347Z",
   "createdBy" : null,
   "active" : true
+}, {
+  "id" : "b3e4b0e0-faa3-4656-b1cb-e441fb1592e1",
+  "name" : "lock",
+  "description" : null,
+  "elementType" : "img",
+  "cssSelector" : "img",
+  "xpath" : "//a[contains(@class, \"a-spacing-none\")]/div[contains(@class, \"a-image-container\")]/img",
+  "testSuiteId" : null,
+  "testSuiteName" : null,
+  "pageUrl" : "https://www.amazon.ae/",
+  "pageTitle" : "Amazon.ae: Shop Online in UAE - Low Prices on Electronics, Fashion, Mobiles, Grocery & more",
+  "screenshotPath" : null,
+  "attributes" : {
+    "src" : "https://m.media-amazon.com/images/I/513dedkTNTL._AC_SY110_.jpg"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-03-23T12:32:13.667622Z",
+  "updatedAt" : "2026-03-23T12:32:13.667622Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "e31a99f4-6d92-4251-a9c2-5262dfc3accb",
+  "name" : "amazon-image",
+  "description" : null,
+  "elementType" : "img",
+  "cssSelector" : "img._cDEzb_missionImage_bHVL4",
+  "xpath" : "//img[@aria-label=\"FLEXISPOT EN1 Whole-Piece Standing Desk 48 x 30 inches Electric Height Adjustable Desk Home Office Table Stand Up Desk Leg w/Automatic Smart Keypad (Upgraded White Frame + White Top, 2 Packages)\"]",
+  "testSuiteId" : null,
+  "testSuiteName" : null,
+  "pageUrl" : "https://www.amazon.ae/",
+  "pageTitle" : "Amazon.ae: Shop Online in UAE - Low Prices on Electronics, Fashion, Mobiles, Grocery & more",
+  "screenshotPath" : null,
+  "attributes" : {
+    "class" : "_cDEzb_missionImage_bHVL4",
+    "aria-label" : "FLEXISPOT EN1 Whole-Piece Standing Desk 48 x 30 inches Electric Height Adjustable Desk Home Office Table Stand Up Desk Leg w/Automatic Smart Keypad (Upgraded White Frame + White Top, 2 Packages)",
+    "src" : "https://m.media-amazon.com/images/I/31eayJqN8mL._MCnd_AC_.jpg"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-05-06T11:22:01.065992Z",
+  "updatedAt" : "2026-05-06T11:22:01.065992Z",
+  "createdBy" : null,
+  "active" : true
 } ]
