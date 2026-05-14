@@ -15,4 +15,23 @@ testDataSets:
   rowCount: 1
   createdAt: '2026-03-13T22:13:03.508035Z'
   updatedAt: '2026-03-13T22:13:03.508035Z'
-lastUpdated: '2026-03-13T22:13:03.511286Z'
+- id: 5e59a21d-dcd6-4d0f-8ac3-c1a0b6feaac3
+  name: data_synpulse
+  description: null
+  files:
+  - id: dbb2d329-218c-4542-a552-fa7b8471fb0e
+    fileName: data_synpulse.csv
+    filePath: test-data/dbb2d329-218c-4542-a552-fa7b8471fb0e.csv
+    fileFormat: csv
+    rowCount: 1
+  columns:
+  - username
+  - password
+  - clientname
+  - code
+  - quantity
+  - taxes
+  rowCount: 1
+  createdAt: '2026-05-11T13:02:28.313690Z'
+  updatedAt: '2026-05-11T13:02:28.313690Z'
+lastUpdated: '2026-05-11T13:02:28.315352Z'

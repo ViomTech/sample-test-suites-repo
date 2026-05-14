@@ -1,0 +1,40 @@
+[ {
+  "id" : "9b971fa6-1541-46c0-978d-cb6a4dc83834",
+  "name" : "txt_UserID",
+  "description" : null,
+  "elementType" : "other",
+  "cssSelector" : null,
+  "xpath" : "//*[@id=\"C1__USER_NAME\"]",
+  "testSuiteId" : "test-suite-1778504485355",
+  "testSuiteName" : null,
+  "pageUrl" : null,
+  "pageTitle" : null,
+  "screenshotPath" : null,
+  "attributes" : { },
+  "tags" : [ ],
+  "createdAt" : "2026-05-11T13:04:25.321814Z",
+  "updatedAt" : "2026-05-11T13:06:01.629195Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "2827b1c5-bd46-4ed6-8051-1a1b91aa1817",
+  "name" : "drp_Orders",
+  "description" : null,
+  "elementType" : "span",
+  "cssSelector" : "span.tc-truncated-item",
+  "xpath" : "//a[@title='Orders']/span[@class='tc-truncated-item']",
+  "testSuiteId" : "test-suite-1778504485355",
+  "testSuiteName" : null,
+  "pageUrl" : "https://alb-tap-sgp-uob.temenos-tap.aws-synpulse8.com/FOPM/page-TapPortfolioSummary?SUBSESSIONID=1",
+  "pageTitle" : "Portfolio - Katherine Arellano - Portfolio Summary",
+  "screenshotPath" : null,
+  "attributes" : {
+    "class" : "tc-truncated-item",
+    "text" : "Orders"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-05-13T18:41:01.196526Z",
+  "updatedAt" : "2026-05-13T18:54:49.223506Z",
+  "createdBy" : null,
+  "active" : true
+} ]
