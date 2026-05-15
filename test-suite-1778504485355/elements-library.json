@@ -146,24 +146,6 @@
   "createdBy" : null,
   "active" : true
 }, {
-  "id" : "fe074933-b198-4d67-b867-10f6d4cf9693",
-  "name" : "txt_Qty",
-  "description" : null,
-  "elementType" : "other",
-  "cssSelector" : null,
-  "xpath" : "//input[contains(@id,'QUE_AAC3BD292BA0B387454635')]",
-  "testSuiteId" : "test-suite-1778504485355",
-  "testSuiteName" : null,
-  "pageUrl" : null,
-  "pageTitle" : null,
-  "screenshotPath" : null,
-  "attributes" : { },
-  "tags" : [ ],
-  "createdAt" : "2026-05-11T13:11:28.813357Z",
-  "updatedAt" : "2026-05-14T07:43:53.638616Z",
-  "createdBy" : null,
-  "active" : true
-}, {
   "id" : "ff6dc323-2df4-4006-b3ff-c6dbc3bef114",
   "name" : "drp_Account",
   "description" : null,
@@ -179,6 +161,24 @@
   "tags" : [ ],
   "createdAt" : "2026-05-11T13:11:46.594130Z",
   "updatedAt" : "2026-05-14T07:44:28.513196Z",
+  "createdBy" : null,
+  "active" : true
+}, {
+  "id" : "fe074933-b198-4d67-b867-10f6d4cf9693",
+  "name" : "txt_Qty",
+  "description" : null,
+  "elementType" : "other",
+  "cssSelector" : null,
+  "xpath" : "//input[@id=//label[normalize-space()='Quantity']/@for]",
+  "testSuiteId" : "test-suite-1778504485355",
+  "testSuiteName" : null,
+  "pageUrl" : null,
+  "pageTitle" : null,
+  "screenshotPath" : null,
+  "attributes" : { },
+  "tags" : [ ],
+  "createdAt" : "2026-05-11T13:11:28.813357Z",
+  "updatedAt" : "2026-05-15T06:02:36.386193Z",
   "createdBy" : null,
   "active" : true
 } ]

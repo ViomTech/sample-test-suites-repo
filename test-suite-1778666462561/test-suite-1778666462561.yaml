@@ -1,9 +1,0 @@
-id: test-suite-1778666462561
-name: Temenos Wealth Management
-description: Wealth management web app of temenos
-tags:
-- '@order-placement'
-environments: {}
-featureFiles:
-- features/order-placement.feature
-screenshotPolicy: every_step

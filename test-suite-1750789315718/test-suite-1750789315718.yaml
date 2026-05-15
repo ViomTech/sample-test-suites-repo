@@ -1,6 +1,0 @@
-name: NetsForYou
-description: Test suite for Netsforyou
-tags: ['@NetsContactUs']
-environments: {}
-featureFiles: [features/Contactus.feature]
-id: test-suite-1750789315718

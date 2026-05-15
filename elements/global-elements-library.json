@@ -426,24 +426,6 @@
   "createdBy" : null,
   "active" : true
 }, {
-  "id" : "448c4087-2c3e-47dc-ba53-9b701f3c6ccc",
-  "name" : "btn_Search1",
-  "description" : null,
-  "elementType" : "other",
-  "cssSelector" : null,
-  "xpath" : "//*[contains(@id,'BUT_74E4568050AE5D29761573')]",
-  "testSuiteId" : null,
-  "testSuiteName" : null,
-  "pageUrl" : null,
-  "pageTitle" : null,
-  "screenshotPath" : null,
-  "attributes" : { },
-  "tags" : [ ],
-  "createdAt" : "2026-05-11T13:10:51.559524Z",
-  "updatedAt" : "2026-05-11T13:10:51.559524Z",
-  "createdBy" : null,
-  "active" : true
-}, {
   "id" : "af1154ad-9c63-48b7-ba14-082c8987f468",
   "name" : "btn_SelectOrder",
   "description" : null,
@@ -459,24 +441,6 @@
   "tags" : [ ],
   "createdAt" : "2026-05-11T13:11:10.926359Z",
   "updatedAt" : "2026-05-11T13:11:10.926359Z",
-  "createdBy" : null,
-  "active" : true
-}, {
-  "id" : "fe074933-b198-4d67-b867-10f6d4cf9693",
-  "name" : "txt_Qty",
-  "description" : null,
-  "elementType" : "other",
-  "cssSelector" : null,
-  "xpath" : "//input[contains(@id,'QUE_AAC3BD292BA0B387454635')]",
-  "testSuiteId" : null,
-  "testSuiteName" : null,
-  "pageUrl" : null,
-  "pageTitle" : null,
-  "screenshotPath" : null,
-  "attributes" : { },
-  "tags" : [ ],
-  "createdAt" : "2026-05-11T13:11:28.813357Z",
-  "updatedAt" : "2026-05-11T13:11:28.813357Z",
   "createdBy" : null,
   "active" : true
 }, {
@@ -702,12 +666,30 @@
   "createdBy" : null,
   "active" : true
 }, {
+  "id" : "448c4087-2c3e-47dc-ba53-9b701f3c6ccc",
+  "name" : "btn_Search1",
+  "description" : null,
+  "elementType" : "other",
+  "cssSelector" : null,
+  "xpath" : "//input[contains(@name,'ENTITIES') and contains(@name,'SEARCH') and contains(@name,'CRITERION')]/ancestor::fieldset//a[@title='Search' and contains(@class,'icon-search')]",
+  "testSuiteId" : null,
+  "testSuiteName" : null,
+  "pageUrl" : null,
+  "pageTitle" : null,
+  "screenshotPath" : null,
+  "attributes" : { },
+  "tags" : [ ],
+  "createdAt" : "2026-05-11T13:10:51.559524Z",
+  "updatedAt" : "2026-05-14T18:00:22.592523Z",
+  "createdBy" : null,
+  "active" : true
+}, {
   "id" : "c73b64f4-6fea-4238-a4a1-9ad51c5b78eb",
   "name" : "txt_NetAmount",
   "description" : null,
   "elementType" : "other",
   "cssSelector" : null,
-  "xpath" : "//span[@id='C14__C1__QUE_AAC3BD292BA0B387454644' and contains(@class,'tc-form-control')]",
+  "xpath" : "//legend[contains(normalize-space(),'Net Amount')] /ancestor::fieldset//div[1]//span",
   "testSuiteId" : null,
   "testSuiteName" : null,
   "pageUrl" : null,
@@ -716,7 +698,7 @@
   "attributes" : { },
   "tags" : [ ],
   "createdAt" : "2026-05-11T13:13:43.263761Z",
-  "updatedAt" : "2026-05-14T15:47:28.989536Z",
+  "updatedAt" : "2026-05-14T18:56:59.330602Z",
   "createdBy" : null,
   "active" : true
 } ]
