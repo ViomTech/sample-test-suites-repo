@@ -1,73 +1,34 @@
 @regression
-Feature: User Assistance and Navigation
+Feature: User Access and Payee Object Management
 
 @smoke
-Scenario: User views help options and expands a question
-Given the user is on the help page
-When the user clicks on a question
-Then the answer should expand below the question
+Scenario: User accesses the application with valid access information
+Given the user is on the access screen
+When the user enters "valid_access_code" into "Access code" field
+Then the access button must become active
+And the system displays a partially masked mobile number
 
 @smoke
-Scenario: User views contact information
-Given the user is on the contact page
-When the page loads
-Then various contact options should be visible with phone numbers
+Scenario: User receives error for incorrect access information
+Given the user is on the access screen
+When the user enters "incorrect_username" into "Username field"
+And the user enters "incorrect_access_code" into "Access code field"
+And the user clicks "Submit" button
+Then the system shows a modal popup with the title "Your access details did not match"
+And the message "We couldn’t log you in. Please check your username and access code, and try again."
+And the modal popup includes a "TRY AGAIN" button and a close icon
 
-@smoke
-Scenario: User navigates the homepage
-Given the user is on the homepage
-When the page loads
-Then the "access" button should be visible and clickable
+Scenario: User exceeds maximum access attempts
+Given the user is on the access screen
+When the user enters "valid_access_code" into "Access code field" multiple times with incorrect username
+Then the system must return a message "Too many attempts"
 
-Scenario: User opens Customer Portal from access button
-Given the "access" button on the homepage is clickable and enabled
-When the user hovers over the "access" button
-Then a drawer must appear to give the option to open the tab for "Customer Portal"
+Scenario: User selects a payee from the payee list
+Given the user is on the payee list screen
+When the user selects a payee
+Then the system should use the payee object structure to update the payee field
 
-@smoke
-Scenario: User accesses the portal using email
-Given the user is on the access page
-When the page loads
-Then the "access with email" button should be visible and clickable
-
-Scenario: User submits an empty email field
-Given the access form is displayed
-When the user leaves the "Email" field empty and tries to submit
-Then the error message "This field cannot be left blank" should appear
-
-Scenario: User submits incorrect access information
-Given the access form is displayed
-When the user enters "wrong@email.com" into "Email" field
-And the user enters "wrongpass" into "access code" field
-Then the error message "Incorrect username or access code. Please try again!" should appear
-
-Scenario: User clicks on "Forgot access code?" link
-Given the user is on the access page
-When the user clicks on the "Forgot access code?" link
-Then the user should be redirected to the access code recovery page
-
-Scenario: User clicks on "Help" link
-Given the user is on the access page
-When the user clicks on the "Help" link
-Then the user should be directed to the help section
-
-Scenario: User lodges a complaint
-Given the complaint form is displayed
-When the page loads
-Then the "Salutation" dropdown should contain options "Mr", "Mrs", "Ms", "Mdm" and the user should be able to select either of them
-
-Scenario: User enters details in complaint form
-Given the complaint form is displayed
-When the user enters "John" into "Given name" field
-And the user enters "Doe" into "Surname" field
-Then the input should be accepted
-
-Scenario: User checks agreement checkbox
-Given the complaint form is displayed
-When the user checks the agreement checkbox
-Then the "Submit" button should be enabled
-
-Scenario: User submits the complaint form
-Given the complaint form is displayed
-When the user clicks "Submit"
-Then the form should be validated and submitted
+Scenario: User attempts to use an unavailable payee
+Given the user is on the payee list
+When the user selects a payee that has become unavailable
+Then the user should return to the payee list with a message "Payee is unavailable."

@@ -1,0 +1,10 @@
+id: test-suite-1778832969275
+name: RiyadBank
+description: PoC for RiyadBank Apps
+tags:
+- '@poc'
+- '@test'
+environments: {}
+featureFiles:
+- features/poc.feature
+screenshotPolicy: legacy

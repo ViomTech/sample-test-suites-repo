@@ -5,7 +5,7 @@ Scenario: End to End Flow
 And enter "mc_rm" into field on the right of "User ID"
 And enter "mcrm2026" into field on the right of "Password"
 And click "SIGN IN"
-And wait 2 secs
+And wait 4 secs
 And click "Search" with exact phrase
 And click "RESET" with exact phrase
 And click "Search All Fields"
@@ -36,10 +36,10 @@ And type "{taxes}"
 And click "Negotiated Commission"
 And read value from "{el:txt_Price}" and save it as "price"
 And print value of "{price}"
+And wait 2 secs
 And read value from "{el:txt_NetAmount}" and save it as "netAmount"
-#read value from field on the right of "Net Amount" and save it as "netAmount"
 And print value of "{netAmount}"
-And wait 2 sec
+And wait 2 secs
 And check that variable {netAmount} is equals to "254,150.00"
 And click "CHECK" with exact phrase
 And click "SAVE" with exact phrase

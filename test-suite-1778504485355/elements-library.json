@@ -181,4 +181,24 @@
   "updatedAt" : "2026-05-15T06:02:36.386193Z",
   "createdBy" : null,
   "active" : true
+}, {
+  "id" : "5ac827d7-83e4-458a-9cf8-a06b61237360",
+  "name" : "tools",
+  "description" : null,
+  "elementType" : "span",
+  "cssSelector" : "span",
+  "xpath" : "//div[contains(@class, \"ecDIB\")]/a[contains(@class, \"tc-icon\")]/span[contains(@class, \"viom-highlight\")]",
+  "testSuiteId" : "test-suite-1778504485355",
+  "testSuiteName" : null,
+  "pageUrl" : "https://alb-tap-sgp-uob.temenos-tap.aws-synpulse8.com/FOPM/page-CRMHome?SUBSESSIONID=0",
+  "pageTitle" : "CRM Dashboard",
+  "screenshotPath" : null,
+  "attributes" : {
+    "text" : "tools"
+  },
+  "tags" : [ ],
+  "createdAt" : "2026-05-20T08:17:53.773882Z",
+  "updatedAt" : "2026-05-20T08:17:53.773882Z",
+  "createdBy" : null,
+  "active" : true
 } ]
