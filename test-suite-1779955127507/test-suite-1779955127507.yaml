@@ -1,0 +1,13 @@
+id: test-suite-1779955127507
+name: ICTReD
+description: ''
+tags:
+- '@ictred'
+- '@ictredsignup'
+- '@ictredsigneduser'
+- '@try'
+environments: {}
+featureFiles:
+- features/ICTRed.feature
+- features/ICTReDSignedInUser.feature
+- features/ICTReDSignUp.feature

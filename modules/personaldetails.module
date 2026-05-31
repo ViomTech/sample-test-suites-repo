@@ -1,0 +1,32 @@
+id: 69bd4bfd-ba0c-4b7b-93b0-157a430e855d
+name: personalDetails
+description: this module is used to fill personal details
+isGlobal: false
+testSuiteId: test-suite-1779955127507
+parameters:
+- firstName
+- middleName
+- lastName
+- username
+- phone
+content: |-
+  And click on the element to the below of "First Name"
+  And enter "{firstName}" into field on the below of "First Name" with exact phrase
+  And click on the element to the below of "Middle Name"
+  And enter "{middleName}" into field on the below of "Middle Name" with exact phrase
+  And click on the element to the below of "Last Name"
+  And enter "{lastName}" into field on the below of "Last Name" with exact phrase
+  And click on the element to the below of "Email"
+  And enter "{username}" into field on the below of "Email" with exact phrase
+  And enter "{phone}" into "{el:signup-phone}"
+  And click on the element to the below of "Date of Birth"
+  And enter "19880419" into field on the below of "Date of Birth" with exact phrase
+  And click on the element to the below of "Country of Birth"
+  And enter "India" into field on the below of "Country of Birth" with exact phrase
+  And click on the element to the below of "Nationality"
+  And enter "India" into field on the below of "Nationality" with exact phrase
+  And click "English"
+  And click "SMS"
+  And click "3 Bedroom"
+createdAt: '2026-05-30T10:29:15.434864Z'
+updatedAt: '2026-05-30T11:16:27.314922Z'
