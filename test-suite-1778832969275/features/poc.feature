@@ -21,5 +21,5 @@ Scenario: test
 And wait 5 secs
 And click "Transfers" with exact phrase
 And wait 2 secs
-And click "Quick Transfer"
+And click "Add beneficiary"
 And wait 5 secs

@@ -11,7 +11,6 @@ And click "RESET" with exact phrase
 And click "Search All Fields"
 And type "{clientname}"
 And click "{el:btn_SelectClient}"
-And wait 2 sec
 And click in web table "{el:tbl_portfolio}" where column 4 contains "Advisory" then column 10
 And click "{el:btn_Toggler}"
 And click "Orders" with exact phrase
@@ -19,12 +18,10 @@ And click "Place Single Order"
 And click "Securities Order"
 And wait 2 secs
 And click "{el:btn_Search1}"
-And wait 2 secs
 And click "Search All Fields" with exact phrase
 And type "{code}"
-And wait 2 secs
 And click "{el:btn_SelectOrder}"
-And wait 2 sec
+And wait 2 secs
 And click "{el:txt_Qty}"
 And enter "{quantity}"
 #enter "{quantity}" into field on the right of "Quantity"
@@ -36,10 +33,8 @@ And type "{taxes}"
 And click "Negotiated Commission"
 And read value from "{el:txt_Price}" and save it as "price"
 And print value of "{price}"
-And wait 2 secs
 And read value from "{el:txt_NetAmount}" and save it as "netAmount"
 And print value of "{netAmount}"
-And wait 2 secs
 And check that variable {netAmount} is equals to "254,150.00"
 And click "CHECK" with exact phrase
 And click "SAVE" with exact phrase
