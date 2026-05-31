@@ -1,0 +1,22 @@
+id: ceb60a53-73b3-4f59-a1db-123e0ea16d1f
+name: signupForm
+description: ''
+isGlobal: false
+testSuiteId: test-suite-1779955127507
+parameters:
+- firstName
+- middleName
+- lastName
+- username
+- phone
+- password
+content: |
+  And enter "{firstName}" into "{el:signup-firstname}"
+  And enter "{middleName}" into "{el:signup-middlename}"
+  And enter "{lastName}" into "{el:signup-lastname}"
+  And enter "{username}" into "{el:signup-username-email}"
+  And enter "{phone}" into "{el:signup-phone}"
+  And enter "{password}" into "{el:signup-password}"
+  And enter "{password}" into "{el:signup-confirm-password}"
+createdAt: '2026-05-28T11:44:13.491230Z'
+updatedAt: '2026-05-28T12:45:27.609058Z'

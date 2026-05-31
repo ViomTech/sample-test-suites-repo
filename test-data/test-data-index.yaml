@@ -34,4 +34,42 @@ testDataSets:
   rowCount: 1
   createdAt: '2026-05-11T13:02:28.313690Z'
   updatedAt: '2026-05-11T13:02:28.313690Z'
-lastUpdated: '2026-05-11T13:02:28.315352Z'
+- id: f5b13b5b-dcb8-44e2-9525-6168908a16b6
+  name: data_ICTReD
+  description: Test data to be used for ICTReD flows
+  files:
+  - id: 2a73fde5-4e1d-40a5-8292-82372f8e6b76
+    fileName: data_ICTReD.csv
+    filePath: test-data/2a73fde5-4e1d-40a5-8292-82372f8e6b76.csv
+    fileFormat: csv
+    rowCount: 1
+  columns:
+  - username
+  - password
+  - firstName
+  - middleName
+  - lastName
+  - phone
+  rowCount: 1
+  createdAt: '2026-05-28T11:25:14.195444Z'
+  updatedAt: '2026-05-28T11:25:14.195444Z'
+- id: c4c5423c-e7aa-4034-abd9-46535564a3d1
+  name: data_ICTReD1
+  description: Another set of users
+  files:
+  - id: 0a4a620e-0bba-48e7-9023-049df4207e67
+    fileName: data_ICTReD1.csv
+    filePath: test-data/0a4a620e-0bba-48e7-9023-049df4207e67.csv
+    fileFormat: csv
+    rowCount: 1
+  columns:
+  - username
+  - password
+  - firstName
+  - middleName
+  - lastName
+  - phone
+  rowCount: 1
+  createdAt: '2026-05-28T13:01:16.971571Z'
+  updatedAt: '2026-05-28T13:01:16.971571Z'
+lastUpdated: '2026-05-28T13:01:16.972162Z'

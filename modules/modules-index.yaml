@@ -1,4 +1,8 @@
 modules:
+- id: ceb60a53-73b3-4f59-a1db-123e0ea16d1f
+  name: signupForm
+  isGlobal: false
+  testSuiteId: test-suite-1779955127507
 - id: 547c5f45-d15f-4974-baa5-32a0ef77b732
   name: LMS_view_details
   isGlobal: false
@@ -31,4 +35,8 @@ modules:
   name: dedupe_OverallStatus
   isGlobal: false
   testSuiteId: test-suite-1765783670576
-lastUpdated: '2026-02-26T06:40:21.976623Z'
+- id: 69bd4bfd-ba0c-4b7b-93b0-157a430e855d
+  name: personalDetails
+  isGlobal: false
+  testSuiteId: test-suite-1779955127507
+lastUpdated: '2026-05-30T11:16:27.326109Z'
