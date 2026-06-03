@@ -2,12 +2,15 @@ id: test-suite-1779955127507
 name: ICTReD
 description: ''
 tags:
-- '@ictred'
-- '@ictredsignup'
-- '@ictredsigneduser'
+- '@signup'
+- '@ict2ndsignedusertilldocs'
 - '@try'
+- '@erraticscenarios'
+- '@ictsignedusertilldocs'
 environments: {}
 featureFiles:
 - features/ICTRed.feature
 - features/ICTReDSignedInUser.feature
-- features/ICTReDSignUp.feature
+- features/signedInFromDoc.feature
+- features/second_flow.feature
+- features/Erratic_Scenarios.feature

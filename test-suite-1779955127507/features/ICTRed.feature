@@ -1,4 +1,4 @@
-@ictred
+@signup
 Feature: ICTRed feature
 
 
@@ -7,29 +7,41 @@ And click "Sign In"
 And check that screen contains "Good to have you back!"
 And wait 1 sec
 And click "Sign Up"
-And check that screen contains "Let's get started!"
-{module:signupForm(firstName="{firstName}", middleName="{middleName}", lastName="{lastName}", username="{username}", password="{password}", phone="{phone}")}
-And wait 1 sec
-#click "Continue"
 And wait 2 sec
-And check that screen contains "Verify OTP"
+And check that screen contains "Let's get started!"
+{module:signupForm(firstName="{firstName}", middleName="{middleName}", lastName="{lastName}", username="ekampic11@gmail.com", password="{password}", phone="543627445")}
+#scroll up until screen contains "Confirm Password*" with exact phrase
+And scroll down until screen contains "Confirm Password*" with exact phrase
+And wait 5 sec
+And click "Continue"
+And wait 3 sec
+And click "Log Out"
+And click "{el:LogOut}"
+And wait 12 sec
+#check that screen contains "Verify OTP"
 
 
-Scenario: Sign up using duplicate email id
+Scenario: Sign up using duplicate email
 And click "Sign In"
 And wait 1 sec
 And click "Sign Up"
 And check that screen contains "Let's get started!"
-{module:signupForm(firstName="{firstName}", middleName="{middleName}", lastName="{lastName}", username="{username}", phone="{phone}", password="{password}")}
+{module:signupForm(firstName="{firstName}", middleName="{middleName}", lastName="{lastName}", username="ekampic11@gmail.com", phone="543627445", password="{password}")}
+And scroll down until screen contains "Confirm Password*" with exact phrase
 And wait 5 sec
-#check that screen contains "Verify you are human" and save it as "flagCaptcha" and continue
-#print value of "{flagCaptcha}"
-#wait 30 secs
-#  if (flagCaptcha Equals true)
-#    press TAB
-#    press ENTER
-#  endif
 And click "Continue"
+And wait 2 sec
+And check that screen contains "User already exists"
+
+Scenario: Sign up using duplicate phone
+And click "Sign In"
+And wait 1 sec
+And click "Sign Up"
+And check that screen contains "Let's get started!"
+{module:signupForm(firstName="{firstName}", middleName="{middleName}", lastName="{lastName}", username="11ekampic11@gmail.com", phone="543627445", password="{password}")}
+And wait 2 sec
+And click "Continue"
+And wait 2 sec
 And check that screen contains "User already exists"
 
 
